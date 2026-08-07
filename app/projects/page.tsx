@@ -22,51 +22,67 @@ export default function ProjectsPage() {
 
   return (
     <div className="projects-page-wrapper">
-      {/* 1. Header */}
-      <header className={`nav ${scrolled ? "scrolled" : ""}`} aria-label="Projects Navigation">
+      {/* 1. Header Bar (identical to main site) */}
+      <header className="site-header" data-header>
         <button
-          onClick={() => setMenuOpen(true)}
-          className="flex items-center gap-2 p-2 hover:opacity-75 transition-opacity"
-          aria-label="Open Navigation Menu"
+          className="menu-toggle"
+          type="button"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="site-menu"
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          <Menu className="w-5 h-5 stroke-[1.5]" />
-          <span className="hidden sm:inline font-sans text-[11px] tracking-[0.14em] uppercase">Menu</span>
+          <span className={`menu-toggle__icon ${menuOpen ? "is-active" : ""}`}>
+            <i></i><i></i><i></i>
+          </span>
         </button>
 
-        <Link href="/" className="wordmark text-center group flex flex-col items-center justify-center py-1" aria-label="Soup by Falka – Home">
-          <img
-            src="/assets/images/soup-logo.png"
-            alt="Soup by Falka"
-            style={{ height: "36px", width: "auto", display: "block", mixBlendMode: "multiply" }}
-          />
+        <Link className="wordmark" href="/" aria-label="Soup home">
+          <img src="/assets/images/soup-logo.png" alt="Soup by Falka" />
         </Link>
 
-        <div className="flex items-center gap-4 text-ink">
-          <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <Instagram className="w-4 h-4 hover:opacity-70 transition-opacity" />
+        <nav className="header-social" aria-label="Social links">
+          <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer">
+            Instagram
           </a>
-          <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <Youtube className="w-4 h-4 hover:opacity-70 transition-opacity" />
+          <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer">
+            YouTube
           </a>
-          <a href="https://www.linkedin.com/company/soupbyfalka" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Linkedin className="w-4 h-4 hover:opacity-70 transition-opacity" />
+          <a href="https://www.linkedin.com/company/soupbyfalka" target="_blank" rel="noopener noreferrer">
+            LinkedIn
           </a>
-        </div>
+        </nav>
       </header>
 
-      {/* Navigation Menu Drawer Overlay */}
-      <aside className={`menu ${menuOpen ? "is-open" : ""}`} aria-hidden={!menuOpen}>
+      {/* Navigation Menu Overlay Drawer (identical to main site) */}
+      <aside className={`menu ${menuOpen ? "is-open" : ""}`} id="site-menu" aria-hidden={!menuOpen}>
+        <div className="menu__veil" onClick={() => setMenuOpen(false)}></div>
         <div className="menu__panel">
-          <div className="menu__header">
-            <button className="menu__close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
-              <span>Close</span>
-              <X className="w-4 h-4 stroke-[1.5]" />
+          {/* Top Bar inside Menu */}
+          <div className="menu__top">
+            <button
+              className="menu-toggle"
+              type="button"
+              aria-label="Close navigation"
+              onClick={() => setMenuOpen(false)}
+            >
+              <span className="menu-toggle__icon is-active">
+                <i></i><i></i><i></i>
+              </span>
             </button>
-            <div className="menu__brand">
-              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "28px", width: "auto" }} />
+
+            <Link className="wordmark" href="/" onClick={() => setMenuOpen(false)}>
+              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "20px", width: "auto", display: "block" }} />
+            </Link>
+
+            <div className="header-social">
+              <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://www.linkedin.com/company/soupbyfalka" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
 
+          {/* Menu Main Content Body */}
           <div className="menu__body">
             <nav className="menu__nav-links" aria-label="Primary navigation">
               <Link href="/projects" className="menu__nav-link" onClick={() => setMenuOpen(false)}>PROJECTS</Link>
