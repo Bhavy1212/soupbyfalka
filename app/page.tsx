@@ -490,8 +490,7 @@ export default function Home() {
             </p>
             <a
               className="btn-outline magnetic"
-              href="#projects"
-              onClick={handleHashLink}
+              href="/projects"
               onMouseEnter={() => handleMouseEnter("Explore", false)}
               onMouseLeave={handleMouseLeave}
             >
