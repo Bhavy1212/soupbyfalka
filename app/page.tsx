@@ -498,6 +498,13 @@ export default function Home() {
             </a>
           </div>
 
+          {/* Authenticity Statement Quote Block */}
+          <section className="projects-statement-quote" style={{ gridColumn: '1 / -1', width: '100%' }}>
+            <p className="projects-statement-text">
+              With a sense of <em>authenticity</em> present in every frame, our team specialise in a content solution tailor made to stand out.
+            </p>
+          </section>
+
           <div className="project-feed">
             {/* Project 1 */}
             <article className="project-card project-card--hero reveal-item">
