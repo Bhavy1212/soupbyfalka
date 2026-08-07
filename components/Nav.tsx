@@ -24,7 +24,6 @@ export function Nav() {
 
   const navLinks = [
     { label: 'Projects', href: '#projects' },
-    { label: 'People', href: '#founders' },
     { label: 'Journal', href: '#journal' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
@@ -49,16 +48,16 @@ export function Nav() {
         {/* Center: Soup wordmark */}
         <Link href="/" className="wordmark text-center group flex flex-col items-center justify-center py-1" aria-label="Soup by Falka – Home">
           <img
-            src="assets/images/soup-logo.png"
+            src="/assets/images/soup-logo.png"
             alt="Soup by Falka"
-            style={{ height: '32px', width: 'auto', display: 'block', mixBlendMode: 'multiply' }}
+            style={{ height: '36px', width: 'auto', display: 'block', mixBlendMode: 'multiply' }}
           />
         </Link>
 
         {/* Right: Social links */}
         <div className="flex items-center gap-4 text-ink">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/soupbyfalka/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-60 transition-opacity p-1"
@@ -67,16 +66,16 @@ export function Nav() {
             <Instagram className="w-4 h-4 stroke-[1.5]" />
           </a>
           <a
-            href="https://vimeo.com"
+            href="https://www.youtube.com/@SoupbyFalka"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-60 transition-opacity p-1"
-            aria-label="Vimeo"
+            aria-label="YouTube"
           >
             <Video className="w-4 h-4 stroke-[1.5]" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/company/soupbyfalka"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:opacity-60 transition-opacity p-1"

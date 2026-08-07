@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import { Instagram, Linkedin, Facebook, Youtube, MessageCircle } from "lucide-react";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +14,7 @@ export default function Home() {
   const [cursorActive, setCursorActive] = useState(false);
   const [cursorLight, setCursorLight] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
+  const [projectCategory, setProjectCategory] = useState<"photography" | "film">("photography");
 
   // Handle Loader Animation
   useEffect(() => {
@@ -141,11 +143,21 @@ export default function Home() {
 
       if (headerEl) {
         headerEl.classList.remove("is-hidden");
-        const heroRect = heroMediaEl ? heroMediaEl.getBoundingClientRect() : null;
-        const overHero = heroRect && heroRect.top <= 8 && heroRect.bottom >= 8;
-        const overFooter = footerEl && footerEl.getBoundingClientRect().top <= 8;
-        headerEl.classList.toggle("is-over-dark", Boolean(overHero || overFooter));
-        headerEl.classList.toggle("is-scrolled", y > 50);
+        const heroHeight = heroMediaEl ? (heroMediaEl as HTMLElement).offsetHeight : vh;
+
+        if (y > heroHeight - 60) {
+          // Past the banner page -> WHITE background, BLACK text
+          headerEl.classList.add("is-past-hero");
+          headerEl.classList.remove("is-scrolled-hero");
+        } else if (y > 40) {
+          // Scrolling on banner page -> BLACK background, WHITE text
+          headerEl.classList.add("is-scrolled-hero");
+          headerEl.classList.remove("is-past-hero");
+        } else {
+          // Top of banner page -> TRANSPARENT background, WHITE text
+          headerEl.classList.remove("is-scrolled-hero");
+          headerEl.classList.remove("is-past-hero");
+        }
       }
       lastScroll = y;
 
@@ -299,11 +311,16 @@ export default function Home() {
 
       {/* 1. Loader Screen */}
       <div className={`loader ${loaderFinished ? "is-finished" : ""}`} aria-hidden="true">
-        <div className="loader__top"><span>Soup Studio</span><span>Loading films</span></div>
-        <div className="loader__mark"><span>soup</span><small>by Kshitij</small></div>
+        <div className="loader__top"></div>
+        <div className="loader__mark">
+          <img
+            src="/assets/images/soup-logo.png"
+            alt="Soup by Falka"
+            style={{ height: "60px", width: "auto", display: "block", filter: "brightness(0) invert(1)" }}
+          />
+        </div>
         <div className="loader__bottom">
           <div className="loader__track"><span style={{ transform: `scaleX(${loaderValue / 100})` }}></span></div>
-          <span className="loader__count">{String(loaderValue).padStart(2, "0")}</span>
         </div>
       </div>
 
@@ -325,113 +342,97 @@ export default function Home() {
         <button
           className="menu-toggle magnetic"
           type="button"
-          aria-label="Open navigation"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={menuOpen}
           aria-controls="site-menu"
-          onClick={() => setMenuOpen(true)}
-          onMouseEnter={() => handleMouseEnter("Menu", false)}
+          onClick={() => setMenuOpen(!menuOpen)}
+          onMouseEnter={() => handleMouseEnter(menuOpen ? "Close" : "Menu", false)}
           onMouseLeave={handleMouseLeave}
         >
-          <span className="menu-toggle__icon"><i></i><i></i></span>
-          <span className="menu-toggle__label">Menu</span>
+          <span className={`menu-toggle__icon ${menuOpen ? "is-active" : ""}`}>
+            <i></i><i></i><i></i>
+          </span>
         </button>
 
         <a
-          className="wordmark magnetic"
+          className="wordmark"
           href="#top"
           aria-label="Soup home"
           onClick={handleHashLink}
-          onMouseEnter={() => handleMouseEnter("Home", false)}
-          onMouseLeave={handleMouseLeave}
         >
-          <strong>soup</strong><small>by Kshitij</small>
+          <img
+            src="/assets/images/soup-logo.png"
+            alt="Soup by Falka"
+          />
         </a>
 
         <nav className="header-social" aria-label="Social links">
           <a
-            href="#contact"
-            onClick={handleHashLink}
-            onMouseEnter={() => handleMouseEnter("Contact", false)}
+            href="https://www.instagram.com/soupbyfalka/"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => handleMouseEnter("Instagram", false)}
             onMouseLeave={handleMouseLeave}
           >
-            Contact
+            Instagram
           </a>
           <a
-            href="#films"
-            onClick={handleHashLink}
-            onMouseEnter={() => handleMouseEnter("Films", false)}
+            href="https://www.youtube.com/@SoupbyFalka"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => handleMouseEnter("YouTube", false)}
             onMouseLeave={handleMouseLeave}
           >
-            Films
+            YouTube
+          </a>
+          <a
+            href="https://www.linkedin.com/company/soupbyfalka"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => handleMouseEnter("LinkedIn", false)}
+            onMouseLeave={handleMouseLeave}
+          >
+            LinkedIn
           </a>
         </nav>
       </header>
 
-      {/* 5. Navigation Menu Drawer */}
+      {/* 5. Navigation Menu Overlay Drawer */}
       <aside className={`menu ${menuOpen ? "is-open" : ""}`} id="site-menu" aria-hidden={!menuOpen}>
         <div className="menu__veil" onClick={() => setMenuOpen(false)}></div>
         <div className="menu__panel">
+          {/* Top Bar inside Menu */}
           <div className="menu__top">
-            <span className="micro">Navigation / 2026</span>
             <button
-              className="menu__close magnetic"
+              className="menu-toggle magnetic"
               type="button"
               aria-label="Close navigation"
               onClick={() => setMenuOpen(false)}
-              onMouseEnter={() => handleMouseEnter("Close", false)}
-              onMouseLeave={handleMouseLeave}
             >
-              Close
+              <span className="menu-toggle__icon is-active">
+                <i></i><i></i><i></i>
+              </span>
             </button>
-          </div>
 
-          <div className="menu__body">
-            <nav className="menu__links" aria-label="Primary navigation">
-              <a
-                href="#projects"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMenuLinkHover("assets/images/aman-a.webp")}
-              >
-                <small>01</small><span>Projects</span>
-              </a>
-              <a
-                href="#films"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMenuLinkHover("assets/images/kokomo-a.webp")}
-              >
-                <small>02</small><span>Films</span>
-              </a>
-              <a
-                href="#journal"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMenuLinkHover("assets/images/feature-jeep-a.webp")}
-              >
-                <small>03</small><span>Journal</span>
-              </a>
-              <a
-                href="#about"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMenuLinkHover("assets/images/about-ripples.webp")}
-              >
-                <small>04</small><span>About</span>
-              </a>
-              <a
-                href="#contact"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMenuLinkHover("assets/images/hero-poster.jpg")}
-              >
-                <small>05</small><span>Contact</span>
-              </a>
-            </nav>
+            <a className="wordmark" href="#top" onClick={(e) => { handleHashLink(e); setMenuOpen(false); }}>
+              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "20px", width: "auto", display: "block" }} />
+            </a>
 
-            <div className="menu__preview" aria-hidden="true">
-              <img src="assets/images/aman-a.webp" alt="" ref={previewImgRef} />
+            <div className="header-social">
+              <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://www.linkedin.com/company/soupbyfalka" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
 
-          <div className="menu__bottom">
-            <p>Considered films and stills shaped by place, atmosphere and human detail.</p>
-            <a href="mailto:hello@soup.studio">hello@soup.studio</a>
+          {/* Menu Main Content Body */}
+          <div className="menu__body">
+            <nav className="menu__nav-links" aria-label="Primary navigation">
+              <a href="#projects" className="menu__nav-link" onClick={handleHashLink}>PROJECTS</a>
+              <a href="#journal" className="menu__nav-link" onClick={handleHashLink}>JOURNAL</a>
+              <a href="#about" className="menu__nav-link" onClick={handleHashLink}>ABOUT</a>
+              <a href="#contact" className="menu__nav-link" onClick={handleHashLink}>CONTACT</a>
+            </nav>
           </div>
         </div>
       </aside>
@@ -455,8 +456,7 @@ export default function Home() {
           </div>
 
           <div className="hero__copy">
-            <p className="micro reveal-item">Independent visual studio / India</p>
-            <h1 id="hero-title" className="display reveal-text">
+            <h1 id="hero-title" className="display reveal-text font-seasons">
               A <em>collective</em> of considered storytellers, Soup is the <em>conduit</em> between your physical space, brand, product, and its digital reach.
             </h1>
           </div>
@@ -466,8 +466,27 @@ export default function Home() {
         <section className="projects section" id="projects" aria-labelledby="projects-heading">
           <div className="section-intro section-intro--sticky">
             <p className="micro" id="projects-heading">PROJECTS</p>
+
+            {/* Enclosed Category Toggle Box */}
+            <div className="projects-filter-box">
+              <button
+                type="button"
+                className={`projects-filter-btn ${projectCategory === "photography" ? "is-active" : ""}`}
+                onClick={() => setProjectCategory("photography")}
+              >
+                PHOTOGRAPHY
+              </button>
+              <button
+                type="button"
+                className={`projects-filter-btn ${projectCategory === "film" ? "is-active" : ""}`}
+                onClick={() => setProjectCategory("film")}
+              >
+                FILM
+              </button>
+            </div>
+
             <p className="section-intro__body">
-              JAGAT provides a complete, end-to-end visual content solution. We have the resources, skills and industry-specific experience necessary to produce, create and deliver projects of any scale, in any part of the world.
+              SOUP provides a complete, end-to-end visual content solution. We have the resources, skills and industry-specific experience necessary to produce, create and deliver projects of any scale, in any part of the world.
             </p>
             <a
               className="btn-outline magnetic"
@@ -485,10 +504,11 @@ export default function Home() {
             <article className="project-card project-card--hero reveal-item">
               <div
                 className="project-card__button"
+                data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
-                <span className="media-swap image-reveal" data-parallax="0.09">
+                <span className="media-swap image-reveal">
                   <img className="media-swap__primary" src="assets/images/aman-a.webp" alt="Aman hillside resort" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/aman-b.webp" alt="Aman retreat glowing in evening light" loading="lazy" />
                 </span>
@@ -501,10 +521,11 @@ export default function Home() {
               <article className="project-card project-card--portrait reveal-item">
                 <div
                   className="project-card__button"
+                  data-parallax="0.04"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <span className="media-swap image-reveal" data-parallax="0.04">
+                  <span className="media-swap image-reveal">
                     <img className="media-swap__primary" src="assets/images/nobu-a.webp" alt="Terracotta arched interior" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/nobu-b.webp" alt="Warm modern reception interior" loading="lazy" />
                   </span>
@@ -515,10 +536,11 @@ export default function Home() {
               <article className="project-card project-card--landscape project-card--lower reveal-item">
                 <div
                   className="project-card__button"
+                  data-parallax="0.16"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <span className="media-swap image-reveal" data-parallax="0.16">
+                  <span className="media-swap image-reveal">
                     <img className="media-swap__primary" src="assets/images/hyatt-a.webp" alt="Luxury resort courtyard at dusk" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/hyatt-b.webp" alt="Historic stone resort beneath blue clouds" loading="lazy" />
                   </span>
@@ -531,10 +553,11 @@ export default function Home() {
             <article className="project-card project-card--hero project-card--right reveal-item">
               <div
                 className="project-card__button"
+                data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
-                <span className="media-swap image-reveal" data-parallax="0.09">
+                <span className="media-swap image-reveal">
                   <img className="media-swap__primary" src="assets/images/janu-a.webp" alt="A forest lodge at dusk" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/janu-b.webp" alt="Mountain retreat at golden hour" loading="lazy" />
                 </span>
@@ -546,10 +569,11 @@ export default function Home() {
             <article className="project-card project-card--hero reveal-item">
               <div
                 className="project-card__button"
+                data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
-                <span className="media-swap image-reveal" data-parallax="0.09">
+                <span className="media-swap image-reveal">
                   <img className="media-swap__primary" src="assets/images/luxury-a.webp" alt="Luxury bedroom overlooking mountains" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/luxury-b.webp" alt="Traditional luxury suite" loading="lazy" />
                 </span>
@@ -562,10 +586,11 @@ export default function Home() {
               <article className="project-card project-card--portrait reveal-item">
                 <div
                   className="project-card__button"
+                  data-parallax="0.04"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <span className="media-swap image-reveal" data-parallax="0.04">
+                  <span className="media-swap image-reveal">
                     <img className="media-swap__primary" src="assets/images/sujan-a.webp" alt="Candlelit path beneath trees" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/sujan-b.webp" alt="A local storyteller at sunset" loading="lazy" />
                   </span>
@@ -576,10 +601,11 @@ export default function Home() {
               <article className="project-card project-card--landscape project-card--lower reveal-item">
                 <div
                   className="project-card__button"
+                  data-parallax="0.16"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <span className="media-swap image-reveal" data-parallax="0.16">
+                  <span className="media-swap image-reveal">
                     <img className="media-swap__primary" src="assets/images/rosewood-a.webp" alt="Grand hotel with a domed pavilion" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/rosewood-b.webp" alt="Garden pool at twilight" loading="lazy" />
                   </span>
@@ -592,10 +618,11 @@ export default function Home() {
             <article className="project-card project-card--hero reveal-item">
               <div
                 className="project-card__button"
+                data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
-                <span className="media-swap image-reveal" data-parallax="0.09">
+                <span className="media-swap image-reveal">
                   <img className="media-swap__primary" src="assets/images/kokomo-a.webp" alt="Tropical gardens above the ocean" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/kokomo-b.webp" alt="Resort grounds across a green valley" loading="lazy" />
                 </span>
@@ -604,6 +631,22 @@ export default function Home() {
             </article>
           </div>
         </section>
+
+        {/* Film Section Intro Text */}
+        <div style={{ textAlign: 'center', padding: '36px var(--gutter) 16px', background: 'var(--paper)' }}>
+          <p style={{
+            maxWidth: '1060px',
+            margin: '0 auto',
+            fontFamily: "'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, 'Times New Roman', serif",
+            fontSize: 'clamp(15px, 1.55vw, 21px)',
+            lineHeight: '1.5',
+            letterSpacing: '-0.01em',
+            fontWeight: '400',
+            color: '#2b2927'
+          }}>
+            Soup crafts <em>evocative</em> films that bring stories to <em>life</em>, seamlessly connecting your brand, space, and vision through cinematic <em>storytelling</em>. Explore some features below.
+          </p>
+        </div>
 
         {/* 12-Image Thumbnail Grid Bar */}
         <section className="films section" id="films" aria-label="Visual Stills Grid" style={{ padding: '40px var(--gutter)' }}>
@@ -719,9 +762,9 @@ export default function Home() {
                   <img className="media-swap__secondary" src="assets/images/feature-rabari-b.webp" alt="Candlelit path through the trees" loading="lazy" />
                 </a>
                 <div className="story__copy">
-                  <p className="micro">Feature / Community</p>
-                  <h2>Where People and Wildlife Coexist</h2>
-                  <p>A quiet relationship between community, land and the animals moving through it.</p>
+                  <p className="micro">FEATURE</p>
+                  <h2>Where Rabari &amp; Leopards Coexist</h2>
+                  <p>Placing Jawai on the truly remarkable map, for centuries the local Rabari Tribal Communities have lived in complete harmony with the leopards of the area. We explore this connection that's as spiritual as it is familial.</p>
                 </div>
               </article>
 
@@ -737,9 +780,9 @@ export default function Home() {
                   <img className="media-swap__secondary" src="assets/images/feature-room-b.webp" alt="Modern luxury suite overlooking the landscape" loading="lazy" />
                 </a>
                 <div className="story__copy">
-                  <p className="micro">Feature / Design</p>
+                  <p className="micro">FEATURE</p>
                   <h2>A Journey of Discovery</h2>
-                  <p>Atmosphere, heritage and the small details that let a room belong to its setting.</p>
+                  <p>Uncovering remote landscapes and hidden architectural gems, where heritage seamlessly blends with quiet luxury and thoughtful craftsmanship.</p>
                 </div>
               </article>
             </div>
@@ -773,65 +816,96 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Founders Section */}
-        <section className="founders section" aria-labelledby="founders-heading">
-          <div className="founders__intro reveal-item">
-            <p className="micro" id="founders-heading">Soup Co-Founders</p>
-            <p>
-              For over a decade, our founders have shaped visual narratives across travel, hospitality and lifestyle. The work does not simply show a destination; it defines how the destination is remembered.
-            </p>
-          </div>
-          <div className="founders__grid">
-            <article className="founder reveal-item">
-              <div
-                className="founder__portrait image-reveal"
-                onMouseEnter={() => handleMouseEnter("Profile", false)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <img src="assets/images/founder-jackson.webp" alt="Black and white portrait of a cinematographer" loading="lazy" />
-              </div>
-              <p className="micro">Co-Founder / Director / Cinematographer</p>
-              <h2>Jackson England</h2>
-            </article>
+        {/* Page Breaker Divider Line */}
+        <div className="page-breaker"></div>
 
-            <article className="founder reveal-item">
-              <div
-                className="founder__portrait image-reveal"
-                onMouseEnter={() => handleMouseEnter("Profile", false)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <img src="assets/images/founder-lauren.webp" alt="Black and white portrait of a producer" loading="lazy" />
+        {/* Section: A Little Bit of Us & Featured In */}
+        <section className="about-us-section section" aria-label="A little bit of us">
+          <div className="about-us__container">
+            <h2 className="about-us__title font-seasons">A little bit of us</h2>
+            <p className="about-us__subtitle">
+              From the grandeur of your property, it&apos;s surrounding landscape, to the inviting poolside and the plush armchair by the window, every element speaks and we make sure it&apos;s heard.
+            </p>
+
+            <div className="about-us__socials">
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-circle-btn">
+                <Facebook className="w-5 h-5 fill-current stroke-none" />
+              </a>
+              <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-circle-btn">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="https://api.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-circle-btn">
+                <MessageCircle className="w-5 h-5 fill-current stroke-none" />
+              </a>
+              <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="social-circle-btn">
+                <Youtube className="w-5 h-5 fill-current stroke-none" />
+              </a>
+            </div>
+
+            <div className="featured-in">
+              <h3 className="featured-in__title">Featured In</h3>
+              <div className="featured-in__divider"></div>
+
+              <div className="logo-marquee" aria-label="Featured publications marquee">
+                <div className="logo-marquee__track">
+                  {/* Set 1 */}
+                  <img src="/assets/images/press/Best-hotel-photography-in-India.svg" alt="Best Hotel Photography in India" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Hotel-Interior-Photographer.svg" alt="Hotel Interior Photographer" className="marquee-logo-img" />
+                  <img src="/assets/images/press/hotel-interior-videographer.svg" alt="Hotel Interior Videographer" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Professional-Hotel-Photography.svg" alt="Professional Hotel Photography" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg" alt="Resorts Hotel Photography Agency" className="marquee-logo-img" />
+
+                  {/* Set 2 (Duplicate for Seamless Loop) */}
+                  <img src="/assets/images/press/Best-hotel-photography-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Hotel-Interior-Photographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/hotel-interior-videographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Professional-Hotel-Photography.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+
+                  {/* Set 3 (Triple for Smooth Wide Infinite Loop) */}
+                  <img src="/assets/images/press/Best-hotel-photography-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Hotel-Interior-Photographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/hotel-interior-videographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Professional-Hotel-Photography.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                  <img src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+                </div>
               </div>
-              <p className="micro">Co-Founder / Head of Production</p>
-              <h2>Lauren James</h2>
-            </article>
+            </div>
+
+            <div className="essence-quote">
+              <div className="featured-in__divider"></div>
+              <p className="essence-quote__text">
+                &ldquo;The true essence of a meal is revealed in the very first sip of its soup.&rdquo;
+              </p>
+              <div className="featured-in__divider"></div>
+            </div>
           </div>
         </section>
       </main>
 
       {/* 7. Footer Section */}
-      <footer className="footer" id="contact" onMouseEnter={() => handleMouseEnter("Email", true)} onMouseLeave={handleMouseLeave}>
-        <div className="footer__main reveal-item">
-          <p className="micro">Get in touch / Start a project</p>
-          <h2>Let’s make something<br /><em>worth remembering.</em></h2>
+      <footer className="footer-simple" id="contact">
+        <div className="footer-simple__top">
+          <p className="footer-simple__label">GET IN TOUCH</p>
+          <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
           <a
-            className="footer__email magnetic"
-            href="mailto:hello@soup.studio"
+            className="footer-simple__btn"
+            href="mailto:info@soupbyfalka.com"
             onMouseEnter={() => handleMouseEnter("Email", true)}
             onMouseLeave={handleMouseLeave}
           >
-            hello@soup.studio <i>↗</i>
+            INFO@SOUPBYFALKA.COM
           </a>
         </div>
-        <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} Soup Studio</p>
-          <nav aria-label="Footer navigation">
+        <div className="footer-simple__bottom">
+          <p>© Soup Studio. All Rights Reserved</p>
+          <nav className="footer-simple__nav" aria-label="Footer navigation">
             <a href="#projects" onClick={handleHashLink}>Projects</a>
-            <a href="#films" onClick={handleHashLink}>Films</a>
             <a href="#journal" onClick={handleHashLink}>Journal</a>
             <a href="#about" onClick={handleHashLink}>About</a>
+            <a href="#contact" onClick={handleHashLink}>Contributors</a>
+            <a href="#contact" onClick={handleHashLink}>Terms</a>
           </nav>
-          <a href="#top" onClick={handleHashLink}>Back to top ↑</a>
         </div>
       </footer>
 

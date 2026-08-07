@@ -8,12 +8,14 @@ const bodoniModa = Bodoni_Moda({
   variable: '--font-bodoni',
   display: 'swap',
   style: ['normal', 'italic'],
+  adjustFontFallback: false,
 });
 
 const fraunces = Fraunces({
   subsets: ['latin'],
   variable: '--font-fraunces',
   display: 'swap',
+  adjustFontFallback: false,
 });
 
 const inter = Inter({
