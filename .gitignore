@@ -32,3 +32,10 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# Scratch & Temporary Tools
+scratch/
+*.png_extract/
+contact_sheet.png
+pdf_page_1.png
+

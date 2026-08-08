@@ -129,13 +129,30 @@ export default function Home() {
 
     const headerEl = document.querySelector("[data-header]");
     const progressEl = document.querySelector("[data-scroll-progress]") as HTMLElement;
-    const heroMediaEl = document.querySelector(".hero__media");
+    const heroMediaEl = document.querySelector(".hero__media") as HTMLElement | null;
     const footerEl = document.querySelector(".footer");
-    const parallaxItems = document.querySelectorAll("[data-parallax]") as NodeListOf<HTMLElement>;
+    const parallaxItems = Array.from(
+      document.querySelectorAll("[data-parallax]")
+    ) as HTMLElement[];
+
+    type CachedItem = { el: HTMLElement; speed: number; top: number; h: number };
+    let cached: CachedItem[] = [];
+    let heroHeight = heroMediaEl ? heroMediaEl.offsetHeight : window.innerHeight;
+    let vh = window.innerHeight;
+
+    const buildCache = () => {
+      vh = window.innerHeight;
+      heroHeight = heroMediaEl ? heroMediaEl.offsetHeight : vh;
+      cached = parallaxItems.map((el) => ({
+        el,
+        speed: Number(el.dataset.parallax || 0.04),
+        top: el.getBoundingClientRect().top + window.scrollY,
+        h: el.offsetHeight,
+      }));
+    };
 
     const updateScrollUI = () => {
       const y = window.scrollY;
-      const vh = window.innerHeight;
       const max = Math.max(document.documentElement.scrollHeight - vh, 1);
       if (progressEl) {
         progressEl.style.transform = `scaleX(${Math.min(Math.max(y / max, 0), 1)})`;
@@ -143,18 +160,14 @@ export default function Home() {
 
       if (headerEl) {
         headerEl.classList.remove("is-hidden");
-        const heroHeight = heroMediaEl ? (heroMediaEl as HTMLElement).offsetHeight : vh;
 
         if (y > heroHeight - 60) {
-          // Past the banner page -> WHITE background, BLACK text
           headerEl.classList.add("is-past-hero");
           headerEl.classList.remove("is-scrolled-hero");
         } else if (y > 40) {
-          // Scrolling on banner page -> BLACK background, WHITE text
           headerEl.classList.add("is-scrolled-hero");
           headerEl.classList.remove("is-past-hero");
         } else {
-          // Top of banner page -> TRANSPARENT background, WHITE text
           headerEl.classList.remove("is-scrolled-hero");
           headerEl.classList.remove("is-past-hero");
         }
@@ -162,14 +175,13 @@ export default function Home() {
       lastScroll = y;
 
       if (!reduceMotion) {
-        for (let i = 0; i < parallaxItems.length; i++) {
-          const item = parallaxItems[i];
-          const rect = item.getBoundingClientRect();
-          if (rect.bottom < -200 || rect.top > vh + 200) continue;
-          const speed = Number(item.dataset.parallax || 0.04);
-          const distance = (vh / 2 - (rect.top + rect.height / 2)) * speed;
-          const clamped = Math.min(Math.max(distance, -90), 90);
-          item.style.transform = `translateY(${clamped}px)`;
+        for (let i = 0; i < cached.length; i++) {
+          const { el, speed, top, h } = cached[i];
+          const elCenter = top + h / 2 - y;
+          if (elCenter < -vh - 200 || elCenter > vh + h + 200) continue;
+          const distance = (vh / 2 - elCenter) * speed;
+          const clamped = Math.min(Math.max(distance, -60), 60);
+          el.style.transform = `translateY(${clamped.toFixed(2)}px)`;
         }
       }
       rafId = 0;
@@ -180,14 +192,25 @@ export default function Home() {
       rafId = requestAnimationFrame(updateScrollUI);
     };
 
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        buildCache();
+        requestScrollUI();
+      }, 120);
+    };
+
+    buildCache();
     updateScrollUI();
     window.addEventListener("scroll", requestScrollUI, { passive: true });
-    window.addEventListener("resize", requestScrollUI, { passive: true });
+    window.addEventListener("resize", onResize, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", requestScrollUI);
-      window.removeEventListener("resize", requestScrollUI);
+      window.removeEventListener("resize", onResize);
       if (rafId) cancelAnimationFrame(rafId);
+      clearTimeout(resizeTimer);
     };
   }, [menuOpen]);
 
@@ -428,7 +451,25 @@ export default function Home() {
           {/* Menu Main Content Body */}
           <div className="menu__body">
             <nav className="menu__nav-links" aria-label="Primary navigation">
-              <a href="#projects" className="menu__nav-link" onClick={handleHashLink}>PROJECTS</a>
+              <div className="menu__item-group">
+                <a href="/stills" className="menu__nav-link" onClick={() => setMenuOpen(false)}>PROJECTS</a>
+                <div className="menu__sub-nav">
+                  <a
+                    href="/stills"
+                    className="menu__sub-link"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    STILLS
+                  </a>
+                  <a
+                    href="/motion"
+                    className="menu__sub-link"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    MOTION
+                  </a>
+                </div>
+              </div>
               <a href="#journal" className="menu__nav-link" onClick={handleHashLink}>JOURNAL</a>
               <a href="#about" className="menu__nav-link" onClick={handleHashLink}>ABOUT</a>
               <a href="#contact" className="menu__nav-link" onClick={handleHashLink}>CONTACT</a>
@@ -490,7 +531,7 @@ export default function Home() {
             </p>
             <a
               className="btn-outline"
-              href="/projects"
+              href={projectCategory === "motion" ? "/motion" : "/stills"}
               onMouseEnter={() => handleMouseEnter("Explore", false)}
               onMouseLeave={handleMouseLeave}
             >
@@ -508,7 +549,7 @@ export default function Home() {
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src="assets/images/aman-a.webp" alt="Aman hillside resort" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/aman-motion.png" : "assets/images/aman-a.webp"} alt="Aman hillside resort" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/aman-b.webp" alt="Aman retreat glowing in evening light" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>AMAN</strong></span>
@@ -525,7 +566,7 @@ export default function Home() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src="assets/images/nobu-a.webp" alt="Terracotta arched interior" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/nobu-motion.png" : "assets/images/nobu-a.webp"} alt="Terracotta arched interior" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/nobu-b.webp" alt="Warm modern reception interior" loading="lazy" />
                   </span>
                   <span className="project-card__caption"><strong>NOBU RESIDENCES ABU DHABI</strong></span>
@@ -540,7 +581,7 @@ export default function Home() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src="assets/images/hyatt-a.webp" alt="Luxury resort courtyard at dusk" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/puli-motion.png" : "assets/images/hyatt-a.webp"} alt="Luxury resort courtyard at dusk" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/hyatt-b.webp" alt="Historic stone resort beneath blue clouds" loading="lazy" />
                   </span>
                   <span className="project-card__caption"><strong>PARK HYATT MALDIVES</strong></span>
@@ -557,7 +598,7 @@ export default function Home() {
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src="assets/images/janu-a.webp" alt="A forest lodge at dusk" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/kokomo-motion.png" : "assets/images/janu-a.webp"} alt="A forest lodge at dusk" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/janu-b.webp" alt="Mountain retreat at golden hour" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>JANU</strong></span>
@@ -573,7 +614,7 @@ export default function Home() {
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src="assets/images/luxury-a.webp" alt="Luxury bedroom overlooking mountains" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/rosewood-motion.png" : "assets/images/luxury-a.webp"} alt="Luxury bedroom overlooking mountains" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/luxury-b.webp" alt="Traditional luxury suite" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>LUXURY LODGES OF AUSTRALIA</strong></span>
@@ -590,7 +631,7 @@ export default function Home() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src="assets/images/sujan-a.webp" alt="Candlelit path beneath trees" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/fourseasons-motion.png" : "assets/images/sujan-a.webp"} alt="Candlelit path beneath trees" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/sujan-b.webp" alt="A local storyteller at sunset" loading="lazy" />
                   </span>
                   <span className="project-card__caption"><strong>SUJAN</strong></span>
@@ -605,7 +646,7 @@ export default function Home() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src="assets/images/rosewood-a.webp" alt="Grand hotel with a domed pavilion" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/janu-motion.png" : "assets/images/rosewood-a.webp"} alt="Grand hotel with a domed pavilion" loading="lazy" />
                     <img className="media-swap__secondary" src="assets/images/rosewood-b.webp" alt="Garden pool at twilight" loading="lazy" />
                   </span>
                   <span className="project-card__caption"><strong>ROSEWOOD</strong></span>
@@ -622,7 +663,7 @@ export default function Home() {
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src="assets/images/kokomo-a.webp" alt="Tropical gardens above the ocean" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/sujan-motion.png" : "assets/images/kokomo-a.webp"} alt="Tropical gardens above the ocean" loading="lazy" />
                   <img className="media-swap__secondary" src="assets/images/kokomo-b.webp" alt="Resort grounds across a green valley" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>KOKOMO</strong></span>
@@ -692,8 +733,8 @@ export default function Home() {
 
         {/* Journal Section */}
         <section className="journal section" id="journal" aria-labelledby="journal-heading">
-          <div className="section-intro journal__intro">
-            <div className="journal__lead-image media-swap image-reveal reveal-item" data-parallax="0.05">
+          <div className="section-intro journal__intro" data-parallax="0.04">
+            <div className="journal__lead-image media-swap image-reveal reveal-item">
               <img className="media-swap__primary" src="assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" />
               <img className="media-swap__secondary" src="assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" />
             </div>
