@@ -14,7 +14,7 @@ export default function Home() {
   const [cursorActive, setCursorActive] = useState(false);
   const [cursorLight, setCursorLight] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
-  const [projectCategory, setProjectCategory] = useState<"still" | "film">("still");
+  const [projectCategory, setProjectCategory] = useState<"stills" | "motion">("stills");
 
   // Handle Loader Animation
   useEffect(() => {
@@ -471,17 +471,17 @@ export default function Home() {
             <div className="projects-filter-box">
               <button
                 type="button"
-                className={`projects-filter-btn ${projectCategory === "still" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory("still")}
+                className={`projects-filter-btn ${projectCategory === "stills" ? "is-active" : ""}`}
+                onClick={() => setProjectCategory("stills")}
               >
-                STILL
+                STILLS
               </button>
               <button
                 type="button"
-                className={`projects-filter-btn ${projectCategory === "film" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory("film")}
+                className={`projects-filter-btn ${projectCategory === "motion" ? "is-active" : ""}`}
+                onClick={() => setProjectCategory("motion")}
               >
-                FILM
+                MOTION
               </button>
             </div>
 
