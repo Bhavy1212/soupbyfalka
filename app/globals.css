@@ -1084,7 +1084,7 @@ h1, h2, h3 {
   grid-template-columns: repeat(3, 1fr);
 }
 .projects-grid-split {
-  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.11fr);
 }
 
 .project-grid-card {
@@ -1095,16 +1095,16 @@ h1, h2, h3 {
 }
 .project-grid-media {
   width: 100%;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9.2;
   overflow: hidden;
   position: relative;
   background: #e5e0d8;
 }
 .project-grid-card--medium .project-grid-media {
-  aspect-ratio: 4/3.8;
+  aspect-ratio: 16/10.6;
 }
 .project-grid-card--wide .project-grid-media {
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/9.1;
 }
 .project-grid-media img {
   width: 100%;

@@ -176,7 +176,7 @@ export default function ProjectsPage() {
       {/* 2. Hero Interior Banner Image */}
       <section className="projects-hero-banner">
         <div className="projects-hero-media">
-          <img src="/assets/images/about-ripples.webp" alt="Luxury hotel interior with grand chandeliers and archways" />
+          <img src="/assets/images/AAA00809.jpg" alt="Luxury hotel interior with grand chandeliers and archways" />
         </div>
       </section>
 
@@ -195,7 +195,7 @@ export default function ProjectsPage() {
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/aman-a.webp" alt="AMAN" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/DJI0275.jpg" alt="AMAN" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="AMAN hover" loading="lazy" />
               </div>
               <p className="project-grid-title">AMAN</p>
@@ -203,7 +203,7 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/puli-a.webp" alt="THE PULI" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/DJI_0008.jpg" alt="THE PULI" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="THE PULI hover" loading="lazy" />
               </div>
               <p className="project-grid-title">THE PULI</p>
@@ -211,7 +211,7 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/nobu-a.webp" alt="NOBU RESIDENCES ABU DHABI" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/Untitled3.jpg" alt="NOBU RESIDENCES ABU DHABI" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="NOBU RESIDENCES ABU DHABI hover" loading="lazy" />
               </div>
               <p className="project-grid-title">NOBU RESIDENCES ABU DHABI</p>
@@ -222,7 +222,7 @@ export default function ProjectsPage() {
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/rosewood-a.webp" alt="ROSEWOOD" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/DSC08130.jpg" alt="ROSEWOOD" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/rosewood-b.webp" alt="ROSEWOOD hover" loading="lazy" />
               </div>
               <p className="project-grid-title">ROSEWOOD</p>
@@ -230,7 +230,7 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card project-grid-card--wide">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/kokomo-a.webp" alt="KOKOMO" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/02-IHCL1867.jpg" alt="KOKOMO" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="KOKOMO hover" loading="lazy" />
               </div>
               <p className="project-grid-title">KOKOMO</p>
@@ -241,7 +241,7 @@ export default function ProjectsPage() {
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/hyatt-a.webp" alt="PARK HYATT MALDIVES" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/4.jpg" alt="PARK HYATT MALDIVES" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="PARK HYATT MALDIVES hover" loading="lazy" />
               </div>
               <p className="project-grid-title">PARK HYATT MALDIVES</p>
@@ -249,7 +249,7 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/luxury-a.webp" alt="LUXURY LODGES OF AUSTRALIA" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/Dsc2795.jpg" alt="LUXURY LODGES OF AUSTRALIA" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="LUXURY LODGES OF AUSTRALIA hover" loading="lazy" />
               </div>
               <p className="project-grid-title">LUXURY LODGES OF AUSTRALIA</p>
@@ -257,7 +257,7 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/sujan-a.webp" alt="SUJAN" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/02-DJI_20260409224244_0522_D.jpg" alt="SUJAN" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/sujan-b.webp" alt="SUJAN hover" loading="lazy" />
               </div>
               <p className="project-grid-title">SUJAN</p>
@@ -268,7 +268,7 @@ export default function ProjectsPage() {
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/alila-a.webp" alt="ALILA OMAN" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/DJI0398.jpg" alt="ALILA OMAN" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="ALILA OMAN hover" loading="lazy" />
               </div>
               <p className="project-grid-title">ALILA OMAN</p>
@@ -276,7 +276,7 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card project-grid-card--wide">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/janu-a.webp" alt="JANU" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/01-AAA03524.jpg" alt="JANU" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
               </div>
               <p className="project-grid-title">JANU</p>
@@ -287,7 +287,7 @@ export default function ProjectsPage() {
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/ani-a.webp" alt="ANI PRIVATE RESORTS" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/01.jpg" alt="ANI PRIVATE RESORTS" loading="lazy" />
                 <img className="media-swap__secondary" src="/assets/images/feature-fort-a.webp" alt="ANI PRIVATE RESORTS hover" loading="lazy" />
               </div>
               <p className="project-grid-title">ANI PRIVATE RESORTS</p>
@@ -295,16 +295,16 @@ export default function ProjectsPage() {
 
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/fourseasons-a.webp" alt="FOUR SEASONS HOTELS AND RESORTS" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="FOUR SEASONS HOTELS AND RESORTS hover" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/DJI_0685.jpg" alt="FOUR SEASONS HOTELS AND RESORTS" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="FOUR SEASONS HOTELS AND RESORTS hover" loading="lazy" />
               </div>
               <p className="project-grid-title">FOUR SEASONS HOTELS AND RESORTS</p>
             </article>
 
             <article className="project-grid-card">
               <div className="project-grid-media media-swap">
-                <img className="media-swap__primary" src="/assets/images/sequoia-a.webp" alt="SEQUOIA" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="SEQUOIA hover" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/DJI_20250312004955_0254_D-HDR-3.jpg" alt="SEQUOIA" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/sequoia-a.webp" alt="SEQUOIA hover" loading="lazy" />
               </div>
               <p className="project-grid-title">SEQUOIA</p>
             </article>
@@ -328,7 +328,7 @@ export default function ProjectsPage() {
 
           <div className="projects-journal-right">
             <div className="media-swap" style={{ width: "100%", aspectRatio: "16/9.5" }}>
-              <img src="/assets/images/feature-jeep-a.webp" alt="Safari jeep at golden sunset" loading="lazy" />
+              <img src="/assets/images/14.jpg" alt="Safari jeep at golden sunset" loading="lazy" />
             </div>
           </div>
         </div>
