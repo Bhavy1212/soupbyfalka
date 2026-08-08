@@ -411,7 +411,7 @@ h1, h2, h3 {
 .line-link:hover i { transform: translate(4px, 4px); }
 .btn-outline {
   display: inline-block;
-  padding: 12px 35px;
+  padding: 15px 35px;
   border: 1px solid var(--ink);
   border-radius: 4px;
   font-size: 10px;
