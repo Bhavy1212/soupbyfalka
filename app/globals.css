@@ -393,10 +393,16 @@ h1, h2, h3 {
 
 .section-intro__body {
   margin: 0 0 28px;
-  font-size: 13.5px;
-  line-height: 1.55;
+  font-size: 12px;
+  line-height: 1.6;
   max-width: 560px;
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
+  font-family: 'Avenir', 'Avenir Next', var(--font-inter, Arial, Helvetica, sans-serif);
+}
+#projects-heading {
+  font-size: 18px !important;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 .section-intro--sticky { position: sticky; top: calc(var(--header-h) + 36px); align-self: start; }
 .line-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 46px; min-width: 188px; padding: 10px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
