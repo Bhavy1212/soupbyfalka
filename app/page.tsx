@@ -457,7 +457,7 @@ export default function Home() {
 
           <div className="hero__copy">
             <h1 id="hero-title" className="display reveal-text font-seasons">
-              <em>A collective of considered storytellers, Soup is the conduit between your physical space, brand, product, and its digital reach.</em>
+              <em>A collective of considered storytellers, Soup is the conduit between your physical<br /> space, brand, product, and its digital reach.</em>
             </h1>
           </div>
         </section>
