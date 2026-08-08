@@ -457,7 +457,7 @@ export default function Home() {
 
           <div className="hero__copy">
             <h1 id="hero-title" className="display reveal-text font-seasons">
-              <em>A collective of considered storytellers, Soup is the conduit between your physical<br /> space, brand, product, and its digital reach.</em>
+              <em>A collective of considered storytellers, Soup is the conduit between your<br /> physical space, brand, product, and its digital reach.</em>
             </h1>
           </div>
         </section>
@@ -641,49 +641,50 @@ export default function Home() {
             lineHeight: '1.5',
             letterSpacing: '-0.01em',
             fontWeight: '400',
+            fontStyle: 'italic',
             color: '#2b2927'
           }}>
-            Soup crafts <em>evocative</em> films that bring stories to <em>life</em>, seamlessly connecting your brand, space, and vision through cinematic <em>storytelling</em>. Explore some features below.
+            <em>Soup crafts evocative films that bring stories to life, seamlessly connecting your brand, space, and vision through cinematic storytelling. Explore some features below.</em>
           </p>
         </div>
 
         {/* 12-Image Thumbnail Grid Bar */}
-        <section className="films section" id="films" aria-label="Visual Stills Grid" style={{ padding: '40px var(--gutter)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '4px' }}>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+        <section className="films section" id="films" aria-label="Visual Stills Grid" style={{ padding: '20px var(--gutter)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/nobu-b.webp" alt="Stills grid 1" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/about-ripples.webp" alt="Stills grid 2" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/hyatt-b.webp" alt="Stills grid 3" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/founder-jackson.webp" alt="Stills grid 4" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/janu-b.webp" alt="Stills grid 5" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/rosewood-b.webp" alt="Stills grid 6" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/sujan-b.webp" alt="Stills grid 7" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/luxury-b.webp" alt="Stills grid 8" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/founder-lauren.webp" alt="Stills grid 9" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/feature-fort-b.webp" alt="Stills grid 10" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/kokomo-a.webp" alt="Stills grid 11" loading="lazy" />
             </div>
-            <div className="media-swap image-reveal" style={{ aspectRatio: '16/8' }}>
+            <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
               <img src="assets/images/feature-rabari-b.webp" alt="Stills grid 12" loading="lazy" />
             </div>
           </div>
