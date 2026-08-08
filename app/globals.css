@@ -143,13 +143,13 @@ h1, h2, h3 {
   padding: 0 var(--gutter);
   transition: color 0.4s ease, background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
   background-color: transparent;
-  color: #000000;
+  color: #ffffff;
 }
 .site-header .wordmark img {
   height: 20px;
   width: auto;
   display: block;
-  filter: brightness(0);
+  filter: brightness(0) invert(1);
   transition: filter 0.4s ease;
 }
 .site-header.is-scrolled-hero {
@@ -1005,13 +1005,17 @@ h1, h2, h3 {
 }
 
 .projects-hero-banner {
+  position: relative;
   width: 100%;
-  padding-top: calc(var(--header-h) + 10px);
+  height: 100vh;
+  min-height: 100vh;
+  padding-top: 0;
+  overflow: hidden;
 }
 .projects-hero-media {
+  position: relative;
   width: 100%;
-  aspect-ratio: 21/9;
-  max-height: 700px;
+  height: 100vh;
   overflow: hidden;
 }
 .projects-hero-media img {
@@ -1019,6 +1023,14 @@ h1, h2, h3 {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.projects-hero-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0.1) 28%, transparent 50%);
+  pointer-events: none;
 }
 
 .projects-statement-quote {
