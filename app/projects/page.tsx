@@ -2,30 +2,109 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Instagram, Youtube, Linkedin, Menu, X } from "lucide-react";
 
 export default function ProjectsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
+  // Handle Scroll Progress & Header UI (matching main landing page)
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let rafId: number;
+
+    const headerEl = document.querySelector("[data-header]");
+    const progressEl = document.querySelector("[data-scroll-progress]") as HTMLElement;
+    const heroMediaEl = document.querySelector(".projects-hero-banner") || document.querySelector(".projects-hero-media");
+
+    const updateScrollUI = () => {
+      const y = window.scrollY;
+      const vh = window.innerHeight;
+      const max = Math.max(document.documentElement.scrollHeight - vh, 1);
+      if (progressEl) {
+        progressEl.style.transform = `scaleX(${Math.min(Math.max(y / max, 0), 1)})`;
       }
+
+      if (headerEl) {
+        headerEl.classList.remove("is-hidden");
+        const heroHeight = heroMediaEl ? (heroMediaEl as HTMLElement).offsetHeight : vh;
+
+        if (y > heroHeight - 60) {
+          headerEl.classList.add("is-past-hero");
+          headerEl.classList.remove("is-scrolled-hero");
+        } else if (y > 40) {
+          headerEl.classList.add("is-scrolled-hero");
+          headerEl.classList.remove("is-past-hero");
+        } else {
+          headerEl.classList.remove("is-scrolled-hero");
+          headerEl.classList.remove("is-past-hero");
+        }
+      }
+      rafId = 0;
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const requestScrollUI = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(updateScrollUI);
+    };
+
+    updateScrollUI();
+    window.addEventListener("scroll", requestScrollUI, { passive: true });
+    window.addEventListener("resize", requestScrollUI, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", requestScrollUI);
+      window.removeEventListener("resize", requestScrollUI);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [menuOpen]);
+
+  // Handle Magnetic Buttons
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (!finePointer || reduceMotion) return;
+
+    const magneticElements = document.querySelectorAll(".magnetic") as NodeListOf<HTMLElement>;
+    const handleMove = (e: MouseEvent, el: HTMLElement) => {
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.17;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.22;
+      el.style.setProperty("--mx", `${x}px`);
+      el.style.setProperty("--my", `${y}px`);
+    };
+
+    const handleLeave = (el: HTMLElement) => {
+      el.style.setProperty("--mx", "0px");
+      el.style.setProperty("--my", "0px");
+    };
+
+    const cleanups: (() => void)[] = [];
+    magneticElements.forEach((el) => {
+      const onMove = (e: MouseEvent) => handleMove(e, el);
+      const onLeave = () => handleLeave(el);
+      el.addEventListener("mousemove", onMove);
+      el.addEventListener("mouseleave", onLeave);
+      cleanups.push(() => {
+        el.removeEventListener("mousemove", onMove);
+        el.removeEventListener("mouseleave", onLeave);
+      });
+    });
+
+    return () => {
+      cleanups.forEach((c) => c());
+    };
   }, []);
 
   return (
     <div className="projects-page-wrapper">
-      {/* 1. Header Bar (identical to main site) */}
+      {/* Scroll Progress Indicator */}
+      <div className="scroll-progress" aria-hidden="true">
+        <span data-scroll-progress></span>
+      </div>
+
+      {/* Header Bar */}
       <header className="site-header" data-header>
         <button
-          className="menu-toggle"
+          className="menu-toggle magnetic"
           type="button"
           aria-label={menuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={menuOpen}
@@ -54,14 +133,14 @@ export default function ProjectsPage() {
         </nav>
       </header>
 
-      {/* Navigation Menu Overlay Drawer (identical to main site) */}
+      {/* Navigation Menu Overlay Drawer */}
       <aside className={`menu ${menuOpen ? "is-open" : ""}`} id="site-menu" aria-hidden={!menuOpen}>
         <div className="menu__veil" onClick={() => setMenuOpen(false)}></div>
         <div className="menu__panel">
           {/* Top Bar inside Menu */}
           <div className="menu__top">
             <button
-              className="menu-toggle"
+              className="menu-toggle magnetic"
               type="button"
               aria-label="Close navigation"
               onClick={() => setMenuOpen(false)}
