@@ -402,8 +402,21 @@ h1, h2, h3 {
 .line-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 46px; min-width: 188px; padding: 10px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
 .line-link i { font-style: normal; transition: transform .35s var(--ease); }
 .line-link:hover i { transform: translate(4px, 4px); }
-.btn-outline { display: inline-block; padding: 12px 24px; border: 1px solid var(--ink); font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); transition: background .3s ease, color .3s ease; }
-.btn-outline:hover { background: var(--ink); color: var(--paper); }
+.btn-outline {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid var(--ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: background .3s ease, color .3s ease;
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
 
 .projects { display: grid; grid-template-columns: minmax(240px, .60fr) minmax(0, 2.40fr); gap: 6vw; align-items: start; contain: layout style; padding-top: 0 !important; }
 .project-feed { display: grid; gap: clamp(48px, 6vw, 96px); }

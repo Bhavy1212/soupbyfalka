@@ -14,7 +14,7 @@ export default function Home() {
   const [cursorActive, setCursorActive] = useState(false);
   const [cursorLight, setCursorLight] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
-  const [projectCategory, setProjectCategory] = useState<"photography" | "film">("photography");
+  const [projectCategory, setProjectCategory] = useState<"still" | "film">("still");
 
   // Handle Loader Animation
   useEffect(() => {
@@ -471,10 +471,10 @@ export default function Home() {
             <div className="projects-filter-box">
               <button
                 type="button"
-                className={`projects-filter-btn ${projectCategory === "photography" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory("photography")}
+                className={`projects-filter-btn ${projectCategory === "still" ? "is-active" : ""}`}
+                onClick={() => setProjectCategory("still")}
               >
-                PHOTOGRAPHY
+                STILL
               </button>
               <button
                 type="button"
@@ -489,7 +489,7 @@ export default function Home() {
               SOUP provides a complete, end-to-end visual content solution. We have the resources, skills and industry-specific experience necessary to produce, create and deliver projects of any scale, in any part of the world.
             </p>
             <a
-              className="btn-outline magnetic"
+              className="btn-outline"
               href="/projects"
               onMouseEnter={() => handleMouseEnter("Explore", false)}
               onMouseLeave={handleMouseLeave}
