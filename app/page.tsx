@@ -875,8 +875,10 @@ export default function Home() {
               <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-circle-btn">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://api.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-circle-btn">
-                <MessageCircle className="w-5 h-5 fill-current stroke-none" />
+              <a href="https://wa.me/919462703961?text=Hii" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-circle-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor" className="w-5 h-5" aria-hidden="true">
+                  <path d="M24 2C12.95 2 4 10.95 4 22c0 3.86 1.05 7.47 2.88 10.57L4 46l13.73-2.83A19.87 19.87 0 0024 44c11.05 0 20-8.95 20-20S35.05 2 24 2zm0 36a16 16 0 01-8.17-2.26l-.58-.35-8.15 1.68 1.72-7.95-.38-.61A15.94 15.94 0 018 22c0-8.82 7.18-16 16-16s16 7.18 16 16-7.18 16-16 16zm8.68-11.67c-.47-.24-2.8-1.38-3.23-1.54-.43-.16-.74-.24-1.05.24-.31.47-1.2 1.54-1.47 1.85-.27.31-.55.35-1.02.12-.47-.24-1.99-.73-3.79-2.34-1.4-1.25-2.34-2.79-2.61-3.26-.27-.47-.03-.72.2-.96.21-.21.47-.55.7-.82.24-.27.31-.47.47-.78.16-.31.08-.59-.04-.82-.12-.24-1.05-2.54-1.44-3.47-.38-.91-.77-.79-1.05-.8l-.9-.02c-.31 0-.82.12-1.25.59-.43.47-1.64 1.6-1.64 3.9s1.68 4.52 1.91 4.83c.24.31 3.3 5.04 8 7.06 1.12.48 1.99.77 2.67.99 1.12.36 2.14.31 2.95.19.9-.13 2.8-1.14 3.19-2.25.39-1.11.39-2.06.27-2.25-.11-.2-.43-.32-.9-.56z"/>
+                </svg>
               </a>
               <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="social-circle-btn">
                 <Youtube className="w-5 h-5 fill-current stroke-none" />
