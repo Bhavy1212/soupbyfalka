@@ -215,9 +215,11 @@ export default function MotionPage() {
         </div>
       </section>
 
-      {/* Fixed floating pill — switch to STILLS */}
-      <Link href="/stills" className="page-tab-switcher" aria-label="Switch to Stills">
-        STILLS
+      {/* Fixed low-opacity floating Pause button in bottom-left corner — switch to STILLS */}
+      <Link href="/stills" className="page-tab-switcher" aria-label="Switch to Stills" title="Switch to Stills">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
       </Link>
 
       {/* 3. Authenticity Statement Quote */}
