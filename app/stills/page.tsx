@@ -215,7 +215,7 @@ export default function StillsPage() {
         </div>
       </section>
 
-      {/* Fixed low-opacity floating Play button in bottom-left corner — switch to MOTION */}
+      {/* Fixed floating Play button in bottom-right corner — switch to MOTION */}
       <Link href="/motion" className="page-tab-switcher" aria-label="Switch to Motion" title="Switch to Motion">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "2px" }} aria-hidden="true">
           <path d="M8 5v14l11-7z" />
