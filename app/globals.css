@@ -1123,9 +1123,9 @@ h3 {
 }
 
 .journal__intro {
-  position: static;
-  top: auto;
-  /* removed will-change to keep static */
+  position: sticky;
+  top: calc(var(--header-h) + 36px);
+  /* will-change removed to keep static */
 }
 
 .story-feed {
