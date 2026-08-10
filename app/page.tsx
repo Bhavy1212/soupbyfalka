@@ -733,7 +733,7 @@ export default function Home() {
 
         {/* Journal Section */}
         <section className="journal section" id="journal" aria-labelledby="journal-heading">
-          <div className="section-intro journal__intro" data-parallax="0.04">
+          <div className="section-intro journal__intro">
             <div className="journal__lead-image media-swap image-reveal reveal-item">
               <img className="media-swap__primary" src="assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" />
               <img className="media-swap__secondary" src="assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" />

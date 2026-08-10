@@ -360,8 +360,8 @@ export default function StillsPage() {
         <div className="projects-journal-container">
           <div className="projects-journal-left">
             <div className="journal__lead-image media-swap image-reveal reveal-item" style={{ width: "100%", maxWidth: "260px", aspectRatio: "4/5.2", marginBottom: "24px", overflow: "hidden", position: "relative" }}>
-              <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" data-parallax="0.06" style={{ transform: "scale(1.15)" }} />
-              <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" data-parallax="0.06" style={{ transform: "scale(1.15)" }} />
+              <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" style={{ transform: "scale(1.15)" }} />
+              <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" style={{ transform: "scale(1.15)" }} />
             </div>
             <p className="projects-journal-heading reveal-text">JOURNAL</p>
             <p className="projects-journal-desc reveal-text">
@@ -377,7 +377,6 @@ export default function StillsPage() {
               src="/assets/images/14.jpg"
               alt="Journal featured safari jeep at sunset"
               loading="lazy"
-              data-parallax="0.08"
             />
           </div>
         </div>
