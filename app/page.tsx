@@ -14,7 +14,7 @@ export default function Home() {
   const [cursorActive, setCursorActive] = useState(false);
   const [cursorLight, setCursorLight] = useState(false);
   const [cursorVisible, setCursorVisible] = useState(false);
-  const [projectCategory, setProjectCategory] = useState<"stills" | "motion">("stills");
+  const [projectCategory, setProjectCategory] = useState<"stills" | "motion" | null>(null);
 
   // Handle Loader Animation
   useEffect(() => {
@@ -438,7 +438,7 @@ export default function Home() {
             </button>
 
             <a className="wordmark" href="#top" onClick={(e) => { handleHashLink(e); setMenuOpen(false); }}>
-              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "20px", width: "auto", display: "block" }} />
+              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "26px", width: "auto", display: "block" }} />
             </a>
 
             <div className="header-social">
@@ -497,8 +497,8 @@ export default function Home() {
           </div>
 
           <div className="hero__copy">
-            <h1 id="hero-title" className="display reveal-text font-seasons">
-              <em>A collective of considered storytellers, Soup is the conduit between your<br /> physical space, brand, product, and its digital reach.</em>
+            <h1 id="hero-title" className="reveal-text">
+              From the <em>grandeur</em> of your property, it&apos;s surrounding landscape, to the inviting poolside and the plush armchair by the window, every element <em>speaks</em> and we make sure it&apos;s <em>heard</em>.
             </h1>
           </div>
         </section>
@@ -513,14 +513,15 @@ export default function Home() {
               <button
                 type="button"
                 className={`projects-filter-btn ${projectCategory === "stills" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory("stills")}
+                onClick={() => setProjectCategory(projectCategory === "stills" ? null : "stills")}
               >
                 STILLS
               </button>
+              <span className="projects-filter-divider" aria-hidden="true" />
               <button
                 type="button"
                 className={`projects-filter-btn ${projectCategory === "motion" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory("motion")}
+                onClick={() => setProjectCategory(projectCategory === "motion" ? null : "motion")}
               >
                 MOTION
               </button>
@@ -529,14 +530,19 @@ export default function Home() {
             <p className="section-intro__body">
               SOUP provides a complete, end-to-end visual content solution. We have the resources, skills and industry-specific experience necessary to produce, create and deliver projects of any scale, in any part of the world.
             </p>
-            <a
-              className="btn-outline"
-              href={projectCategory === "motion" ? "/motion" : "/stills"}
-              onMouseEnter={() => handleMouseEnter("Explore", false)}
-              onMouseLeave={handleMouseLeave}
-            >
-              VIEW ALL PROJECTS
-            </a>
+            {projectCategory && (
+              <a
+                className="btn-outline"
+                href={projectCategory === "motion" ? "/motion" : "/stills"}
+                onMouseEnter={() => handleMouseEnter("Explore", false)}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  animation: 'fadeIn 0.35s ease-out forwards',
+                }}
+              >
+                VIEW ALL PROJECTS
+              </a>
+            )}
           </div>
 
           <div className="project-feed">
@@ -544,7 +550,6 @@ export default function Home() {
             <article className="project-card project-card--hero reveal-item">
               <div
                 className="project-card__button"
-                data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >

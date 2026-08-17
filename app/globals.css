@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/the-seasons');
+
 :root {
   --paper: #f5f5f0;
   /* offwhite background for the site */
@@ -8,7 +10,7 @@
   /* pure white for UI elements */
   --ease: cubic-bezier(.22, 1, .36, 1);
   --gutter: clamp(18px, 2.35vw, 42px);
-  --header-h: 58px;
+  --header-h: 70px;
   --cursor-x: 50vw;
   --cursor-y: 50vh;
 }
@@ -273,7 +275,7 @@ h3 {
 }
 
 .site-header .wordmark img {
-  height: 20px;
+  height: 26px;
   width: auto;
   display: block;
   filter: brightness(0) invert(1);
@@ -637,26 +639,26 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(48px, 5.5vw, 80px) var(--gutter);
+  padding: clamp(100px, 10vw, 155px) var(--gutter);
   background: var(--paper);
 }
 
 .hero__copy h1 {
-  width: min(1060px, 96%);
+  width: min(980px, 92%);
   margin: 0 auto;
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, 'Times New Roman', serif;
-  font-size: clamp(15px, 1.55vw, 21px);
+  font-family: 'The Seasons', 'Seasons', var(--font-cormorant), 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
+  font-size: clamp(18px, 1.85vw, 28px);
   line-height: 1.5;
   letter-spacing: -0.01em;
   font-weight: 400;
-  font-style: italic;
-  color: #2b2927;
+  font-style: normal;
+  color: #1a1a18;
   text-align: center;
 }
 
 .hero__copy h1 em {
   font-style: italic;
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
+  font-family: 'The Seasons', 'Seasons', var(--font-cormorant), 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
 }
 
 .font-seasons,
@@ -735,6 +737,16 @@ h3 {
   color: var(--paper);
 }
 
+.projects-filter-divider {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: var(--ink);
+  opacity: 0.35;
+  margin: 0 1px;
+  flex-shrink: 0;
+}
+
 .section-intro__body {
   margin: 0 0 28px;
   font-size: 12px;
@@ -790,6 +802,17 @@ h3 {
   text-transform: uppercase;
   color: var(--ink);
   transition: background .3s ease, color .3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn-outline:hover {
@@ -1799,7 +1822,7 @@ h3 {
 
 @media (max-width: 980px) {
   :root {
-    --header-h: 66px;
+    --header-h: 74px;
   }
 
   .projects,
@@ -1919,12 +1942,13 @@ h3 {
   }
 
   .hero__copy {
-    padding: 78px var(--gutter) 116px;
+    padding: clamp(70px, 8.5vw, 96px) var(--gutter);
   }
 
   .hero__copy h1 {
     width: 100%;
-    font-size: clamp(36px, 11.5vw, 56px);
+    font-size: clamp(17px, 4.4vw, 22px);
+    line-height: 1.44;
   }
 
   .section {
@@ -1933,6 +1957,7 @@ h3 {
   }
 
   .projects {
+    padding-top: 0 !important;
     gap: 48px;
   }
 

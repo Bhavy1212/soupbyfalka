@@ -149,7 +149,7 @@ export default function MotionPage() {
           <img
             src="/assets/images/soup-logo.png"
             alt="Soup by Falka"
-            style={{ height: "20px", width: "auto", display: "block" }}
+            style={{ height: "26px", width: "auto", display: "block" }}
           />
         </Link>
 
@@ -177,7 +177,7 @@ export default function MotionPage() {
             </button>
 
             <Link className="wordmark" href="/" onClick={() => setMenuOpen(false)}>
-              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "20px", width: "auto", display: "block" }} />
+              <img src="/assets/images/soup-logo.png" alt="Soup by Falka" style={{ height: "26px", width: "auto", display: "block" }} />
             </Link>
 
             <div className="header-social">
