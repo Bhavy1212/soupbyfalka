@@ -288,14 +288,14 @@ export default function NobuPage() {
 
           {/* Row 1: Asymmetric Row (Hallway Portrait + Room Interior Landscape) */}
           <div className="mayfair-gallery-row mayfair-gallery-asymmetric">
-            <div className="mayfair-image-card reveal-item image-reveal">
+            <div className="mayfair-image-card mayfair-card-portrait reveal-item image-reveal">
               <img
                 src="/assets/images/nobu/nobu-hallway.jpg"
                 alt="Arched hallway with terracotta vaulted ceiling and elegant chandelier"
                 loading="lazy"
               />
             </div>
-            <div className="mayfair-image-card reveal-item image-reveal">
+            <div className="mayfair-image-card mayfair-card-landscape reveal-item image-reveal">
               <img
                 src="/assets/images/nobu/nobu-room.jpg"
                 alt="Bedchamber entrance looking into the terracotta arched passage"
@@ -305,7 +305,7 @@ export default function NobuPage() {
           </div>
 
           {/* Row 2: Full-Width Panorama (Canopy Bed Suite) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/nobu/nobu-canopy-bed.jpg"
@@ -334,7 +334,7 @@ export default function NobuPage() {
           </div>
 
           {/* Row 4: Full-Width Panorama (Courtyard Balcony View) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/nobu/nobu-courtyard-facade.jpg"
@@ -345,7 +345,7 @@ export default function NobuPage() {
           </div>
 
           {/* Row 5: Full-Width Panorama (Dining Room White Bench) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/nobu/nobu-dining-room.jpg"
@@ -374,7 +374,7 @@ export default function NobuPage() {
           </div>
 
           {/* Row 7: Bottom Full Panorama (Heritage Facade View) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/nobu/nobu-facade.jpg"

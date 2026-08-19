@@ -306,7 +306,7 @@ export default function JanuPage() {
           </div>
 
           {/* Row 2: Full-Width Panorama (Balcony Mountain View) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/janu/janu-balcony.jpg"
@@ -335,7 +335,7 @@ export default function JanuPage() {
           </div>
 
           {/* Row 4: Full-Width Panorama (Grand Hall View) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/janu/janu-hall.jpg"
@@ -364,7 +364,7 @@ export default function JanuPage() {
           </div>
 
           {/* Row 6: Bottom Full Panorama (Twilight Lodge Entrance View) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/janu/janu-twilight.jpg"

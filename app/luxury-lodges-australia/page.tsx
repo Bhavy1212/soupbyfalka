@@ -306,7 +306,7 @@ export default function LuxuryLodgesPage() {
           </div>
 
           {/* Row 2: Full-Width Panorama (Master Suite Bedroom) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-suite.jpg"
@@ -335,7 +335,7 @@ export default function LuxuryLodgesPage() {
           </div>
 
           {/* Row 4: Full-Width Panorama (Sunset/Night Pool Terrace) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-pool-night.jpg"
@@ -364,7 +364,7 @@ export default function LuxuryLodgesPage() {
           </div>
 
           {/* Row 6: Full-Width Panorama (Lounge Suite with Panoramic Windows) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-lounge-suite.jpg"
@@ -393,7 +393,7 @@ export default function LuxuryLodgesPage() {
           </div>
 
           {/* Row 8: Bottom Full Panorama (Distant Ridge Aerial Panorama) */}
-          <div className="mayfair-gallery-row">
+          <div className="mayfair-gallery-row mayfair-gallery-full">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-ridge-aerial.jpg"
