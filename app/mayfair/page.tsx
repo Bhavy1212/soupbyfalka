@@ -334,7 +334,7 @@ export default function MayfairPage() {
           </div>
 
           {/* Row 4: Full-Width Panorama (Heritage Corridor with Teal Doors & Mirror) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          <div className="mayfair-gallery-row mayfair-gallery-bleed">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-corridor.jpg"
@@ -345,7 +345,7 @@ export default function MayfairPage() {
           </div>
 
           {/* Row 5: Full-Width Panorama (Balcony View over Mist-Covered Hills) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          <div className="mayfair-gallery-row mayfair-gallery-bleed">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-balcony.jpg"
@@ -356,7 +356,7 @@ export default function MayfairPage() {
           </div>
 
           {/* Row 6: Full-Width Panorama (Master Bedroom Suite with Four-Poster Bed) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          <div className="mayfair-gallery-row mayfair-gallery-bleed">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-suite-wide.jpg"
