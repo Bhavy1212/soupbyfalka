@@ -236,12 +236,15 @@ export default function MotionPage() {
           {/* ROW 1: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/aman-motion.png" alt="AMAN" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="AMAN hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">AMAN</p>
+              <Link href="/mayfair" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/aman-motion.png" alt="AMAN" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="AMAN hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">AMAN</p>
+              </Link>
             </article>
+
 
             <article className="project-grid-card reveal-item">
               <div className="project-grid-media media-swap image-reveal">
@@ -252,13 +255,16 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/nobu-motion.png" alt="NOBU RESIDENCES ABU DHABI" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="NOBU hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">NOBU RESIDENCES ABU DHABI</p>
+              <Link href="/nobu" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/nobu-motion.png" alt="NOBU RESIDENCES ABU DHABI" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="NOBU hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">NOBU RESIDENCES ABU DHABI</p>
+              </Link>
             </article>
           </div>
+
 
           {/* ROW 2: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
@@ -290,12 +296,15 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/rosewood-motion.png" alt="LUXURY LODGES OF AUSTRALIA" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="LUXURY LODGES OF AUSTRALIA hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">LUXURY LODGES OF AUSTRALIA</p>
+              <Link href="/luxury-lodges-australia" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/rosewood-motion.png" alt="LUXURY LODGES OF AUSTRALIA" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="LUXURY LODGES OF AUSTRALIA hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">LUXURY LODGES OF AUSTRALIA</p>
+              </Link>
             </article>
+
 
             <article className="project-grid-card reveal-item">
               <div className="project-grid-media media-swap image-reveal">
@@ -317,13 +326,16 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/kokomo-motion.png" alt="JANU" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">JANU</p>
+              <Link href="/janu" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/kokomo-motion.png" alt="JANU" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">JANU</p>
+              </Link>
             </article>
           </div>
+
 
           {/* ROW 5: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">

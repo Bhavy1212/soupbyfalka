@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 import { Instagram, Linkedin, Facebook, Youtube, MessageCircle } from "lucide-react";
 
 export default function Home() {
@@ -548,8 +549,9 @@ export default function Home() {
           <div className="project-feed">
             {/* Project 1 */}
             <article className="project-card project-card--hero reveal-item">
-              <div
-                className="project-card__button"
+              <Link
+                href="/mayfair"
+                className="project-card__button block cursor-pointer"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
@@ -558,14 +560,15 @@ export default function Home() {
                   <img className="media-swap__secondary" src="assets/images/aman-b.webp" alt="Aman retreat glowing in evening light" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>AMAN</strong></span>
-              </div>
+              </Link>
             </article>
 
             {/* Project 2 & 3 Split */}
             <div className="project-row project-row--split">
               <article className="project-card project-card--portrait reveal-item">
-                <div
-                  className="project-card__button"
+                <Link
+                  href="/nobu"
+                  className="project-card__button block cursor-pointer"
                   data-parallax="0.04"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
@@ -575,8 +578,9 @@ export default function Home() {
                     <img className="media-swap__secondary" src="assets/images/nobu-b.webp" alt="Warm modern reception interior" loading="lazy" />
                   </span>
                   <span className="project-card__caption"><strong>NOBU RESIDENCES ABU DHABI</strong></span>
-                </div>
+                </Link>
               </article>
+
 
               <article className="project-card project-card--landscape project-card--lower reveal-item">
                 <div
@@ -596,8 +600,9 @@ export default function Home() {
 
             {/* Project 4 */}
             <article className="project-card project-card--hero project-card--right reveal-item">
-              <div
-                className="project-card__button"
+              <Link
+                href="/janu"
+                className="project-card__button block cursor-pointer"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
@@ -607,13 +612,15 @@ export default function Home() {
                   <img className="media-swap__secondary" src="assets/images/janu-b.webp" alt="Mountain retreat at golden hour" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>JANU</strong></span>
-              </div>
+              </Link>
             </article>
+
 
             {/* Project 5 */}
             <article className="project-card project-card--hero reveal-item">
-              <div
-                className="project-card__button"
+              <Link
+                href="/luxury-lodges-australia"
+                className="project-card__button block cursor-pointer"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
@@ -623,8 +630,9 @@ export default function Home() {
                   <img className="media-swap__secondary" src="assets/images/luxury-b.webp" alt="Traditional luxury suite" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>LUXURY LODGES OF AUSTRALIA</strong></span>
-              </div>
+              </Link>
             </article>
+
 
             {/* Project 6 & 7 Split (Reverse) */}
             <div className="project-row project-row--split">
