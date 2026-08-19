@@ -386,7 +386,7 @@ export default function MayfairPage() {
 
           {/* Row 8: Bottom Full Panorama (Twilight Ridge Aerial View) */}
           <div className="mayfair-gallery-row mayfair-gallery-full">
-            <div className="mayfair-image-card reveal-item image-reveal">
+            <div className="mayfair-image-card mayfair-card-twilight reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-twilight.jpg"
                 alt="Aerial night view of Mayfair Jungpana illuminated atop the mountain ridge against twilight sunset"

@@ -2928,7 +2928,7 @@ h3 {
 
 .mayfair-gallery-2col .mayfair-image-card {
   width: 100%;
-  aspect-ratio: 16 / 10.5;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background-color: #dcd8cf;
 }
@@ -2948,19 +2948,19 @@ h3 {
 
 .mayfair-gallery-asymmetric .mayfair-card-portrait {
   width: 100%;
-  aspect-ratio: 3.2 / 4.4;
+  aspect-ratio: 0.905 / 1;
   overflow: hidden;
 }
 
 .mayfair-gallery-asymmetric .mayfair-card-landscape {
   width: 100%;
-  aspect-ratio: 16 / 10.5;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
 }
 
 .mayfair-gallery-full .mayfair-image-card {
   width: 100%;
-  aspect-ratio: 16 / 9.8;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   background-color: #dcd8cf;
 }
@@ -2969,6 +2969,10 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.mayfair-card-twilight {
+  aspect-ratio: 1.3 / 1 !important;
 }
 
 .mayfair-image-card {
