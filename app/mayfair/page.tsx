@@ -304,8 +304,8 @@ export default function MayfairPage() {
             </div>
           </div>
 
-          {/* Row 2: Full-Width Panorama (Garden & Heritage Resort Estate) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          {/* Row 2: Medium Inset Panorama (Garden & Heritage Resort Estate) */}
+          <div className="mayfair-gallery-row mayfair-gallery-medium">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-garden.jpg"
@@ -344,8 +344,8 @@ export default function MayfairPage() {
             </div>
           </div>
 
-          {/* Row 5: Full-Width Panorama (Balcony View over Mist-Covered Hills) */}
-          <div className="mayfair-gallery-row mayfair-gallery-bleed">
+          {/* Row 5: Medium Inset Panorama (Balcony View over Mist-Covered Hills) */}
+          <div className="mayfair-gallery-row mayfair-gallery-medium">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-balcony.jpg"
@@ -384,8 +384,8 @@ export default function MayfairPage() {
             </div>
           </div>
 
-          {/* Row 8: Bottom Full Panorama (Twilight Ridge Aerial View) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          {/* Row 8: Bottom Medium Inset Panorama (Twilight Ridge Aerial View) */}
+          <div className="mayfair-gallery-row mayfair-gallery-medium">
             <div className="mayfair-image-card mayfair-card-twilight reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-twilight.jpg"
