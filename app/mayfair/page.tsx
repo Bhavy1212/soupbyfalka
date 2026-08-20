@@ -224,7 +224,7 @@ export default function MayfairPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">PARK HYATT MALDIVES</p>
+        <p className="mayfair-category-tag reveal-text">MAYFAIR, JUNGAPANA</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Park Hyatt Maldives, the Jagat team was tasked with creating a suite of new stills and film collateral that placed <em>nature at its heart</em>. With the ocean as a living, breathing presence shaping every guest experience - from local traditions to service - the concept of <em>Living Island</em> became the creative foundation. This vision highlights the island's <em>raw beauty</em> and fosters <em>deep connections</em> between people, nature, and self.
         </p>
@@ -366,8 +366,8 @@ export default function MayfairPage() {
             </div>
           </div>
 
-          {/* Row 7: 2-Column Side-by-Side (Suite Living Area + Bed Detail) */}
-          <div className="mayfair-gallery-row mayfair-gallery-2col">
+          {/* Row 7: 2-Column Side-by-Side (Left Suite Living Area Smaller + Right Bed Detail Bigger) */}
+          <div className="mayfair-gallery-row mayfair-gallery-2col--right-bigger">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-suite-corner.jpg"

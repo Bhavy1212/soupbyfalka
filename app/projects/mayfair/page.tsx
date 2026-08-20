@@ -1,1 +1,1 @@
-export { default } from "../../mayfair/page";
+export { default } from "../../mayfair-gopalpur/page";

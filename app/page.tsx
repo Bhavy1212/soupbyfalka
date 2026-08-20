@@ -556,10 +556,10 @@ export default function Home() {
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/aman-motion.png" : "assets/images/aman-a.webp"} alt="Aman hillside resort" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/aman-b.webp" alt="Aman retreat glowing in evening light" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/aman-motion.png" : "assets/images/aman-a.webp"} alt="MAYFAIR, JUNGAPANA resort" loading="lazy" />
+                  <img className="media-swap__secondary" src="assets/images/aman-b.webp" alt="MAYFAIR, JUNGAPANA retreat glowing in evening light" loading="lazy" />
                 </span>
-                <span className="project-card__caption"><strong>AMAN</strong></span>
+                <span className="project-card__caption"><strong>MAYFAIR, JUNGAPANA</strong></span>
               </Link>
             </article>
 
@@ -567,42 +567,41 @@ export default function Home() {
             <div className="project-row project-row--split">
               <article className="project-card project-card--portrait reveal-item">
                 <Link
-                  href="/nobu"
+                  href="/mohangarh"
                   className="project-card__button block cursor-pointer"
                   data-parallax="0.04"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/nobu-motion.png" : "assets/images/nobu-a.webp"} alt="Terracotta arched interior" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/nobu-b.webp" alt="Warm modern reception interior" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/nobu-motion.png" : "assets/images/nobu-a.webp"} alt="MOHANGARH interior" loading="lazy" />
+                    <img className="media-swap__secondary" src="assets/images/nobu-b.webp" alt="MOHANGARH architecture" loading="lazy" />
                   </span>
-                  <span className="project-card__caption"><strong>NOBU RESIDENCES ABU DHABI</strong></span>
+                  <span className="project-card__caption"><strong>MOHANGARH, JAISALMER</strong></span>
                 </Link>
               </article>
 
-
               <article className="project-card project-card--landscape project-card--lower reveal-item">
-                <div
-                  className="project-card__button"
+                <Link
+                  href="/the-leela"
+                  className="project-card__button block cursor-pointer"
                   data-parallax="0.16"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/puli-motion.png" : "assets/images/hyatt-a.webp"} alt="Luxury resort courtyard at dusk" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/hyatt-b.webp" alt="Historic stone resort beneath blue clouds" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/puli-motion.png" : "assets/images/hyatt-a.webp"} alt="THE LEELA PALACE courtyard" loading="lazy" />
+                    <img className="media-swap__secondary" src="assets/images/hyatt-b.webp" alt="THE LEELA PALACE palace beneath blue clouds" loading="lazy" />
                   </span>
-                  <span className="project-card__caption"><strong>PARK HYATT MALDIVES</strong></span>
-                </div>
+                  <span className="project-card__caption"><strong>THE LEELA PALACE, UDAIPUR</strong></span>
+                </Link>
               </article>
             </div>
 
             {/* Project 4 */}
             <article className="project-card project-card--hero project-card--right reveal-item">
-              <Link
-                href="/janu"
-                className="project-card__button block cursor-pointer"
+              <div
+                className="project-card__button"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
@@ -612,27 +611,25 @@ export default function Home() {
                   <img className="media-swap__secondary" src="assets/images/janu-b.webp" alt="Mountain retreat at golden hour" loading="lazy" />
                 </span>
                 <span className="project-card__caption"><strong>JANU</strong></span>
-              </Link>
+              </div>
             </article>
-
 
             {/* Project 5 */}
             <article className="project-card project-card--hero reveal-item">
               <Link
-                href="/luxury-lodges-australia"
+                href="/manuscript"
                 className="project-card__button block cursor-pointer"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/rosewood-motion.png" : "assets/images/luxury-a.webp"} alt="Luxury bedroom overlooking mountains" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/luxury-b.webp" alt="Traditional luxury suite" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/rosewood-motion.png" : "assets/images/luxury-a.webp"} alt="MANUSCRIPT suite" loading="lazy" />
+                  <img className="media-swap__secondary" src="assets/images/luxury-b.webp" alt="MANUSCRIPT interior" loading="lazy" />
                 </span>
-                <span className="project-card__caption"><strong>LUXURY LODGES OF AUSTRALIA</strong></span>
+                <span className="project-card__caption"><strong>MANUSCRIPT, UDAIPUR</strong></span>
               </Link>
             </article>
-
 
             {/* Project 6 & 7 Split (Reverse) */}
             <div className="project-row project-row--split">
@@ -659,28 +656,29 @@ export default function Home() {
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/janu-motion.png" : "assets/images/rosewood-a.webp"} alt="Grand hotel with a domed pavilion" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/rosewood-b.webp" alt="Garden pool at twilight" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/janu-motion.png" : "assets/images/rosewood-a.webp"} alt="NEMESIA luxury retreat" loading="lazy" />
+                    <img className="media-swap__secondary" src="assets/images/rosewood-b.webp" alt="NEMESIA garden pool at twilight" loading="lazy" />
                   </span>
-                  <span className="project-card__caption"><strong>ROSEWOOD</strong></span>
+                  <span className="project-card__caption"><strong>NEMESIA, RISHIKESH</strong></span>
                 </div>
               </article>
             </div>
 
             {/* Project 8 */}
             <article className="project-card project-card--hero reveal-item">
-              <div
-                className="project-card__button"
+              <Link
+                href="/ihcl-seleqtions"
+                className="project-card__button block cursor-pointer"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/sujan-motion.png" : "assets/images/kokomo-a.webp"} alt="Tropical gardens above the ocean" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/kokomo-b.webp" alt="Resort grounds across a green valley" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/sujan-motion.png" : "assets/images/kokomo-a.webp"} alt="IHCL SELEQTIONS gardens" loading="lazy" />
+                  <img className="media-swap__secondary" src="assets/images/kokomo-b.webp" alt="IHCL SELEQTIONS grounds" loading="lazy" />
                 </span>
-                <span className="project-card__caption"><strong>KOKOMO</strong></span>
-              </div>
+                <span className="project-card__caption"><strong>IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR</strong></span>
+              </Link>
             </article>
           </div>
         </section>

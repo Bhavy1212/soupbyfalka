@@ -2697,9 +2697,14 @@ h3 {
 /* Hero Banner */
 .mayfair-hero-section {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   height: 100vh;
   height: 100dvh;
+  min-height: 100vh;
   overflow: hidden;
   background-color: #1a1917;
 }
@@ -2717,8 +2722,8 @@ h3 {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cover spans edge-to-edge full width and height with no gaps */
-  object-position: center 30%; /* Align vertically to keep the palace and dining deck fully visible */
+  object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
@@ -2731,15 +2736,11 @@ h3 {
   pointer-events: none;
 }
 
-
-
-
-
 /* Intro Text Section */
 .mayfair-intro-section {
-  padding: clamp(60px, 8vw, 120px) var(--gutter) clamp(40px, 6vw, 90px);
+  padding: clamp(80px, 8vw, 110px) var(--gutter) clamp(60px, 6vw, 90px);
   text-align: center;
-  max-width: 1020px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
@@ -2750,13 +2751,13 @@ h3 {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #4a4742;
-  margin-bottom: clamp(24px, 3.5vw, 40px);
+  margin-bottom: clamp(20px, 3vw, 32px);
 }
 
 .mayfair-intro-statement {
   font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(22px, 2.4vw, 32px);
-  line-height: 1.52;
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.55;
   font-weight: 400;
   color: #201e1b;
   letter-spacing: -0.01em;
@@ -2771,29 +2772,35 @@ h3 {
 
 /* Main Container */
 .mayfair-container {
-  max-width: 1360px;
+  width: 100%;
+  max-width: 1540px;
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
 }
 
 /* Featured Card with Title Overlay */
 .mayfair-featured-card {
   position: relative;
   width: 100%;
-  margin-bottom: clamp(48px, 6vw, 96px);
+  max-width: 85.58%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
   overflow: hidden;
 }
 
 .mayfair-featured-media {
   position: relative;
   width: 100%;
+  aspect-ratio: 3 / 2 !important;
   overflow: hidden;
   background-color: #dcd8cf;
 }
 
 .mayfair-featured-media img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -2907,11 +2914,12 @@ h3 {
   opacity: 0.6;
 }
 
-/* Gallery Section & Rows */
+/* Gallery Section & Flow (Calibrated to Exact PDF Vertical Gaps and Side Margins) */
 .mayfair-gallery-flow {
   display: flex;
   flex-direction: column;
-  gap: clamp(36px, 5vw, 72px);
+  gap: 0;
+  width: 100%;
   margin-bottom: clamp(60px, 8vw, 120px);
 }
 
@@ -2919,45 +2927,250 @@ h3 {
   width: 100%;
 }
 
-.mayfair-gallery-2col {
+/* 2-Column Asymmetric - Left Bigger / Right Smaller */
+.mayfair-gallery-2col,
+.mayfair-gallery-2col--top,
+.mayfair-gallery-flow > .mayfair-gallery-2col:first-child {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(18px, 2.8vw, 42px);
-  align-items: stretch;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
 }
 
-.mayfair-gallery-2col .mayfair-image-card {
+.mayfair-gallery-2col .mayfair-image-card,
+.mayfair-gallery-2col--top .mayfair-image-card {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 3 / 2 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+  min-width: 0;
+}
+
+.mayfair-gallery-2col .mayfair-image-card img,
+.mayfair-gallery-2col--top .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* 2-Column Asymmetric - Right Bigger / Left Smaller */
+.mayfair-gallery-2col--right-bigger,
+.mayfair-gallery-2col--reverse {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gallery-2col--right-bigger .mayfair-image-card,
+.mayfair-gallery-2col--reverse .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 3 / 2 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+  min-width: 0;
+}
+
+.mayfair-gallery-2col--right-bigger .mayfair-image-card img,
+.mayfair-gallery-2col--reverse .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Row 2: Medium Inset Suite */
+.mayfair-gallery-medium,
+.mayfair-gallery-flow > .mayfair-gallery-medium:nth-child(2) {
+  width: 100%;
+  max-width: 72.91%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gallery-medium .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 3 / 2 !important;
   overflow: hidden;
   background-color: #dcd8cf;
 }
 
-.mayfair-gallery-2col .mayfair-image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.mayfair-gallery-medium .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
 }
 
-.mayfair-gallery-asymmetric {
+/* Row 3: Asymmetric Split (Left Portrait + Right Landscape) | Centered Span: 90.8% */
+.mayfair-gallery-asymmetric,
+.mayfair-gallery-flow > .mayfair-gallery-asymmetric {
   display: grid;
-  grid-template-columns: 0.88fr 1.12fr;
-  gap: clamp(18px, 3.2vw, 48px);
+  grid-template-columns: 0.585fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
   align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
 }
 
 .mayfair-gallery-asymmetric .mayfair-card-portrait {
   width: 100%;
-  aspect-ratio: 0.905 / 1;
+  aspect-ratio: 2 / 3 !important;
   overflow: hidden;
+  background-color: #dcd8cf;
 }
 
 .mayfair-gallery-asymmetric .mayfair-card-landscape {
   width: 100%;
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  background-color: #dcd8cf;
 }
 
+.mayfair-gallery-asymmetric .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Row 4: Large Center Showcase | Centered Span: 84% */
+.mayfair-gallery-showcase,
+.mayfair-gallery-flow > .mayfair-gallery-showcase {
+  width: 100%;
+  max-width: 84%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gallery-showcase .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.mayfair-gallery-showcase .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Row 5: Asymmetric Reverse Split (Left Landscape + Right Portrait) | Centered Span: 79% */
+.mayfair-gallery-asymmetric-reverse,
+.mayfair-gallery-flow > .mayfair-gallery-asymmetric-reverse {
+  display: grid;
+  grid-template-columns: 1fr 0.534fr;
+  gap: clamp(22px, 3.8vw, 48px);
+  align-items: center;
+  width: 100%;
+  max-width: 79%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gallery-asymmetric-reverse .mayfair-card-landscape {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.mayfair-gallery-asymmetric-reverse .mayfair-card-portrait {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.mayfair-gallery-asymmetric-reverse .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Row 6: Small Inset Facade (67.5% Width, 1.354:1 ratio) */
+.mayfair-gallery-small,
+.mayfair-gallery-flow > .mayfair-gallery-small,
+.mayfair-gallery-flow > .mayfair-gallery-medium:last-child {
+  width: 100%;
+  max-width: 67.5%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+.mayfair-gallery-small .mayfair-image-card,
+.mayfair-gallery-flow > .mayfair-gallery-medium:last-child .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 1.354 / 1;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.mayfair-gallery-small .mayfair-image-card img,
+.mayfair-gallery-flow > .mayfair-gallery-medium:last-child .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Full Bleed (Edge-to-Edge Max Horizontal Size & Full Natural Height) */
+.mayfair-gallery-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gallery-bleed .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 2846 / 1923 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.mayfair-gallery-bleed .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Full Width (within container) */
 .mayfair-gallery-full .mayfair-image-card {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -2966,64 +3179,18 @@ h3 {
 }
 
 .mayfair-gallery-full .mayfair-image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Full Bleed (Edge-to-Edge Max Horizontal Size) */
-.mayfair-gallery-bleed {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-}
-
-.mayfair-gallery-bleed .mayfair-image-card {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background-color: #dcd8cf;
-}
-
-.mayfair-gallery-bleed .mayfair-image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Medium Inset Gallery Row (Centered, Smaller Width matching PDF design) */
-.mayfair-gallery-medium {
-  width: 100%;
-  max-width: 71.2%;
-  margin: 0 auto;
-}
-
-.mayfair-gallery-medium .mayfair-image-card {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  overflow: hidden;
-  background-color: #dcd8cf;
-}
-
-.mayfair-gallery-medium .mayfair-image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
 }
 
 .mayfair-card-twilight {
   aspect-ratio: 1.3 / 1 !important;
 }
 
-@media (max-width: 768px) {
-  .mayfair-gallery-medium {
-    max-width: 100%;
-  }
-}
-
+/* Base Image Card */
 .mayfair-image-card {
   position: relative;
   width: 100%;
@@ -3032,9 +3199,10 @@ h3 {
 }
 
 .mayfair-image-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
   display: block;
   transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -3043,8 +3211,6 @@ h3 {
   transform: scale(1.025);
 }
 
-
-
 /* Back to Top Floating Button */
 .mayfair-back-to-top {
   position: fixed;
@@ -3052,7 +3218,7 @@ h3 {
   right: clamp(20px, 3vw, 36px);
   width: 36px;
   height: 36px;
-  background-color: #141312;
+  background-color: #1a1917;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -3070,27 +3236,913 @@ h3 {
   transform: translateY(-2px);
 }
 
+/* Dev Bagh Precise Aspect Ratios (Standard 3:2 and Inset Ratios) */
+.devbagh-card-r1-left { aspect-ratio: 3 / 2 !important; }
+.devbagh-card-r1-right { aspect-ratio: 3 / 2 !important; }
+.devbagh-card-r2-inset { aspect-ratio: 1144 / 759 !important; }
+.devbagh-card-r3-left { aspect-ratio: 3 / 2 !important; }
+.devbagh-card-r3-right { aspect-ratio: 3 / 2 !important; }
+.devbagh-card-r4-bleed { aspect-ratio: 1220 / 685 !important; }
+.devbagh-card-r5-left { aspect-ratio: 3 / 2 !important; }
+.devbagh-card-r5-right { aspect-ratio: 3 / 2 !important; }
+.devbagh-card-r6-inset { aspect-ratio: 1378 / 811 !important; }
+
+/* Dev Bagh Full-Bleed & High-Fidelity Geometry (Matching 95.5% PDF Canvas Span) */
+.devbagh-container {
+  width: 100%;
+  max-width: 1560px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.devbagh-gallery-flow {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 4.8vw, 76px);
+  width: 100%;
+  margin-bottom: clamp(60px, 8vw, 120px);
+}
+
+.devbagh-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.devbagh-gallery-row2 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto;
+}
+
+.devbagh-gallery-row3 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.devbagh-gallery-row5 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.devbagh-gallery-row6 {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Radisson Exact PDF Negative Space & Layout Geometry */
+.radisson-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.radisson-featured-card {
+  width: 100%;
+  max-width: 89.5%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.radisson-featured-media {
+  aspect-ratio: 1136 / 714 !important;
+}
+
+/* Row 1: Entrance + Bedroom | Left Bigger (1.23fr : 1fr, 3:2) */
+.radisson-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.radisson-gallery-row1 .radisson-card-r1-left { aspect-ratio: 3 / 2 !important; }
+.radisson-gallery-row1 .radisson-card-r1-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Dining Chandelier | Centered Span: 72.9% */
+.radisson-gallery-row2 {
+  width: 100%;
+  max-width: 72.9%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.radisson-gallery-row2 .mayfair-image-card { aspect-ratio: 1137 / 843 !important; }
+
+/* Row 3: Suralaya Bar + Lobby Lounge | Right Bigger (0.813fr : 1fr, 3:2) */
+.radisson-gallery-row3 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.radisson-gallery-row3 .radisson-card-r3-left { aspect-ratio: 3 / 2 !important; }
+.radisson-gallery-row3 .radisson-card-r3-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 5: Bedroom Window + Terrace Tea | Left Bigger (1.23fr : 1fr, 3:2) */
+.radisson-gallery-row5 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.radisson-gallery-row5 .radisson-card-r5-left { aspect-ratio: 3 / 2 !important; }
+.radisson-gallery-row5 .radisson-card-r5-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 6: Inset Twilight Aerial | Centered Span: 59.9% */
+.radisson-gallery-row6 {
+  width: 100%;
+  max-width: 59.9%;
+  margin: 0 auto;
+}
+
+.radisson-gallery-row6 .mayfair-image-card { aspect-ratio: 915 / 684 !important; }
+
+/* Parallel Exact PDF Negative Space & Layout Geometry */
+.parallel-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.parallel-featured-card {
+  width: 100%;
+  max-width: 85.65%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.parallel-featured-card .mayfair-featured-media {
+  aspect-ratio: 1140 / 749 !important;
+}
+
+/* Row 1: Bedroom + Living Area | Left Bigger (1.23fr : 1fr, 3:2) */
+.parallel-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.parallel-gallery-row1 .parallel-card-r1-left { aspect-ratio: 3 / 2 !important; }
+.parallel-gallery-row1 .parallel-card-r1-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Dusk Cityscape | Centered Span: 72.9% */
+.parallel-gallery-row2 {
+  width: 100%;
+  max-width: 72.9%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.parallel-gallery-row2 .mayfair-image-card { aspect-ratio: 1140 / 881 !important; }
+
+/* Row 3: Dining + Sunset Terrace | Right Bigger (0.813fr : 1fr, 3:2) */
+.parallel-gallery-row3 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.parallel-gallery-row3 .parallel-card-r3-left { aspect-ratio: 3 / 2 !important; }
+.parallel-gallery-row3 .parallel-card-r3-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 4: Inset Night Rooftop Bar | Centered Span: 71.7% */
+.parallel-gallery-row4 {
+  width: 100%;
+  max-width: 71.7%;
+  margin: 0 auto;
+}
+
+.parallel-gallery-row4 .mayfair-image-card { aspect-ratio: 1133 / 873 !important; }
+
+/* Chunda Shikar Oudi Exact PDF Negative Space & Layout Geometry */
+.chunda-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.chunda-featured-card {
+  width: 100%;
+  max-width: 89.39%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.chunda-featured-card .mayfair-featured-media {
+  aspect-ratio: 1136 / 715 !important;
+}
+
+/* Row 1: Left Suite + Right Bedroom | Left Bigger (1.23fr : 1fr, 3:2) */
+.chunda-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.chunda-gallery-row1 .chunda-card-r1-left { aspect-ratio: 3 / 2 !important; }
+.chunda-gallery-row1 .chunda-card-r1-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Palace Courtyard | Centered Span: 72.91% */
+.chunda-gallery-row2 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.chunda-gallery-row2 .mayfair-image-card { aspect-ratio: 1057 / 704 !important; }
+
+/* Row 3: Left Sunlit Lounge + Right Covered Terrace | Left Bigger (1.23fr : 1fr, 3:2) */
+.chunda-gallery-row3 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.chunda-gallery-row3 .chunda-card-r3-left { aspect-ratio: 3 / 2 !important; }
+.chunda-gallery-row3 .chunda-card-r3-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 5: Safari Jeep + Hillside Dining | Right Bigger (0.813fr : 1fr, 3:2) */
+.chunda-gallery-row5 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.chunda-gallery-row5 .chunda-card-r5-left { aspect-ratio: 3 / 2 !important; }
+.chunda-gallery-row5 .chunda-card-r5-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 6: Inset Twilight Facade | Centered Span: 60.69% */
+.chunda-gallery-row6 {
+  width: 100%;
+  max-width: 60.69%;
+  margin: 0 auto;
+}
+
+.chunda-gallery-row6 .mayfair-image-card { aspect-ratio: 1025 / 756 !important; }
+
+/* Fort Mohangarh Exact PDF Negative Space & Layout Geometry */
+.mohangarh-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.mohangarh-featured-card {
+  width: 100%;
+  max-width: 85.58%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.mohangarh-featured-card .mayfair-featured-media {
+  aspect-ratio: 1136 / 747 !important;
+}
+
+/* Row 1: Courtyard + Bedroom | Left Bigger (1.23fr : 1fr, 3:2) */
+.mohangarh-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mohangarh-gallery-row1 .mohangarh-card-r1-left { aspect-ratio: 3 / 2 !important; }
+.mohangarh-gallery-row1 .mohangarh-card-r1-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Twilight Fortress | Centered Span: 72.91% */
+.mohangarh-gallery-row2 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mohangarh-gallery-row2 .mayfair-image-card { aspect-ratio: 1137 / 875 !important; }
+
+/* Row 3: Sunset Pool + Night Pool | Right Bigger (0.813fr : 1fr, 3:2) */
+.mohangarh-gallery-row3 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mohangarh-gallery-row3 .mohangarh-card-r3-left { aspect-ratio: 3 / 2 !important; }
+.mohangarh-gallery-row3 .mohangarh-card-r3-right { aspect-ratio: 3 / 2 !important; }
+
+/* Row 4: Inset Desert Night Framed Arch | Centered Span: 58.71% */
+.mohangarh-gallery-row4 {
+  width: 100%;
+  max-width: 58.71%;
+  margin: 0 auto;
+}
+
+.mohangarh-gallery-row4 .mayfair-image-card { aspect-ratio: 1022 / 785 !important; }
+
+/* Mayfair Gopalpur Exact PDF Negative Space & Layout Geometry */
+.mayfair-gopalpur-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.mayfair-gopalpur-featured-card {
+  width: 100%;
+  max-width: 85.29%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.mayfair-gopalpur-featured-card .mayfair-featured-media {
+  aspect-ratio: 1273 / 840 !important;
+}
+
+/* Row 1: Left Suite + Right Bedroom Detail | Left Bigger (1.23fr : 1fr, 3:2) */
+.mayfair-gopalpur-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gopalpur-gallery-row1 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Palm Lawn | Centered Span: 73.21% */
+.mayfair-gopalpur-gallery-row2 {
+  width: 100%;
+  max-width: 73.21%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gopalpur-gallery-row2 .mayfair-image-card { aspect-ratio: 1144 / 761 !important; }
+
+/* Row 4: Centered Inset Showcase Pool | Centered Span: 84% */
+.mayfair-gopalpur-gallery-row4 {
+  width: 100%;
+  max-width: 84%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gopalpur-gallery-row4 .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 3 / 2 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+/* Row 5: Seaside Terrace + Swan Facade | Right Bigger, Left Smaller (0.813fr : 1fr, 3:2) */
+.mayfair-gopalpur-gallery-row5 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.mayfair-gopalpur-gallery-row5 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+.mayfair-gopalpur-gallery-row5 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 6: Inset Twilight Resort Aerial | Centered Span: 71.67% */
+.mayfair-gopalpur-gallery-row6 {
+  width: 100%;
+  max-width: 71.67%;
+  margin: 0 auto;
+}
+
+.mayfair-gopalpur-gallery-row6 .mayfair-image-card { aspect-ratio: 1125 / 758 !important; }
+
+/* Nobu / Manuscript Custom Gallery Classes (Increased Dimensions) */
+.nobu-gallery-row1,
+.nobu-gallery-asymmetric {
+  display: grid;
+  grid-template-columns: 0.585fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.nobu-gallery-row1 .mayfair-card-portrait,
+.nobu-gallery-asymmetric .mayfair-card-portrait {
+  width: 100%;
+  aspect-ratio: 2 / 3 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.nobu-gallery-row1 .mayfair-card-landscape,
+.nobu-gallery-asymmetric .mayfair-card-landscape {
+  width: 100%;
+  aspect-ratio: 3 / 2 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.nobu-gallery-row1 .mayfair-image-card img,
+.nobu-gallery-asymmetric .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+.nobu-gallery-row3,
+.nobu-gallery-asymmetric-reverse {
+  display: grid;
+  grid-template-columns: 1fr 0.585fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.nobu-gallery-row3 .mayfair-card-portrait,
+.nobu-gallery-asymmetric-reverse .mayfair-card-portrait {
+  width: 100%;
+  aspect-ratio: 2 / 3 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.nobu-gallery-row3 .mayfair-card-landscape,
+.nobu-gallery-asymmetric-reverse .mayfair-card-landscape {
+  width: 100%;
+  aspect-ratio: 3 / 2 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.nobu-gallery-row3 .mayfair-image-card img,
+.nobu-gallery-asymmetric-reverse .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Row 4: Showcase Central Courtyard Balconies | Centered Span: 85.58% */
+.nobu-gallery-row4 {
+  width: 100%;
+  max-width: 85.58%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: clamp(48px, 6.5vw, 92px);
+}
+
+.nobu-gallery-row4 .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 3 / 2 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.nobu-gallery-row4 .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Row 7: Heritage Facade View | Centered Span: 72.91% */
+.nobu-gallery-row7 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto;
+}
+
+.nobu-gallery-row7 .mayfair-image-card {
+  width: 100%;
+  aspect-ratio: 848 / 620 !important;
+  overflow: hidden;
+  background-color: #dcd8cf;
+}
+
+.nobu-gallery-row7 .mayfair-image-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Janu Exact Layout Geometry (Matching Chunda & Mohangarh 1:1) */
+.janu-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.janu-featured-card {
+  width: 100%;
+  max-width: 85.58%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.janu-featured-card .mayfair-featured-media {
+  aspect-ratio: 3 / 2 !important;
+}
+
+/* Row 1: Bedroom 1 + Bedroom 2 | Left Bigger (1.23fr : 1fr, 3:2) */
+.janu-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.janu-gallery-row1 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Sunset Balcony | Centered Span: 72.91% */
+.janu-gallery-row2 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.janu-gallery-row2 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 3: Living Interior + Bathroom | Left Bigger (1.23fr : 1fr, 3:2) */
+.janu-gallery-row3 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.janu-gallery-row3 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 5: Pool Deck + Forest Aerial | Right Bigger (0.813fr : 1fr, 3:2) */
+.janu-gallery-row5 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.janu-gallery-row5 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 6: Inset Twilight Facade Entrance | Centered Span: 72.91% */
+.janu-gallery-row6 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto;
+}
+
+/* Luxury Lodges of Australia Layout Geometry (Matching Chunda & Mohangarh 1:1) */
+.luxury-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.luxury-featured-card {
+  width: 100%;
+  max-width: 85.58%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.luxury-featured-card .mayfair-featured-media {
+  aspect-ratio: 3 / 2 !important;
+}
+
+/* Row 1: Cabana + Dining | Left Bigger (1.23fr : 1fr, 3:2) */
+.luxury-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.luxury-gallery-row1 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Master Suite | Centered Span: 72.91% */
+.luxury-gallery-row2 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.luxury-gallery-row2 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 3: Stone Bath + Canopy Bed | Left Bigger (1.23fr : 1fr, 3:2) */
+.luxury-gallery-row3 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.luxury-gallery-row3 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 5: Night Deck + Pergola | Right Bigger (0.813fr : 1fr, 3:2) */
+.luxury-gallery-row5 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.luxury-gallery-row5 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 6: Inset Lounge Suite | Centered Span: 72.91% */
+.luxury-gallery-row6 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.luxury-gallery-row6 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 7: Oval Bath + Balcony Jacuzzi | Right Bigger (0.813fr : 1fr, 3:2) */
+.luxury-gallery-row7 {
+  display: grid;
+  grid-template-columns: 0.813fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.luxury-gallery-row7 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 8: Inset Distant Ridge Aerial | Centered Span: 72.91% */
+.luxury-gallery-row8 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto;
+}
+
+.luxury-gallery-row8 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+
+/* The Leela Palace Udaipur Layout Geometry (Matching Chunda & Mohangarh 1:1) */
+.theleela-container {
+  width: 100%;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2.4vw, 36px);
+  box-sizing: border-box;
+}
+
+.theleela-featured-card {
+  width: 100%;
+  max-width: 85.58%;
+  margin: 0 auto clamp(48px, 6vw, 96px);
+}
+
+.theleela-featured-card .mayfair-featured-media {
+  aspect-ratio: 3 / 2 !important;
+}
+
+/* Row 1: Left Suite + Right Living Area | Left Bigger (1.23fr : 1fr, 3:2) */
+.theleela-gallery-row1 {
+  display: grid;
+  grid-template-columns: 1.23fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.theleela-gallery-row1 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 2: Inset Garden Pool Suite | Centered Span: 72.91% */
+.theleela-gallery-row2 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.theleela-gallery-row2 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 3: Chef Plating Portrait + Library Landscape | Asymmetric (0.585fr : 1fr) */
+.theleela-gallery-row3 {
+  display: grid;
+  grid-template-columns: 0.585fr 1fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.theleela-gallery-row3 .mayfair-card-portrait { aspect-ratio: 2 / 3 !important; }
+.theleela-gallery-row3 .mayfair-card-landscape { aspect-ratio: 3 / 2 !important; }
+
+/* Row 4: Centered Inset Lakeside Courtyard Showcase | Centered Span: 84% */
+.theleela-gallery-row4 {
+  width: 100%;
+  max-width: 84%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.theleela-gallery-row4 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+/* Row 5: Lakeside Breakfast Landscape + Gourmet Orchid Portrait | Asymmetric (1fr : 0.585fr) */
+.theleela-gallery-row5 {
+  display: grid;
+  grid-template-columns: 1fr 0.585fr;
+  gap: clamp(24px, 3.8vw, 52px);
+  align-items: center;
+  width: 100%;
+  max-width: 90.8%;
+  margin: 0 auto clamp(48px, 6.5vw, 92px);
+}
+
+.theleela-gallery-row5 .mayfair-card-landscape { aspect-ratio: 3 / 2 !important; }
+.theleela-gallery-row5 .mayfair-card-portrait { aspect-ratio: 2 / 3 !important; }
+
+/* Row 6: Inset Bougainvillea Palace Facade | Centered Span: 72.91% */
+.theleela-gallery-row6 {
+  width: 100%;
+  max-width: 72.91%;
+  margin: 0 auto;
+}
+
+.theleela-gallery-row6 .mayfair-image-card { aspect-ratio: 3 / 2 !important; }
+
+
 /* Responsive Adjustments */
 @media (max-width: 900px) {
+  .mayfair-hero-section {
+    height: 65vh;
+    min-height: 360px;
+  }
+
   .mayfair-info-section {
     grid-template-columns: 1fr;
     gap: 36px;
   }
 
-  .mayfair-gallery-2col {
+  .mayfair-gallery-2col,
+  .mayfair-gallery-2col--top,
+  .mayfair-gallery-2col--right-bigger,
+  .mayfair-gallery-2col--reverse,
+  .radisson-gallery-row1,
+  .radisson-gallery-row3,
+  .radisson-gallery-row5,
+  .parallel-gallery-row1,
+  .parallel-gallery-row3,
+  .chunda-gallery-row1,
+  .chunda-gallery-row3,
+  .chunda-gallery-row5,
+  .mohangarh-gallery-row1,
+  .mohangarh-gallery-row3,
+  .mayfair-gopalpur-gallery-row1,
+  .mayfair-gopalpur-gallery-row5,
+  .nobu-gallery-row1,
+  .nobu-gallery-row3,
+  .janu-gallery-row1,
+  .janu-gallery-row3,
+  .janu-gallery-row5,
+  .luxury-gallery-row1,
+  .luxury-gallery-row3,
+  .luxury-gallery-row5,
+  .luxury-gallery-row7,
+  .theleela-gallery-row1,
+  .theleela-gallery-row3,
+  .theleela-gallery-row5 {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .mayfair-gallery-asymmetric {
+  .mayfair-gallery-asymmetric,
+  .mayfair-gallery-asymmetric-reverse,
+  .nobu-gallery-asymmetric,
+  .nobu-gallery-asymmetric-reverse {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .mayfair-featured-media,
-  .mayfair-card-ratio-wide,
-  .mayfair-card-ratio-standard,
-  .mayfair-card-ratio-portrait,
-  .mayfair-card-ratio-cinema {
-    aspect-ratio: auto;
-    min-height: 280px;
+  .mayfair-gallery-asymmetric .mayfair-card-portrait,
+  .mayfair-gallery-asymmetric-reverse .mayfair-card-portrait,
+  .nobu-gallery-row1 .mayfair-card-portrait,
+  .nobu-gallery-row3 .mayfair-card-portrait,
+  .theleela-gallery-row3 .mayfair-card-portrait,
+  .theleela-gallery-row5 .mayfair-card-portrait {
+    aspect-ratio: 3 / 2;
   }
-}
+
+  .mayfair-gallery-medium,
+  .radisson-gallery-row2,
+  .radisson-gallery-row6,
+  .parallel-gallery-row2,
+  .parallel-gallery-row4,
+  .chunda-gallery-row2,
+  .chunda-gallery-row6,
+  .mohangarh-gallery-row2,
+  .mohangarh-gallery-row4,
+  .mayfair-gopalpur-gallery-row2,
+  .mayfair-gopalpur-gallery-row4,
+  .mayfair-gopalpur-gallery-row6,
+  .nobu-gallery-row4,
+  .nobu-gallery-row7,
+  .janu-gallery-row2,
+  .janu-gallery-row6,
+  .luxury-gallery-row2,
+  .luxury-gallery-row6,
+  .luxury-gallery-row8,
+  .theleela-gallery-row2,
+  .theleela-gallery-row4,
+  .theleela-gallery-row6 {
+    max-width: 100%;
+  }
+}
+

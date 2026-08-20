@@ -225,17 +225,17 @@ export default function LuxuryLodgesPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">LUXURY LODGES OF AUSTRALIA</p>
+        <p className="mayfair-category-tag reveal-text">MANUSCRIPT, UDAIPUR</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Park Hyatt Maldives, the Jagat team was tasked with creating a suite of new stills and film collateral that placed <em>nature at its heart</em>. With the ocean as a living, breathing presence shaping every guest experience - from local traditions to service - the concept of <em>Living Island</em> became the creative foundation. This vision highlights the island's <em>raw beauty</em> and fosters <em>deep connections</em> between people, nature, and self.
         </p>
       </section>
 
       {/* Main Content Container */}
-      <main className="mayfair-container">
+      <main className="luxury-container">
 
         {/* 4. Featured Card (Grand Mountain Resort Building) */}
-        <section className="mayfair-featured-card reveal-item">
+        <section className="mayfair-featured-card luxury-featured-card reveal-item">
           <div className="mayfair-featured-media image-reveal">
             <img
               src="/assets/images/luxury/luxury-featured.jpg"
@@ -287,8 +287,8 @@ export default function LuxuryLodgesPage() {
         {/* 6. Visual Gallery Showcase Flow */}
         <section className="mayfair-gallery-flow" aria-label="Luxury Lodges Photo Gallery">
 
-          {/* Row 1: 2-Column Side-by-Side (Outdoor Cabana + Dining Room) */}
-          <div className="mayfair-gallery-row mayfair-gallery-2col">
+          {/* Row 1: 2-Column Side-by-Side (Outdoor Cabana + Dining Room) | Left Bigger */}
+          <div className="mayfair-gallery-row luxury-gallery-row1">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-cabana.jpg"
@@ -305,8 +305,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 2: Full-Width Panorama (Master Suite Bedroom) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          {/* Row 2: Medium Inset Panorama (Master Suite Bedroom) | Centered Span: 72.91% */}
+          <div className="mayfair-gallery-row luxury-gallery-row2">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-suite.jpg"
@@ -316,8 +316,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 3: 2-Column Side-by-Side (Stone Bath with Candles + Canopy Bed) */}
-          <div className="mayfair-gallery-row mayfair-gallery-2col">
+          {/* Row 3: 2-Column Side-by-Side (Stone Bath with Candles + Canopy Bed) | Left Bigger */}
+          <div className="mayfair-gallery-row luxury-gallery-row3">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-bath-candles.jpg"
@@ -334,8 +334,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 4: Full-Width Panorama (Sunset/Night Pool Terrace) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          {/* Row 4: Full-Width Bleed Panorama (Sunset/Night Pool Terrace) */}
+          <div className="mayfair-gallery-row mayfair-gallery-bleed">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-pool-night.jpg"
@@ -345,8 +345,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 5: 2-Column Side-by-Side (Outdoor Night Deck + Pergola at Dusk) */}
-          <div className="mayfair-gallery-row mayfair-gallery-2col">
+          {/* Row 5: 2-Column Side-by-Side (Outdoor Night Deck + Pergola at Dusk) | Right Bigger */}
+          <div className="mayfair-gallery-row luxury-gallery-row5">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-night-deck.jpg"
@@ -363,8 +363,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 6: Full-Width Panorama (Lounge Suite with Panoramic Windows) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          {/* Row 6: Medium Inset Panorama (Lounge Suite with Panoramic Windows) | Centered Span: 72.91% */}
+          <div className="mayfair-gallery-row luxury-gallery-row6">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-lounge-suite.jpg"
@@ -374,8 +374,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 7: 2-Column Side-by-Side (Oval Soaking Tub + Balcony Jacuzzi) */}
-          <div className="mayfair-gallery-row mayfair-gallery-2col">
+          {/* Row 7: 2-Column Side-by-Side (Oval Soaking Tub + Balcony Jacuzzi) | Right Bigger */}
+          <div className="mayfair-gallery-row luxury-gallery-row7">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-oval-bath.jpg"
@@ -392,8 +392,8 @@ export default function LuxuryLodgesPage() {
             </div>
           </div>
 
-          {/* Row 8: Bottom Full Panorama (Distant Ridge Aerial Panorama) */}
-          <div className="mayfair-gallery-row mayfair-gallery-full">
+          {/* Row 8: Bottom Medium Inset Panorama (Distant Ridge Aerial Panorama) | Centered Span: 72.91% */}
+          <div className="mayfair-gallery-row luxury-gallery-row8">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/luxury/luxury-ridge-aerial.jpg"

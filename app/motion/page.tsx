@@ -238,73 +238,76 @@ export default function MotionPage() {
             <article className="project-grid-card reveal-item">
               <Link href="/mayfair" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/aman-motion.png" alt="AMAN" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="AMAN hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion/aman-motion.png" alt="MAYFAIR, JUNGAPANA" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="MAYFAIR, JUNGAPANA hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">AMAN</p>
+                <p className="project-grid-title">MAYFAIR, JUNGAPANA</p>
               </Link>
             </article>
 
-
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/puli-motion.png" alt="THE PULI" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="THE PULI hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">THE PULI</p>
+              <Link href="/parallel" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/puli-motion.png" alt="PARALLEL HOTEL, UDAIPUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="PARALLEL HOTEL hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">PARALLEL HOTEL, UDAIPUR</p>
+              </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/nobu" className="block text-inherit no-underline">
+              <Link href="/mohangarh" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/nobu-motion.png" alt="NOBU RESIDENCES ABU DHABI" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="NOBU hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion/nobu-motion.png" alt="MOHANGARH, JAISALMER" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="MOHANGARH hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">NOBU RESIDENCES ABU DHABI</p>
+                <p className="project-grid-title">MOHANGARH, JAISALMER</p>
               </Link>
             </article>
           </div>
-
 
           {/* ROW 2: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium reveal-item">
               <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/janu-motion.png" alt="ROSEWOOD" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/rosewood-b.webp" alt="ROSEWOOD hover" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/motion/janu-motion.png" alt="NEMESIA, RISHIKESH" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/rosewood-b.webp" alt="NEMESIA hover" loading="lazy" />
               </div>
-              <p className="project-grid-title">ROSEWOOD</p>
+              <p className="project-grid-title">NEMESIA, RISHIKESH</p>
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/sujan-motion.png" alt="KOKOMO" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="KOKOMO hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">KOKOMO</p>
+              <Link href="/ihcl-seleqtions" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/sujan-motion.png" alt="IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="IHCL SELEQTIONS hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR</p>
+              </Link>
             </article>
           </div>
 
           {/* ROW 3: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/puli-motion.png" alt="PARK HYATT MALDIVES" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="PARK HYATT MALDIVES hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">PARK HYATT MALDIVES</p>
-            </article>
-
-            <article className="project-grid-card reveal-item">
-              <Link href="/luxury-lodges-australia" className="block text-inherit no-underline">
+              <Link href="/the-leela" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/rosewood-motion.png" alt="LUXURY LODGES OF AUSTRALIA" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="LUXURY LODGES OF AUSTRALIA hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion/puli-motion.png" alt="THE LEELA PALACE, UDAIPUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="THE LEELA PALACE hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">LUXURY LODGES OF AUSTRALIA</p>
+                <p className="project-grid-title">THE LEELA PALACE, UDAIPUR</p>
               </Link>
             </article>
 
+            <article className="project-grid-card reveal-item">
+              <Link href="/manuscript" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/rosewood-motion.png" alt="MANUSCRIPT, UDAIPUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="MANUSCRIPT hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">MANUSCRIPT, UDAIPUR</p>
+              </Link>
+            </article>
 
             <article className="project-grid-card reveal-item">
               <div className="project-grid-media media-swap image-reveal">
@@ -318,49 +321,54 @@ export default function MotionPage() {
           {/* ROW 4: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/alila-motion.png" alt="ALILA OMAN" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="ALILA OMAN hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">ALILA OMAN</p>
+              <Link href="/mayfair-gopalpur" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/alila-motion.png" alt="MAYFAIR-PALM BEACH RESORT, GOPALPUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="MAYFAIR-PALM BEACH RESORT hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">MAYFAIR-PALM BEACH RESORT, GOPALPUR</p>
+              </Link>
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
-              <Link href="/janu" className="block text-inherit no-underline">
-                <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/kokomo-motion.png" alt="JANU" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
-                </div>
-                <p className="project-grid-title">JANU</p>
-              </Link>
+              <div className="project-grid-media media-swap image-reveal">
+                <img className="media-swap__primary" src="/assets/images/motion/kokomo-motion.png" alt="JANU" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
+              </div>
+              <p className="project-grid-title">JANU</p>
             </article>
           </div>
-
 
           {/* ROW 5: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/ani-motion.png" alt="ANI PRIVATE RESORTS" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="ANI PRIVATE RESORTS hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">ANI PRIVATE RESORTS</p>
+              <Link href="/chunda-shikar-oudi" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/ani-motion.png" alt="CHUNDA SHIKAR OUDI, UDAIPUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="CHUNDA SHIKAR OUDI hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">CHUNDA SHIKAR OUDI, UDAIPUR</p>
+              </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/fourseasons-motion.png" alt="FOUR SEASONS HOTELS AND RESORTS" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="FOUR SEASONS hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">FOUR SEASONS HOTELS AND RESORTS</p>
+              <Link href="/radisson" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/fourseasons-motion.png" alt="RADDISION, NATHWARA" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="RADDISION hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">RADDISION, NATHWARA</p>
+              </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/sequoia-motion.png" alt="SEQUOIA" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/sequoia-a.webp" alt="SEQUOIA hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">SEQUOIA</p>
+              <Link href="/dev-bagh" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion/sequoia-motion.png" alt="DEVBAGH, UDAIPUR" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/sequoia-a.webp" alt="DEVBAGH hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">DEVBAGH, UDAIPUR</p>
+              </Link>
             </article>
           </div>
 
