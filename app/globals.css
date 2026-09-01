@@ -1432,19 +1432,20 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
+  gap: 14px;
   margin-bottom: 60px;
 }
 
 .social-circle-btn {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #111111;
   color: #ffffff !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 

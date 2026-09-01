@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { Instagram, Linkedin, Facebook, Youtube, MessageCircle } from "lucide-react";
+import { Instagram, Linkedin } from "lucide-react";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -880,19 +880,59 @@ export default function Home() {
             </p>
 
             <div className="about-us__socials">
-              <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="social-circle-btn">
-                <Facebook className="w-5 h-5 fill-current stroke-none" />
-              </a>
-              <a href="https://www.instagram.com/soupbyfalka/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="social-circle-btn">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="https://wa.me/919462703961?text=Hii" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="social-circle-btn">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className="w-5 h-5" aria-hidden="true">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.8L0 32l8.456-2.004A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.267 13.267 0 01-6.771-1.854l-.485-.29-5.02 1.317 1.338-4.887-.317-.502A13.225 13.225 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.815c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.896.199-.266.398-1.029 1.294-1.261 1.56-.232.265-.464.298-.862.099-.398-.199-1.681-.62-3.201-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.099-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.062.497-.365.398-1.394 1.361-1.394 3.32s1.427 3.85 1.626 4.116c.199.265 2.808 4.286 6.803 6.012.951.41 1.693.655 2.271.838.954.303 1.823.26 2.51.158.766-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.1-.165-.365-.265-.763-.464z"/>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="social-circle-btn"
+                onMouseEnter={() => handleMouseEnter("Facebook", true)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
-              <a href="https://www.youtube.com/@SoupbyFalka" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="social-circle-btn">
-                <Youtube className="w-5 h-5 fill-current stroke-none" />
+              <a
+                href="https://www.instagram.com/soupbyfalka/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="social-circle-btn"
+                onMouseEnter={() => handleMouseEnter("Instagram", true)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+              <a
+                href="https://wa.me/919462703961?text=Hii"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="social-circle-btn"
+                onMouseEnter={() => handleMouseEnter("WhatsApp", true)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.8L0 32l8.456-2.004A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.267 13.267 0 01-6.771-1.854l-.485-.29-5.02 1.317 1.338-4.887-.317-.502A13.225 13.225 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.815c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.896.199-.266.398-1.029 1.294-1.261 1.56-.232.265-.464.298-.862.099-.398-.199-1.681-.62-3.201-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.099-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.062.497-.365.398-1.394 1.361-1.394 3.32s1.427 3.85 1.626 4.116c.199.265 2.808 4.286 6.803 6.012.951.41 1.693.655 2.271.838.954.303 1.823.26 2.51.158.766-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.1-.165-.365-.265-.763-.464z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com/@SoupbyFalka"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="social-circle-btn"
+                onMouseEnter={() => handleMouseEnter("YouTube", true)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
               </a>
             </div>
 
