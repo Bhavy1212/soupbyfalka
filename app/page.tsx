@@ -861,111 +861,216 @@ export default function Home() {
         {/* Page Breaker Divider Line */}
         <div className="page-breaker"></div>
 
-        {/* Section: Editorial Statement */}
-        <section className="about-us-section section" aria-label="Editorial Statement">
-          <div className="about-us__statement">
-            <p>
-              Hospitality has a <em>language</em> of its own. SOUP has spent <em>years</em> around the people who <em>speak</em> it best,<br className="hidden sm:inline" />
-              seeing what they see, understanding what they <em>value</em>, and creating alongside them.<br className="hidden sm:inline" />
-              Some <em>names</em> are better left to speak for <em>themselves</em>.
-            </p>
-          </div>
-          <div className="about-us__container" style={{ display: 'none' }}>
+        {/* Section: A Little Bit of Us & Featured In (Reference Image 2) */}
+        <section className="about-us-section section" aria-label="A Little Bit of Us" style={{ padding: "clamp(80px, 9vw, 130px) var(--gutter) clamp(64px, 8vw, 100px)", textAlign: "center", background: "var(--paper)" }}>
+          {/* Top Kicker */}
+          <p style={{
+            fontFamily: "var(--font-serif-primary)",
+            fontSize: "clamp(11px, 0.95vw, 13px)",
+            fontWeight: 700,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "#1a1917",
+            marginBottom: "18px",
+            textAlign: "center"
+          }}>
+            A LITTLE BIT OF US
+          </p>
 
-            <div className="about-us__socials">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="social-circle-btn"
-                onMouseEnter={() => handleMouseEnter("Facebook", true)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-                </svg>
-              </a>
-              <a
-                href="https://www.instagram.com/soupbyfalka/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="social-circle-btn"
-                onMouseEnter={() => handleMouseEnter("Instagram", true)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-              </a>
-              <a
-                href="https://wa.me/919462703961?text=Hii"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="social-circle-btn"
-                onMouseEnter={() => handleMouseEnter("WhatsApp", true)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.8L0 32l8.456-2.004A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.267 13.267 0 01-6.771-1.854l-.485-.29-5.02 1.317 1.338-4.887-.317-.502A13.225 13.225 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.815c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.896.199-.266.398-1.029 1.294-1.261 1.56-.232.265-.464.298-.862.099-.398-.199-1.681-.62-3.201-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.099-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.062.497-.365.398-1.394 1.361-1.394 3.32s1.427 3.85 1.626 4.116c.199.265 2.808 4.286 6.803 6.012.951.41 1.693.655 2.271.838.954.303 1.823.26 2.51.158.766-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.1-.165-.365-.265-.763-.464z" />
-                </svg>
-              </a>
-              <a
-                href="https://www.youtube.com/@SoupbyFalka"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="social-circle-btn"
-                onMouseEnter={() => handleMouseEnter("YouTube", true)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-              </a>
+          {/* Paragraph */}
+          <p style={{
+            fontFamily: "var(--font-sans-primary)",
+            fontSize: "clamp(14px, 1.25vw, 16.5px)",
+            lineHeight: 1.65,
+            color: "#4a4641",
+            maxWidth: "760px",
+            margin: "0 auto clamp(28px, 3.5vw, 40px)",
+            textAlign: "center"
+          }}>
+            From the grandeur of your property, it&apos;s surrounding landscape, to the inviting poolside and<br className="hidden md:inline" />{" "}
+            the plush armchair by the window, every element speaks and we make sure it&apos;s heard.
+          </p>
+
+          {/* 4 Social Circle Buttons */}
+          <div className="about-us__socials" style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "14px",
+            marginBottom: "clamp(48px, 6vw, 72px)"
+          }}>
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="social-circle-btn"
+              onMouseEnter={() => handleMouseEnter("Facebook", true)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/soupbyfalka/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="social-circle-btn"
+              onMouseEnter={() => handleMouseEnter("Instagram", true)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a
+              href="https://wa.me/919462703961?text=Hii"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="social-circle-btn"
+              onMouseEnter={() => handleMouseEnter("WhatsApp", true)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="currentColor">
+                <path fillRule="evenodd" clipRule="evenodd" d="M16 0C7.163 0 0 7.163 0 16c0 2.833.738 5.494 2.031 7.8L0 32l8.456-2.004A15.937 15.937 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.267 13.267 0 01-6.771-1.854l-.485-.29-5.02 1.317 1.338-4.887-.317-.502A13.225 13.225 0 012.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.815c-.398-.199-2.354-1.162-2.719-1.294-.365-.133-.631-.199-.896.199-.266.398-1.029 1.294-1.261 1.56-.232.265-.464.298-.862.099-.398-.199-1.681-.62-3.201-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.464.597-.696.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.099-.199-.896-2.16-1.228-2.957-.323-.776-.651-.671-.896-.683l-.763-.013c-.265 0-.696.1-1.062.497-.365.398-1.394 1.361-1.394 3.32s1.427 3.85 1.626 4.116c.199.265 2.808 4.286 6.803 6.012.951.41 1.693.655 2.271.838.954.303 1.823.26 2.51.158.766-.114 2.354-.963 2.686-1.893.332-.93.332-1.727.232-1.893-.1-.165-.365-.265-.763-.464z" />
+              </svg>
+            </a>
+            <a
+              href="https://www.youtube.com/@SoupbyFalka"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="social-circle-btn"
+              onMouseEnter={() => handleMouseEnter("YouTube", true)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
+
+          {/* Featured In Heading */}
+          <div className="featured-in" style={{ width: "100%", marginBottom: "clamp(24px, 3.5vw, 36px)" }}>
+            <h3 style={{
+              fontFamily: "var(--font-serif-primary)",
+              fontStyle: "italic",
+              fontSize: "clamp(26px, 2.8vw, 36px)",
+              fontWeight: 400,
+              color: "#1a1917",
+              textAlign: "center",
+              margin: "0 0 14px"
+            }}>
+              Featured In
+            </h3>
+
+            {/* Slider / Dot Divider */}
+            <div style={{
+              position: "relative",
+              width: "120px",
+              height: "1px",
+              backgroundColor: "rgba(26, 25, 23, 0.35)",
+              margin: "0 auto clamp(36px, 4.5vw, 56px)"
+            }}>
+              <div style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "9px",
+                height: "9px",
+                borderRadius: "50%",
+                backgroundColor: "#1a1917"
+              }} />
             </div>
 
-            <div className="featured-in">
-              <h3 className="featured-in__title">Featured In</h3>
-              <div className="featured-in__divider"></div>
+            {/* Press Logos Row (Exact 5 logos from reference: Grazia, Elle Decor, Architect's Diary, Condé Nast, Femina) */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexWrap: "wrap",
+              gap: "clamp(28px, 5vw, 68px)",
+              maxWidth: "1160px",
+              margin: "0 auto"
+            }}>
+              {/* 1. Grazia */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "54px" }}>
+                <img
+                  src="/assets/images/press/hotel-interior-videographer.svg"
+                  alt="Grazia"
+                  style={{ maxHeight: "44px", width: "auto", objectFit: "contain", filter: "brightness(0)", display: "block" }}
+                />
+              </div>
 
-              <div className="logo-marquee" aria-label="Featured publications marquee">
-                <div className="logo-marquee__track">
-                  {/* Set 1 */}
-                  <img src="/assets/images/press/Best-hotel-photography-in-India.svg" alt="Best Hotel Photography in India" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Hotel-Interior-Photographer.svg" alt="Hotel Interior Photographer" className="marquee-logo-img" />
-                  <img src="/assets/images/press/hotel-interior-videographer.svg" alt="Hotel Interior Videographer" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Professional-Hotel-Photography.svg" alt="Professional Hotel Photography" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg" alt="Resorts Hotel Photography Agency" className="marquee-logo-img" />
+              {/* 2. Elle Decor */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "54px" }}>
+                <img
+                  src="/assets/images/press/Professional-Hotel-Photography.svg"
+                  alt="Elle Decor"
+                  style={{ maxHeight: "38px", width: "auto", objectFit: "contain", filter: "brightness(0)", display: "block" }}
+                />
+              </div>
 
-                  {/* Set 2 (Duplicate for Seamless Loop) */}
-                  <img src="/assets/images/press/Best-hotel-photography-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Hotel-Interior-Photographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/hotel-interior-videographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Professional-Hotel-Photography.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
+              {/* 3. The Architect's Diary */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "54px" }}>
+                <img
+                  src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg"
+                  alt="The Architect's Diary"
+                  style={{ maxHeight: "52px", width: "auto", objectFit: "contain", filter: "brightness(0)", display: "block" }}
+                />
+              </div>
 
-                  {/* Set 3 (Triple for Smooth Wide Infinite Loop) */}
-                  <img src="/assets/images/press/Best-hotel-photography-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Hotel-Interior-Photographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/hotel-interior-videographer.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Professional-Hotel-Photography.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                  <img src="/assets/images/press/Resorts-Hotel-photography-Agency-in-India.svg" alt="" aria-hidden="true" className="marquee-logo-img" />
-                </div>
+              {/* 4. Condé Nast Traveler */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "54px" }}>
+                <img
+                  src="/assets/images/press/Best-hotel-photography-in-India.svg"
+                  alt="Condé Nast Traveler"
+                  style={{ maxHeight: "46px", width: "auto", objectFit: "contain", filter: "brightness(0)", display: "block" }}
+                />
+              </div>
+
+              {/* 5. Femina */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "54px" }}>
+                <img
+                  src="/assets/images/press/Hotel-Interior-Photographer.svg"
+                  alt="Femina"
+                  style={{ maxHeight: "32px", width: "auto", objectFit: "contain", filter: "brightness(0)", display: "block" }}
+                />
               </div>
             </div>
+          </div>
 
-            <div className="essence-quote">
-              <div className="featured-in__divider"></div>
-              <p className="essence-quote__text">
-                &ldquo;The true essence of a meal is revealed in the very first sip of its soup.&rdquo;
-              </p>
-              <div className="featured-in__divider"></div>
-            </div>
+          {/* Essence Quote Section */}
+          <div className="essence-quote" style={{ marginTop: "clamp(36px, 4.5vw, 56px)" }}>
+            <div style={{
+              width: "60px",
+              height: "1px",
+              backgroundColor: "rgba(26, 25, 23, 0.35)",
+              margin: "0 auto clamp(20px, 2.5vw, 28px)"
+            }} />
+            <p style={{
+              fontFamily: "var(--font-serif-primary)",
+              fontStyle: "italic",
+              fontSize: "clamp(16px, 1.55vw, 21px)",
+              color: "#282624",
+              maxWidth: "740px",
+              margin: "0 auto clamp(20px, 2.5vw, 28px)",
+              lineHeight: 1.55
+            }}>
+              &ldquo;The true essence of a meal is revealed in the very first sip of its soup.&rdquo;
+            </p>
+            <div style={{
+              width: "60px",
+              height: "1px",
+              backgroundColor: "rgba(26, 25, 23, 0.35)",
+              margin: "0 auto"
+            }} />
           </div>
         </section>
       </main>
