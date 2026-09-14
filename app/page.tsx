@@ -453,27 +453,27 @@ export default function Home() {
           <div className="menu__body">
             <nav className="menu__nav-links" aria-label="Primary navigation">
               <div className="menu__item-group">
-                <a href="/stills" className="menu__nav-link" onClick={() => setMenuOpen(false)}>PROJECTS</a>
+                <Link href="/stills" className="menu__nav-link" onClick={() => setMenuOpen(false)}>PROJECTS</Link>
                 <div className="menu__sub-nav">
-                  <a
+                  <Link
                     href="/stills"
                     className="menu__sub-link"
                     onClick={() => setMenuOpen(false)}
                   >
                     STILLS
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     href="/motion"
                     className="menu__sub-link"
                     onClick={() => setMenuOpen(false)}
                   >
                     MOTION
-                  </a>
+                  </Link>
                 </div>
               </div>
-              <a href="#journal" className="menu__nav-link" onClick={handleHashLink}>JOURNAL</a>
-              <a href="#about" className="menu__nav-link" onClick={handleHashLink}>ABOUT</a>
-              <a href="#contact" className="menu__nav-link" onClick={handleHashLink}>CONTACT</a>
+              <Link href="/journal" className="menu__nav-link" onClick={() => setMenuOpen(false)}>JOURNAL</Link>
+              <Link href="/about" className="menu__nav-link" onClick={() => setMenuOpen(false)}>ABOUT</Link>
+              <Link href="/contact" className="menu__nav-link" onClick={() => setMenuOpen(false)}>CONTACT</Link>
             </nav>
           </div>
         </div>
@@ -486,7 +486,7 @@ export default function Home() {
           <div className="hero__media">
             <img
               className="hero__fallback"
-              src="assets/images/hero-poster.jpg"
+              src="/assets/images/hero-poster.jpg"
               alt="Aerial view across a warm mountain landscape"
               fetchPriority="high"
               decoding="async"
@@ -499,7 +499,7 @@ export default function Home() {
 
           <div className="hero__copy">
             <h1 id="hero-title" className="reveal-text">
-              From the <em>grandeur</em> of your property, it&apos;s surrounding landscape, to the inviting poolside and the plush armchair by the window, every element <em>speaks</em> and we make sure it&apos;s <em>heard</em>.
+              From the <em>grandeur</em> of your property, its surrounding <em>landscape</em>, to the inviting <em>poolside</em> and the plush armchair by the <em>window</em>, every element <em>speaks</em> and we make sure it&apos;s <em>heard</em>.
             </h1>
           </div>
         </section>
@@ -513,8 +513,8 @@ export default function Home() {
             <div className="projects-filter-box">
               <button
                 type="button"
-                className={`projects-filter-btn ${projectCategory === "stills" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory(projectCategory === "stills" ? null : "stills")}
+                className={`projects-filter-btn ${projectCategory === "stills" || projectCategory === null ? "is-active" : ""}`}
+                onClick={() => setProjectCategory("stills")}
               >
                 STILLS
               </button>
@@ -522,28 +522,23 @@ export default function Home() {
               <button
                 type="button"
                 className={`projects-filter-btn ${projectCategory === "motion" ? "is-active" : ""}`}
-                onClick={() => setProjectCategory(projectCategory === "motion" ? null : "motion")}
+                onClick={() => setProjectCategory("motion")}
               >
                 MOTION
               </button>
             </div>
 
             <p className="section-intro__body">
-              SOUP provides a complete, end-to-end visual content solution. We have the resources, skills and industry-specific experience necessary to produce, create and deliver projects of any scale, in any part of the world.
+              Every property has a character. We capture it through Brand Films and Hospitality Photography, bringing together architecture, landscape, people and experience to create visual communication that makes audiences want to be there.
             </p>
-            {projectCategory && (
-              <a
-                className="btn-outline"
-                href={projectCategory === "motion" ? "/motion" : "/stills"}
-                onMouseEnter={() => handleMouseEnter("Explore", false)}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                  animation: 'fadeIn 0.35s ease-out forwards',
-                }}
-              >
-                VIEW ALL PROJECTS
-              </a>
-            )}
+            <Link
+              className="btn-outline"
+              href={projectCategory === "motion" ? "/motion" : "/stills"}
+              onMouseEnter={() => handleMouseEnter("Explore", false)}
+              onMouseLeave={handleMouseLeave}
+            >
+              VIEW ALL PROJECTS
+            </Link>
           </div>
 
           <div className="project-feed">
@@ -556,10 +551,10 @@ export default function Home() {
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/aman-motion.png" : "assets/images/aman-a.webp"} alt="MAYFAIR, JUNGAPANA resort" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/aman-b.webp" alt="MAYFAIR, JUNGAPANA retreat glowing in evening light" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/mayfair-manor.png" : "/assets/images/aman-a.webp"} alt="Mayfair Manor, Jungapana" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="Mayfair Manor, Jungapana retreat glowing in evening light" loading="lazy" />
                 </span>
-                <span className="project-card__caption"><strong>MAYFAIR, JUNGAPANA</strong></span>
+                <span className="project-card__caption"><strong>Mayfair Manor, Jungapana</strong></span>
               </Link>
             </article>
 
@@ -567,136 +562,165 @@ export default function Home() {
             <div className="project-row project-row--split">
               <article className="project-card project-card--portrait reveal-item">
                 <Link
-                  href="/mohangarh"
+                  href={projectCategory === "motion" ? "/parallel" : "/manuscript"}
                   className="project-card__button block cursor-pointer"
                   data-parallax="0.04"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/nobu-motion.png" : "assets/images/nobu-a.webp"} alt="MOHANGARH interior" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/nobu-b.webp" alt="MOHANGARH architecture" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/parallel-hotel.png" : "/assets/images/nobu-a.webp"} alt={projectCategory === "motion" ? "Parallel Hotel, Udaipur" : "Manuscript, Udaipur"} loading="lazy" />
+                    <img className="media-swap__secondary" src={projectCategory === "motion" ? "/assets/images/parallel/parallel-bedroom.jpg" : "/assets/images/nobu-b.webp"} alt={projectCategory === "motion" ? "Parallel Hotel, Udaipur interior" : "Manuscript, Udaipur architecture"} loading="lazy" />
                   </span>
-                  <span className="project-card__caption"><strong>MOHANGARH, JAISALMER</strong></span>
+                  <span className="project-card__caption">
+                    <strong>{projectCategory === "motion" ? "Parallel Hotel, Udaipur" : "Manuscript, Udaipur"}</strong>
+                  </span>
                 </Link>
               </article>
 
               <article className="project-card project-card--landscape project-card--lower reveal-item">
                 <Link
-                  href="/the-leela"
+                  href="/mohangarh"
                   className="project-card__button block cursor-pointer"
                   data-parallax="0.16"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/puli-motion.png" : "assets/images/hyatt-a.webp"} alt="THE LEELA PALACE courtyard" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/hyatt-b.webp" alt="THE LEELA PALACE palace beneath blue clouds" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/mohangarh-fort.png" : "/assets/images/hyatt-a.webp"} alt="Mohangarh Fort, Jaisalmer" loading="lazy" />
+                    <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="Mohangarh Fort, Jaisalmer palace beneath twilight clouds" loading="lazy" />
                   </span>
-                  <span className="project-card__caption"><strong>THE LEELA PALACE, UDAIPUR</strong></span>
+                  <span className="project-card__caption"><strong>Mohangarh Fort, Jaisalmer</strong></span>
                 </Link>
               </article>
             </div>
 
             {/* Project 4 */}
             <article className="project-card project-card--hero project-card--right reveal-item">
-              <div
-                className="project-card__button"
-                data-parallax="0.09"
-                onMouseEnter={() => handleMouseEnter("View project", false)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/kokomo-motion.png" : "assets/images/janu-a.webp"} alt="A forest lodge at dusk" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/janu-b.webp" alt="Mountain retreat at golden hour" loading="lazy" />
-                </span>
-                <span className="project-card__caption"><strong>JANU</strong></span>
-              </div>
-            </article>
-
-            {/* Project 5 */}
-            <article className="project-card project-card--hero reveal-item">
               <Link
-                href="/manuscript"
+                href={projectCategory === "motion" ? "/mayfair-gopalpur" : "/ihcl-seleqtions"}
                 className="project-card__button block cursor-pointer"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/rosewood-motion.png" : "assets/images/luxury-a.webp"} alt="MANUSCRIPT suite" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/luxury-b.webp" alt="MANUSCRIPT interior" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/mayfair-gopalpur.png" : "/assets/images/janu-a.webp"} alt={projectCategory === "motion" ? "Mayfair Palm Beach Resort, Gopalpur" : "IHCL Himalayan Woodcroft, Sirmour"} loading="lazy" />
+                  <img className="media-swap__secondary" src={projectCategory === "motion" ? "/assets/images/kokomo-b.webp" : "/assets/images/janu-b.webp"} alt={projectCategory === "motion" ? "Mayfair Palm Beach Resort, Gopalpur grounds" : "IHCL Himalayan Woodcroft, Sirmour mountain retreat at golden hour"} loading="lazy" />
                 </span>
-                <span className="project-card__caption"><strong>MANUSCRIPT, UDAIPUR</strong></span>
+                <span className="project-card__caption">
+                  <strong>{projectCategory === "motion" ? "Mayfair Palm Beach Resort, Gopalpur" : "IHCL Himalayan Woodcroft, Sirmour"}</strong>
+                </span>
+              </Link>
+            </article>
+
+            {/* Project 5 */}
+            <article className="project-card project-card--hero reveal-item">
+              <Link
+                href={projectCategory === "motion" ? "/the-leela" : "/nemesia"}
+                className="project-card__button block cursor-pointer"
+                data-parallax="0.09"
+                onMouseEnter={() => handleMouseEnter("View project", false)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <span className="media-swap image-reveal">
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/the-leela-palace.png" : "/assets/images/luxury-a.webp"} alt={projectCategory === "motion" ? "The Leela Palace, Udaipur" : "Nemesia Resort & Spa, Rishikesh"} loading="lazy" />
+                  <img className="media-swap__secondary" src={projectCategory === "motion" ? "/assets/images/rosewood-b.webp" : "/assets/images/luxury-b.webp"} alt={projectCategory === "motion" ? "The Leela Palace, Udaipur courtyard" : "Nemesia Resort & Spa, Rishikesh suite"} loading="lazy" />
+                </span>
+                <span className="project-card__caption">
+                  <strong>{projectCategory === "motion" ? "The Leela Palace, Udaipur" : "Nemesia Resort & Spa, Rishikesh"}</strong>
+                </span>
               </Link>
             </article>
 
             {/* Project 6 & 7 Split (Reverse) */}
             <div className="project-row project-row--split">
               <article className="project-card project-card--portrait reveal-item">
-                <div
-                  className="project-card__button"
-                  data-parallax="0.04"
-                  onMouseEnter={() => handleMouseEnter("View project", false)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/fourseasons-motion.png" : "assets/images/sujan-a.webp"} alt="Candlelit path beneath trees" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/sujan-b.webp" alt="A local storyteller at sunset" loading="lazy" />
-                  </span>
-                  <span className="project-card__caption"><strong>SUJAN</strong></span>
-                </div>
+                {projectCategory === "motion" ? (
+                  <Link
+                    href="/manuscript"
+                    className="project-card__button block cursor-pointer"
+                    data-parallax="0.04"
+                    onMouseEnter={() => handleMouseEnter("View project", false)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <span className="media-swap image-reveal">
+                      <img className="media-swap__primary" src="/assets/images/motion_pdf/manuscript-udaipur.png" alt="Manuscript, Udaipur" loading="lazy" />
+                      <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="Manuscript, Udaipur architecture" loading="lazy" />
+                    </span>
+                    <span className="project-card__caption"><strong>Manuscript, Udaipur</strong></span>
+                  </Link>
+                ) : (
+                  <div
+                    className="project-card__button"
+                    data-parallax="0.04"
+                    onMouseEnter={() => handleMouseEnter("View project", false)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <span className="media-swap image-reveal">
+                      <img className="media-swap__primary" src="/assets/images/sujan-a.webp" alt="Rawla Narlai, Narlai" loading="lazy" />
+                      <img className="media-swap__secondary" src="/assets/images/sujan-b.webp" alt="Rawla Narlai, Narlai candlelit evening" loading="lazy" />
+                    </span>
+                    <span className="project-card__caption"><strong>Rawla Narlai, Narlai</strong></span>
+                  </div>
+                )}
               </article>
 
               <article className="project-card project-card--landscape project-card--lower reveal-item">
-                <div
-                  className="project-card__button"
+                <Link
+                  href={projectCategory === "motion" ? "/mayfair-puri" : "/the-leela"}
+                  className="project-card__button block cursor-pointer"
                   data-parallax="0.16"
                   onMouseEnter={() => handleMouseEnter("View project", false)}
                   onMouseLeave={handleMouseLeave}
                 >
                   <span className="media-swap image-reveal">
-                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/janu-motion.png" : "assets/images/rosewood-a.webp"} alt="NEMESIA luxury retreat" loading="lazy" />
-                    <img className="media-swap__secondary" src="assets/images/rosewood-b.webp" alt="NEMESIA garden pool at twilight" loading="lazy" />
+                    <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/mayfair-waves-puri.png" : "/assets/images/rosewood-a.webp"} alt={projectCategory === "motion" ? "Mayfair Heritage & Waves Resort, Puri" : "The Leela Palace, Udaipur"} loading="lazy" />
+                    <img className="media-swap__secondary" src={projectCategory === "motion" ? "/assets/images/mayfair-puri/asset_03_1026x473.png" : "/assets/images/rosewood-b.webp"} alt={projectCategory === "motion" ? "Mayfair Heritage & Waves Resort, Puri hover" : "The Leela Palace, Udaipur courtyard"} loading="lazy" />
                   </span>
-                  <span className="project-card__caption"><strong>NEMESIA, RISHIKESH</strong></span>
-                </div>
+                  <span className="project-card__caption">
+                    <strong>{projectCategory === "motion" ? "Mayfair Heritage & Waves Resort, Puri" : "The Leela Palace, Udaipur"}</strong>
+                  </span>
+                </Link>
               </article>
             </div>
 
             {/* Project 8 */}
             <article className="project-card project-card--hero reveal-item">
               <Link
-                href="/ihcl-seleqtions"
+                href={projectCategory === "motion" ? "/radisson" : "/mayfair-gopalpur"}
                 className="project-card__button block cursor-pointer"
                 data-parallax="0.09"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}
               >
                 <span className="media-swap image-reveal">
-                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion/sujan-motion.png" : "assets/images/kokomo-a.webp"} alt="IHCL SELEQTIONS gardens" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/kokomo-b.webp" alt="IHCL SELEQTIONS grounds" loading="lazy" />
+                  <img className="media-swap__primary" src={projectCategory === "motion" ? "/assets/images/motion_pdf/radisson-nathdwara.png" : "/assets/images/kokomo-a.webp"} alt={projectCategory === "motion" ? "Radisson, Nathdwara" : "Mayfair Palm Beach Resort, Gopalpur"} loading="lazy" />
+                  <img className="media-swap__secondary" src={projectCategory === "motion" ? "/assets/images/fourseasons-a.webp" : "/assets/images/kokomo-b.webp"} alt={projectCategory === "motion" ? "Radisson, Nathdwara hover" : "Mayfair Palm Beach Resort, Gopalpur grounds"} loading="lazy" />
                 </span>
-                <span className="project-card__caption"><strong>IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR</strong></span>
+                <span className="project-card__caption">
+                  <strong>{projectCategory === "motion" ? "Radisson, Nathdwara" : "Mayfair Palm Beach Resort, Gopalpur"}</strong>
+                </span>
               </Link>
             </article>
           </div>
         </section>
 
         {/* Film Section Intro Text */}
-        <div style={{ textAlign: 'center', padding: '36px var(--gutter) 16px', background: 'var(--paper)' }}>
+        <div style={{ textAlign: 'center', padding: '64px var(--gutter) 36px', background: 'var(--paper)' }}>
           <p style={{
             maxWidth: '1060px',
             margin: '0 auto',
-            fontFamily: "'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, 'Times New Roman', serif",
+            fontFamily: "var(--font-serif-primary)",
             fontSize: 'clamp(15px, 1.55vw, 21px)',
-            lineHeight: '1.5',
-            letterSpacing: '-0.01em',
+            lineHeight: '1.65',
+            letterSpacing: '-0.005em',
             fontWeight: '400',
-            fontStyle: 'italic',
             color: '#2b2927'
           }}>
-            <em>Soup crafts evocative films that bring stories to life, seamlessly connecting your brand, space, and vision through cinematic storytelling. Explore some features below.</em>
+            Hospitality has a <em>language</em> of its own. SOUP has spent <em>years</em> around the people who <em>speak</em> it best,<br className="hidden md:inline" />
+            seeing what they see, understanding what they <em>value</em>, and creating alongside them.<br className="hidden md:inline" />
+            Some <em>names</em> are better left to speak for <em>themselves</em>.
           </p>
         </div>
 
@@ -704,40 +728,40 @@ export default function Home() {
         <section className="films section" id="films" aria-label="Visual Stills Grid" style={{ padding: '20px var(--gutter)' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px' }}>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/nobu-b.webp" alt="Stills grid 1" loading="lazy" />
+              <img src="/assets/images/nobu-b.webp" alt="Stills grid 1" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/about-ripples.webp" alt="Stills grid 2" loading="lazy" />
+              <img src="/assets/images/about-ripples.webp" alt="Stills grid 2" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/hyatt-b.webp" alt="Stills grid 3" loading="lazy" />
+              <img src="/assets/images/hyatt-b.webp" alt="Stills grid 3" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/founder-jackson.webp" alt="Stills grid 4" loading="lazy" />
+              <img src="/assets/images/founder-jackson.webp" alt="Stills grid 4" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/janu-b.webp" alt="Stills grid 5" loading="lazy" />
+              <img src="/assets/images/janu-b.webp" alt="Stills grid 5" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/rosewood-b.webp" alt="Stills grid 6" loading="lazy" />
+              <img src="/assets/images/rosewood-b.webp" alt="Stills grid 6" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/sujan-b.webp" alt="Stills grid 7" loading="lazy" />
+              <img src="/assets/images/sujan-b.webp" alt="Stills grid 7" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/luxury-b.webp" alt="Stills grid 8" loading="lazy" />
+              <img src="/assets/images/luxury-b.webp" alt="Stills grid 8" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/founder-lauren.webp" alt="Stills grid 9" loading="lazy" />
+              <img src="/assets/images/founder-lauren.webp" alt="Stills grid 9" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/feature-fort-b.webp" alt="Stills grid 10" loading="lazy" />
+              <img src="/assets/images/feature-fort-b.webp" alt="Stills grid 10" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/kokomo-a.webp" alt="Stills grid 11" loading="lazy" />
+              <img src="/assets/images/kokomo-a.webp" alt="Stills grid 11" loading="lazy" />
             </div>
             <div className="media-swap image-reveal" style={{ aspectRatio: '16/6.8' }}>
-              <img src="assets/images/feature-rabari-b.webp" alt="Stills grid 12" loading="lazy" />
+              <img src="/assets/images/feature-rabari-b.webp" alt="Stills grid 12" loading="lazy" />
             </div>
           </div>
         </section>
@@ -746,124 +770,90 @@ export default function Home() {
         <section className="journal section" id="journal" aria-labelledby="journal-heading">
           <div className="section-intro journal__intro">
             <div className="journal__lead-image media-swap image-reveal reveal-item">
-              <img className="media-swap__primary" src="assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" />
-              <img className="media-swap__secondary" src="assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" />
+              <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" />
+              <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" />
             </div>
             <p className="micro" id="journal-heading">JOURNAL</p>
             <p className="section-intro__body">
               As specialists in storytelling, there is more to the tale than the destination. Our experiences, the musings and people found along the way, are all worth writing home about.
             </p>
-            <a
+            <Link
               className="btn-outline magnetic"
-              href="#contact"
-              onClick={handleHashLink}
-              onMouseEnter={() => handleMouseEnter("Read", false)}
+              href="/journal"
+              onMouseEnter={() => handleMouseEnter("Explore Journal", false)}
               onMouseLeave={handleMouseLeave}
             >
               VIEW MORE
-            </a>
+            </Link>
           </div>
 
           <div className="story-feed">
+            {/* Story 1: Chunda Shikar Oudi */}
             <article className="story story--wide reveal-item">
-              <a
-                href="#contact"
-                className="story__media media-swap image-reveal"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMouseEnter("Read story", false)}
+              <Link
+                href="/journal/chunda-shikar-oudi"
+                className="story__media media-swap image-reveal block"
+                onMouseEnter={() => handleMouseEnter("Read essay", false)}
                 onMouseLeave={handleMouseLeave}
               >
-                <img className="media-swap__primary" src="assets/images/feature-jeep-a.webp" alt="Safari vehicle at sunset" loading="lazy" />
-                <img className="media-swap__secondary" src="assets/images/kokomo-b.webp" alt="A resort landscape surrounded by tropical gardens" loading="lazy" />
-              </a>
+                <img className="media-swap__primary" src="/assets/images/feature-jeep-a.webp" alt="Chunda Shikar Oudi safari sunset" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="Chunda Shikar Oudi landscape" loading="lazy" />
+              </Link>
               <div className="story__copy">
                 <p className="micro">FEATURE</p>
-                <h2 style={{ fontFamily: 'Georgia, serif', fontStyle: 'italic', fontWeight: 'normal' }}>Rugged Beauty, Quiet Luxury</h2>
-                <p>Few places linger long after you leave. Enter Rosewood Cape Kidnappers. From our arrival to the final frame, this shoot was a celebration of contrasts: rugged cliffs, working farmland and curated elegance. What unfolded was a story of place, purpose, and presence.</p>
+                <Link href="/journal/chunda-shikar-oudi">
+                  <h2>Chunda Shikar Oudi - Where Wilderness Remains The Main Presence</h2>
+                </Link>
+                <p>&ldquo;Hospitality becomes more meaningful when the environment is treated as a presence rather than backdrop.&rdquo;</p>
               </div>
             </article>
 
+            {/* Story 2: Mohangarh Fort */}
             <article className="story story--wide story--reverse reveal-item">
-              <a
-                href="#contact"
-                className="story__media media-swap image-reveal"
-                onClick={handleHashLink}
-                onMouseEnter={() => handleMouseEnter("Read story", false)}
+              <Link
+                href="/journal/mohangarh"
+                className="story__media media-swap image-reveal block"
+                onMouseEnter={() => handleMouseEnter("Read essay", false)}
                 onMouseLeave={handleMouseLeave}
               >
-                <img className="media-swap__primary" src="assets/images/feature-fort-a.webp" alt="Historic desert fort beneath dramatic clouds" loading="lazy" />
-                <img className="media-swap__secondary" src="assets/images/feature-fort-b.webp" alt="Fort-like luxury property at twilight" loading="lazy" />
-              </a>
+                <img className="media-swap__primary" src="/assets/images/feature-fort-a.webp" alt="Historic Mohangarh Fort beneath dramatic clouds" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/feature-fort-b.webp" alt="Mohangarh Fort at twilight" loading="lazy" />
+              </Link>
               <div className="story__copy">
-                <p className="micro">Feature / Encounter</p>
-                <h2>Into the Wild with an Artist</h2>
-                <p>One unhurried day shaped by conversation, craft and the changing light around a remote home.</p>
+                <p className="micro">FEATURE</p>
+                <Link href="/journal/mohangarh">
+                  <h2>Mohangarh Fort: The Last Standing Fort of India</h2>
+                </Link>
+                <p>&ldquo;The future of heritage hospitality may depend less on restoration and more on retaining emotional truth.&rdquo;</p>
               </div>
             </article>
 
-            <div className="story-pair">
-              <article className="story story--portrait reveal-item">
-                <a
-                  href="#contact"
-                  className="story__media media-swap image-reveal"
-                  onClick={handleHashLink}
-                  onMouseEnter={() => handleMouseEnter("Read story", false)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <img className="media-swap__primary" src="assets/images/feature-rabari-a.webp" alt="Local man preparing tea at sunset" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/feature-rabari-b.webp" alt="Candlelit path through the trees" loading="lazy" />
-                </a>
-                <div className="story__copy">
-                  <p className="micro">FEATURE</p>
-                  <h2>Where Rabari &amp; Leopards Coexist</h2>
-                  <p>Placing Jawai on the truly remarkable map, for centuries the local Rabari Tribal Communities have lived in complete harmony with the leopards of the area. We explore this connection that's as spiritual as it is familial.</p>
-                </div>
-              </article>
-
-              <article className="story story--portrait reveal-item">
-                <a
-                  href="#contact"
-                  className="story__media media-swap image-reveal"
-                  onClick={handleHashLink}
-                  onMouseEnter={() => handleMouseEnter("Read story", false)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <img className="media-swap__primary" src="assets/images/feature-room-a.webp" alt="Traditional timber bedroom" loading="lazy" />
-                  <img className="media-swap__secondary" src="assets/images/feature-room-b.webp" alt="Modern luxury suite overlooking the landscape" loading="lazy" />
-                </a>
-                <div className="story__copy">
-                  <p className="micro">FEATURE</p>
-                  <h2>A Journey of Discovery</h2>
-                  <p>Uncovering remote landscapes and hidden architectural gems, where heritage seamlessly blends with quiet luxury and thoughtful craftsmanship.</p>
-                </div>
-              </article>
-            </div>
           </div>
         </section>
 
         {/* About Section */}
         <section className="about section" id="about" aria-labelledby="about-heading">
           <div className="about__copy section-intro">
-            <p className="micro" id="about-heading">About</p>
+            <p className="micro" id="about-heading">ABOUT</p>
             <p className="section-intro__body">
               Storytelling in a visually driven world needs more than beautiful frames. Every image and every movement must serve a clear narrative and create a reason to feel connected.
             </p>
-            <a
-              className="line-link magnetic"
-              href="#contact"
-              onClick={handleHashLink}
-              onMouseEnter={() => handleMouseEnter("Discover", false)}
+            <Link
+              className="btn-outline magnetic"
+              href="/about"
+              onMouseEnter={() => handleMouseEnter("About Soup", false)}
               onMouseLeave={handleMouseLeave}
             >
-              <span>About Soup</span><i>↘</i>
-            </a>
+              VIEW MORE
+            </Link>
           </div>
           <div
             className="about__media image-reveal reveal-item"
-            onMouseEnter={() => handleMouseEnter("Discover", false)}
+            data-parallax="0.06"
+            onMouseEnter={() => handleMouseEnter("About Us", false)}
             onMouseLeave={handleMouseLeave}
           >
-            <img src="assets/images/about-ripples.webp" alt="Rain ripples across dark water" loading="lazy" data-parallax="0.08" />
+            <img src="/assets/images/about-ripples.webp" alt="Rain ripples across dark water" loading="lazy" />
             <span className="about__word">Story / Atmosphere / Detail</span>
           </div>
         </section>
@@ -871,13 +861,16 @@ export default function Home() {
         {/* Page Breaker Divider Line */}
         <div className="page-breaker"></div>
 
-        {/* Section: A Little Bit of Us & Featured In */}
-        <section className="about-us-section section" aria-label="A little bit of us">
-          <div className="about-us__container">
-            <h2 className="about-us__title font-seasons">A little bit of us</h2>
-            <p className="about-us__subtitle">
-              From the grandeur of your property, it&apos;s surrounding landscape, to the inviting poolside and the plush armchair by the window, every element speaks and we make sure it&apos;s heard.
+        {/* Section: Editorial Statement */}
+        <section className="about-us-section section" aria-label="Editorial Statement">
+          <div className="about-us__statement">
+            <p>
+              Hospitality has a <em>language</em> of its own. SOUP has spent <em>years</em> around the people who <em>speak</em> it best,<br className="hidden sm:inline" />
+              seeing what they see, understanding what they <em>value</em>, and creating alongside them.<br className="hidden sm:inline" />
+              Some <em>names</em> are better left to speak for <em>themselves</em>.
             </p>
+          </div>
+          <div className="about-us__container" style={{ display: 'none' }}>
 
             <div className="about-us__socials">
               <a
@@ -980,25 +973,24 @@ export default function Home() {
       {/* 7. Footer Section */}
       <footer className="footer-simple" id="contact">
         <div className="footer-simple__top">
-          <p className="footer-simple__label">GET IN TOUCH</p>
-          <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
+          <p className="footer-simple__label">INQUIRIES &amp; COMMISSIONS</p>
+          <p className="footer-simple__text">India &amp; International Hospitality Commissions</p>
           <a
             className="footer-simple__btn"
-            href="mailto:info@soupbyfalka.com"
+            href="mailto:falka@soupbyfalka.com"
             onMouseEnter={() => handleMouseEnter("Email", true)}
             onMouseLeave={handleMouseLeave}
           >
-            INFO@SOUPBYFALKA.COM
+            FALKA@SOUPBYFALKA.COM
           </a>
         </div>
         <div className="footer-simple__bottom">
-          <p>© Soup Studio. All Rights Reserved</p>
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
           <nav className="footer-simple__nav" aria-label="Footer navigation">
-            <a href="#projects" onClick={handleHashLink}>Projects</a>
-            <a href="#journal" onClick={handleHashLink}>Journal</a>
-            <a href="#about" onClick={handleHashLink}>About</a>
-            <a href="#contact" onClick={handleHashLink}>Contributors</a>
-            <a href="#contact" onClick={handleHashLink}>Terms</a>
+            <Link href="/stills">Projects</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </footer>

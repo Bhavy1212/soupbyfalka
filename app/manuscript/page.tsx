@@ -224,7 +224,7 @@ export default function ManuscriptPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">MANUSCRIPT, UDAIPUR</p>
+        <p className="mayfair-category-tag reveal-text">Manuscript, Udaipur</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Manuscript in Udaipur, this visual portfolio immortalises bespoke terracotta craftsmanship, vaulted archways, hand-carved heritage details, and intimate luxury hospitality.
         </p>

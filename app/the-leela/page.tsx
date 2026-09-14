@@ -224,7 +224,7 @@ export default function TheLeelaPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">THE LEELA PALACE, UDAIPUR</p>
+        <p className="mayfair-category-tag reveal-text">The Leela Palace, Udaipur</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by The Leela Palace Udaipur, this visual series captures the royal grandeur of Lake Pichola, opulent Mewari palaces, grand boat arrivals, and majestic lakefront dining.
         </p>

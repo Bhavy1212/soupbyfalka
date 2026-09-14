@@ -14,8 +14,10 @@ const config: Config = {
         line: "var(--color-line)",
       },
       fontFamily: {
-        display: ["var(--font-display)"],
-        sans: ["var(--font-sans)"],
+        display: ["var(--font-playfair)", "Georgia", "serif"],
+        serif: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-avenir)", "'Avenir Next'", "'Avenir Next Arabic'", "sans-serif"],
+        seasons: ["var(--font-seasons)", "'The Seasons'", "serif"],
       },
       letterSpacing: {
         label: "0.14em",

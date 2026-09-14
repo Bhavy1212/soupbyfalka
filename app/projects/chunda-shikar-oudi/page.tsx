@@ -224,7 +224,7 @@ export default function ChundaShikarOudiPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">CHUNDA SHIKAR OUDI / UDAIPUR</p>
+        <p className="mayfair-category-tag reveal-text">Chunda Shikar Oudi, Udaipur</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Chunda Shikar Oudi, the production immortalises the royal heritage and untamed spirit of Rajasthan. Set amidst the dramatic Aravalli wilderness, the concept of <em>Wilderness Royalty</em> brings to life regal hunting lodge traditions and raw natural beauty.
         </p>

@@ -2,11 +2,33 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronUp } from "lucide-react";
+
 
 export default function MayfairPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerState, setHeaderState] = useState<"transparent" | "black" | "white">("transparent");
+  const [projectTab, setProjectTab] = useState<"stills" | "motion">("stills");
+
+  // Read URL query parameter on initial mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get("tab");
+      if (tab === "motion" || tab === "stills") {
+        setProjectTab(tab);
+      }
+    }
+  }, []);
+
+  const toggleProjectTab = () => {
+    const nextTab = projectTab === "stills" ? "motion" : "stills";
+    setProjectTab(nextTab);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("tab", nextTab);
+      window.history.replaceState({}, "", url.toString());
+    }
+  };
 
   // Handle Intersection Observer for reveal items
   useEffect(() => {
@@ -224,9 +246,11 @@ export default function MayfairPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">MAYFAIR, JUNGAPANA</p>
+        <p className="mayfair-category-tag reveal-text">Mayfair Manor, Jungapana</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
-          Commissioned by Park Hyatt Maldives, the Jagat team was tasked with creating a suite of new stills and film collateral that placed <em>nature at its heart</em>. With the ocean as a living, breathing presence shaping every guest experience - from local traditions to service - the concept of <em>Living Island</em> became the creative foundation. This vision highlights the island's <em>raw beauty</em> and fosters <em>deep connections</em> between people, nature, and self.
+          Set within the Jungpana Tea Estate in the <em>Himalayan foothills</em>, MAYFAIR Manor offers an intimate<br className="hidden md:inline" />{" "}
+          retreat shaped by <em>colonial architecture</em>, tea gardens and the slower rhythm of <em>mountain life</em>. Its<br className="hidden md:inline" />{" "}
+          <em>identity</em> lies as much in the journey through the <em>landscape</em> as in the property itself.
         </p>
       </section>
 
@@ -235,59 +259,89 @@ export default function MayfairPage() {
 
         {/* 4. Featured Card with Title Overlay */}
         <section className="mayfair-featured-card reveal-item">
-          <div className="mayfair-featured-media image-reveal">
-            <img
-              src="/assets/images/mayfair/mayfair-featured.jpg"
-              alt="Mayfair Jungpana resort perched on the misty mountain hill ridge at sunset"
-              loading="lazy"
-            />
-          </div>
+          {projectTab === "motion" ? (
+            <div className="mayfair-featured-media image-reveal is-visible" style={{ position: "relative" }}>
+              <video
+                src="/media/HOSPITALITY-REEL-Landscape-VER.03.mp4"
+                poster="/assets/images/mayfair/mayfair-featured.jpg"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            </div>
+          ) : (
+            <div className="mayfair-featured-media image-reveal">
+              <img
+                src="/assets/images/mayfair/mayfair-featured.jpg"
+                alt="Mayfair Jungpana resort perched on the misty mountain hill ridge at sunset"
+                loading="lazy"
+              />
+            </div>
+          )}
         </section>
 
         {/* 5. Two-Column Narrative & Services Grid */}
         <section className="mayfair-info-section">
-          {/* Left Column: Narrative + The Three Films */}
-          <div className="mayfair-info-story reveal-item">
-            <p>
-              Visually, Nurtured Presence is brought to life through intimate, textured imagery that evokes a sense of care and belonging, while the films explore human connection through the voices of the sea, the island, and its guardians. Each narrative takes viewers on a journey of freedom, discovery, and renewal, offering a moment to return to what brings peace – to feel nurtured and fully present.
-            </p>
+          {projectTab === "stills" ? (
+            <>
+              {/* Left Column: Photographic Approach Narrative */}
+              <div className="mayfair-info-story reveal-item is-visible">
+                <p>
+                  Our photographic approach focused on observing this relationship between heritage and nature through composition, light and detail.
+                </p>
+                <p>
+                  From the character of the interiors to the surrounding tea gardens and landscape, the imagery was created to build a visual language that feels atmospheric, intimate and rooted in the distinct identity of Jungpana.
+                </p>
+              </div>
 
-            <h3 className="mayfair-films-heading">The Three Films:</h3>
-            <ol className="mayfair-films-list">
-              <li>
-                A couple's journey, narrated by the ocean itself as they embrace the rhythm of the sea, doubled as a brand film for the property.
-              </li>
-              <li>
-                An intergenerational family film, told through the voice of a local custodian reflected on the island's deep significance.
-              </li>
-              <li>
-                A story centred on an Asian couple, this film was guided by the island as it revealed the secluded beauty and wisdom of Hadahaa.
-              </li>
-            </ol>
-          </div>
+              {/* Right Column: Services Provided (Stills) */}
+              <div className="mayfair-services-panel reveal-item is-visible">
+                <h4 className="mayfair-services-label">Services Provided</h4>
+                <p className="mayfair-services-text">
+                  Concept, Pre-production Planning, Moodboarding, Creative Direction, Art Direction, Production Management, Casting, Wardrobe &amp; Styling, Prop Styling, Make-up &amp; Grooming, Lighting, Architectural &amp; Lifestyle Photography, Post-production
+                </p>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Left Column: Film / Motion Narrative + The Three Films */}
+              <div className="mayfair-info-story reveal-item is-visible">
+                <p>
+                  Our approach focused on translating this sense of place into film— exploring the changing atmosphere, heritage character and experiences that define a stay here. Through carefully directed moments and an immersive visual language, the films were created to reflect the property&apos;s relationship with nature, history and quiet escape.
+                </p>
 
-          {/* Right Column: Services & Links */}
-          <div className="mayfair-services-panel reveal-item">
-            <h4 className="mayfair-services-label">SERVICES PROVIDED</h4>
-            <p className="mayfair-services-text">
-              Concept, Production Management, Creative Direction, Client Direction, Casting, Wardrobe, Styling, Prop Styling, Make-up, Postproduction
-            </p>
-            <a
-              href="https://www.hyatt.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mayfair-services-link"
-            >
-              hyatt.com
-            </a>
-          </div>
+                <h3 className="mayfair-films-heading">The Three Films:</h3>
+                <ol className="mayfair-films-list">
+                  <li>
+                    A couple&apos;s journey, narrated by the ocean itself as they embrace the rhythm of the sea, doubled as a brand film for the property.
+                  </li>
+                  <li>
+                    An intergenerational family film, told through the voice of a local custodian reflected on the island&apos;s deep significance.
+                  </li>
+                  <li>
+                    A story centred on an Asian couple, this film was guided by the island as it revealed the secluded beauty and wisdom of Hadahaa.
+                  </li>
+                </ol>
+              </div>
+
+              {/* Right Column: Services Provided (Motion) */}
+              <div className="mayfair-services-panel reveal-item is-visible">
+                <h4 className="mayfair-services-label">Services Provided</h4>
+                <p className="mayfair-services-text">
+                  Concept, Moodboarding, Production Management, Creative Direction, Client Direction, Casting, Wardrobe &amp; Styling, Prop Styling, Make-up &amp; Grooming, Post-production, Voice-over Script &amp; Talent
+                </p>
+              </div>
+            </>
+          )}
         </section>
 
         {/* 6. Visual Gallery Showcase Flow */}
         <section className="mayfair-gallery-flow" aria-label="Mayfair Photo Gallery">
 
           {/* Row 1: 2-Column Side-by-Side (Patio + Dining Room) */}
-          <div className="mayfair-gallery-row mayfair-gallery-2col">
+          <div className="mayfair-gallery-row mayfair-gallery-2col mayfair-gallery-row1">
             <div className="mayfair-image-card reveal-item image-reveal">
               <img
                 src="/assets/images/mayfair/mayfair-patio.jpg"
@@ -400,14 +454,22 @@ export default function MayfairPage() {
 
       </main>
 
-      {/* Floating Back to Top Button */}
+      {/* Floating Stills / Motion Switcher (Replaces top arrow floating button) */}
       <button
-        onClick={scrollToTop}
-        className="mayfair-back-to-top"
-        aria-label="Scroll back to top"
-        title="Scroll to top"
+        onClick={toggleProjectTab}
+        className="page-tab-switcher"
+        aria-label={projectTab === "stills" ? "Switch to Motion" : "Switch to Stills"}
+        title={projectTab === "stills" ? "Switch to Motion" : "Switch to Stills"}
       >
-        <ChevronUp className="w-4 h-4 stroke-[2]" />
+        {projectTab === "stills" ? (
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "2px" }} aria-hidden="true">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        ) : (
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+          </svg>
+        )}
       </button>
 
       {/* 7. Footer Section */}

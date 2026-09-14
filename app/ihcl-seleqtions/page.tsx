@@ -225,7 +225,7 @@ export default function IHCLSelectionsPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR</p>
+        <p className="mayfair-category-tag reveal-text">IHCL Himalayan Woodcroft, Sirmour</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by IHCL Seleqtions Himalayan Woodcroft in Sirmaur, this photography series captures the majestic serenity of pine forests, misty Himalayan peaks, and bespoke heritage mountain retreats.
         </p>

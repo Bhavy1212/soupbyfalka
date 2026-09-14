@@ -39,3 +39,16 @@ scratch/
 contact_sheet.png
 pdf_page_1.png
 
+# Media assets (images & videos excluded)
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif
+*.avif
+*.mp4
+*.webm
+*.mov
+*.mkv
+public/assets/images/
+public/assets/videos/

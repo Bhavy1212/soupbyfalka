@@ -224,7 +224,7 @@ export default function RadissonPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">RADDISION, NATHWARA</p>
+        <p className="mayfair-category-tag reveal-text">Radisson, Nathdwara</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Radisson, this project highlights contemporary luxury hospitality, elevated gastronomy, and sophisticated architecture across vibrant social spaces and private retreats.
         </p>

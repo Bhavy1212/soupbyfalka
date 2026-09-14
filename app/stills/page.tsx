@@ -200,9 +200,9 @@ export default function StillsPage() {
                   </Link>
                 </div>
               </div>
-              <Link href="/#journal" className="menu__nav-link" onClick={() => setMenuOpen(false)}>JOURNAL</Link>
-              <Link href="/#about" className="menu__nav-link" onClick={() => setMenuOpen(false)}>ABOUT</Link>
-              <Link href="/#contact" className="menu__nav-link" onClick={() => setMenuOpen(false)}>CONTACT</Link>
+              <Link href="/journal" className="menu__nav-link" onClick={() => setMenuOpen(false)}>JOURNAL</Link>
+              <Link href="/about" className="menu__nav-link" onClick={() => setMenuOpen(false)}>ABOUT</Link>
+              <Link href="/contact" className="menu__nav-link" onClick={() => setMenuOpen(false)}>CONTACT</Link>
             </nav>
           </div>
         </div>
@@ -222,10 +222,10 @@ export default function StillsPage() {
         </svg>
       </Link>
 
-      {/* 3. Authenticity Statement Quote */}
+      {/* 3. Authenticity Statement Quote (PDF Page 6) */}
       <section className="projects-statement-quote">
         <p className="projects-statement-text reveal-text" data-parallax="0.03">
-          With a sense of <em>authenticity</em> present in every frame, our team specialise in a content solution tailor made to stand out.
+          Before a guest <em>arrives</em>, they see the place through a <em>photograph</em>. That&apos;s what makes every <em>frame</em> matter. Our photography is built to capture the <em>details</em>, atmosphere and <em>experiences</em> that make someone want to step <em>inside</em>. A selection of projects from across hospitality and <em>beyond</em>.
         </p>
       </section>
 
@@ -238,30 +238,30 @@ export default function StillsPage() {
             <article className="project-grid-card reveal-item">
               <Link href="/mayfair" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/DJI0275.jpg" alt="MAYFAIR, JUNGAPANA" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="MAYFAIR, JUNGAPANA hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/DJI0275.jpg" alt="Mayfair Manor, Jungapana" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="Mayfair Manor, Jungapana hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">MAYFAIR, JUNGAPANA</p>
+                <p className="project-grid-title">Mayfair Manor, Jungapana</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/parallel" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/DJI_0008.jpg" alt="PARALLEL HOTEL, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="PARALLEL HOTEL hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/DJI_0008.jpg" alt="Parallel Hotel, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="Parallel Hotel hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">PARALLEL HOTEL, UDAIPUR</p>
+                <p className="project-grid-title">Parallel Hotel, Udaipur</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/mohangarh" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/Untitled3.jpg" alt="MOHANGARH, JAISALMER" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="MOHANGARH hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/Untitled3.jpg" alt="Mohangarh Fort, Jaisalmer" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="Mohangarh Fort hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">MOHANGARH, JAISALMER</p>
+                <p className="project-grid-title">Mohangarh Fort, Jaisalmer</p>
               </Link>
             </article>
           </div>
@@ -269,20 +269,22 @@ export default function StillsPage() {
           {/* ROW 2: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/DSC08130.jpg" alt="NEMESIA, RISHIKESH" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/rosewood-b.webp" alt="NEMESIA hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">NEMESIA, RISHIKESH</p>
+              <Link href="/nemesia" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/DSC08130.jpg" alt="Nemesia Resort & Spa, Rishikesh" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/rosewood-b.webp" alt="Nemesia Resort & Spa hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">Nemesia Resort & Spa, Rishikesh</p>
+              </Link>
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
               <Link href="/ihcl-seleqtions" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/02-IHCL1867.jpg" alt="IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="IHCL SELEQTIONS hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/02-IHCL1867.jpg" alt="IHCL Himalayan Woodcroft, Sirmour" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="IHCL Himalayan Woodcroft hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR</p>
+                <p className="project-grid-title">IHCL Himalayan Woodcroft, Sirmour</p>
               </Link>
             </article>
           </div>
@@ -292,29 +294,29 @@ export default function StillsPage() {
             <article className="project-grid-card reveal-item">
               <Link href="/the-leela" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/4.jpg" alt="THE LEELA PALACE, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="THE LEELA PALACE hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/4.jpg" alt="The Leela Palace, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="The Leela Palace hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">THE LEELA PALACE, UDAIPUR</p>
+                <p className="project-grid-title">The Leela Palace, Udaipur</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/manuscript" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/Dsc2795.jpg" alt="MANUSCRIPT, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="MANUSCRIPT hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/Dsc2795.jpg" alt="Manuscript, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="Manuscript hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">MANUSCRIPT, UDAIPUR</p>
+                <p className="project-grid-title">Manuscript, Udaipur</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/02-DJI_20260409224244_0522_D.jpg" alt="SUJAN" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/sujan-b.webp" alt="SUJAN hover" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/02-DJI_20260409224244_0522_D.jpg" alt="Ajit Bhawan, Jodhpur" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/sujan-b.webp" alt="Ajit Bhawan hover" loading="lazy" />
               </div>
-              <p className="project-grid-title">SUJAN</p>
+              <p className="project-grid-title">Ajit Bhawan, Jodhpur</p>
             </article>
           </div>
 
@@ -323,19 +325,19 @@ export default function StillsPage() {
             <article className="project-grid-card project-grid-card--medium reveal-item">
               <Link href="/mayfair-gopalpur" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/DJI0398.jpg" alt="MAYFAIR-PALM BEACH RESORT, GOPALPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="MAYFAIR-PALM BEACH RESORT hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/DJI0398.jpg" alt="Mayfair Palm Beach Resort, Gopalpur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="Mayfair Palm Beach Resort hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">MAYFAIR-PALM BEACH RESORT, GOPALPUR</p>
+                <p className="project-grid-title">Mayfair Palm Beach Resort, Gopalpur</p>
               </Link>
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
               <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/01-AAA03524.jpg" alt="JANU" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
+                <img className="media-swap__primary" src="/assets/images/01-AAA03524.jpg" alt="Rawla Narlai, Narlai" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="Rawla Narlai hover" loading="lazy" />
               </div>
-              <p className="project-grid-title">JANU</p>
+              <p className="project-grid-title">Rawla Narlai, Narlai</p>
             </article>
           </div>
 
@@ -344,30 +346,30 @@ export default function StillsPage() {
             <article className="project-grid-card reveal-item">
               <Link href="/chunda-shikar-oudi" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/01.jpg" alt="CHUNDA SHIKAR OUDI, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="CHUNDA SHIKAR OUDI hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/01.jpg" alt="Chunda Shikar Oudi, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="Chunda Shikar Oudi hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">CHUNDA SHIKAR OUDI, UDAIPUR</p>
+                <p className="project-grid-title">Chunda Shikar Oudi, Udaipur</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/radisson" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/DJI_0685.jpg" alt="RADDISION, NATHWARA" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="RADDISION hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/DJI_0685.jpg" alt="Radisson, Nathdwara" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="Radisson hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">RADDISION, NATHWARA</p>
+                <p className="project-grid-title">Radisson, Nathdwara</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/dev-bagh" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/DJI_20250312004955_0254_D-HDR-3.jpg" alt="DEVBAGH, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/sequoia-a.webp" alt="DEVBAGH hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/DJI_20250312004955_0254_D-HDR-3.jpg" alt="Devbagh, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/sequoia-a.webp" alt="Devbagh hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">DEVBAGH, UDAIPUR</p>
+                <p className="project-grid-title">Devbagh, Udaipur</p>
               </Link>
             </article>
           </div>
@@ -379,46 +381,59 @@ export default function StillsPage() {
       <section className="projects-journal-section">
         <div className="projects-journal-container">
           <div className="projects-journal-left">
-            <div className="journal__lead-image media-swap image-reveal reveal-item" style={{ width: "100%", maxWidth: "260px", aspectRatio: "4/5.2", marginBottom: "24px", overflow: "hidden", position: "relative" }}>
-              <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" style={{ transform: "scale(1.15)" }} />
-              <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" style={{ transform: "scale(1.15)" }} />
-            </div>
-            <p className="projects-journal-heading reveal-text">JOURNAL</p>
-            <p className="projects-journal-desc reveal-text">
-              As specialists in storytelling, there is more to the tale than the destination. Our experiences, the musings and people found along the way, are all worth writing home about.
-            </p>
-            <Link className="projects-journal-btn reveal-text" href="/#journal">
-              VIEW MORE
+            <Link href="/journal" className="block text-inherit no-underline group">
+              <div className="projects-journal-left-media media-swap image-reveal reveal-item">
+                <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" />
+              </div>
+              <h2 className="projects-journal-heading reveal-text">JOURNAL</h2>
+              <p className="projects-journal-desc reveal-text">
+                Our work has a habit of taking us places. And somewhere between the shoots, the stays and the stories we&apos;re there to tell, we often find a few of our own. The people, places and experiences worth remembering, all collected here.
+              </p>
+              <span className="projects-journal-btn">VIEW MORE</span>
             </Link>
           </div>
 
-          <div className="projects-journal-right image-reveal reveal-item">
-            <img
-              src="/assets/images/14.jpg"
-              alt="Journal featured safari jeep at sunset"
-              loading="lazy"
-            />
+          <div className="projects-journal-right">
+            <Link href="/journal/chunda-shikar-oudi" className="block text-inherit no-underline group">
+              <div className="projects-journal-feature-media image-reveal reveal-item">
+                <img
+                  src="/assets/images/feature-jeep-a.webp"
+                  alt="Chunda Shikar Oudi wilderness safari sunset"
+                  loading="lazy"
+                />
+              </div>
+              <div className="projects-journal-feature-meta reveal-text">
+                <p className="projects-journal-feature-tag">FEATURE</p>
+                <h3 className="projects-journal-feature-title">
+                  Chunda Shikar Oudi - Where Wilderness Remains The Main Presence
+                </h3>
+                <p className="projects-journal-feature-quote">
+                  &ldquo;Hospitality becomes more meaningful when the environment<br className="hidden sm:inline" />
+                  is treated as a presence rather than backdrop.&rdquo;
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 6. Footer Section — matches main site GET IN TOUCH footer */}
+      {/* 6. Footer Section */}
       <footer className="footer-simple" id="contact">
         <div className="footer-simple__top">
-          <p className="footer-simple__label">GET IN TOUCH</p>
-          <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
-          <a className="footer-simple__btn" href="mailto:info@soupbyfalka.com">
-            INFO@SOUPBYFALKA.COM
+          <p className="footer-simple__label">INQUIRIES &amp; COMMISSIONS</p>
+          <p className="footer-simple__text">India &amp; International Hospitality Commissions</p>
+          <a className="footer-simple__btn" href="mailto:falka@soupbyfalka.com">
+            FALKA@SOUPBYFALKA.COM
           </a>
         </div>
         <div className="footer-simple__bottom">
-          <p>© Soup Studio. All Rights Reserved</p>
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
           <nav className="footer-simple__nav" aria-label="Footer navigation">
             <Link href="/stills">Projects</Link>
-            <Link href="/#journal">Journal</Link>
-            <Link href="/#about">About</Link>
-            <Link href="/#contact">Contributors</Link>
-            <Link href="/#contact">Terms</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </footer>

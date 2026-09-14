@@ -44,7 +44,6 @@ export default function MotionPage() {
       document.querySelectorAll("[data-parallax]")
     ) as HTMLElement[];
 
-    // Cache: { el, speed, cachedTop, cachedHeight }
     type CachedItem = { el: HTMLElement; speed: number; top: number; h: number };
     let cached: CachedItem[] = [];
     let heroHeight = heroEl ? heroEl.offsetHeight - 60 : 400;
@@ -66,7 +65,6 @@ export default function MotionPage() {
     const updateScrollUI = () => {
       const y = window.scrollY;
 
-      // Only update React state when zone actually changes
       let nextHeaderState: "transparent" | "black" | "white";
       if (y <= 20) {
         nextHeaderState = "transparent";
@@ -84,7 +82,6 @@ export default function MotionPage() {
         for (let i = 0; i < cached.length; i++) {
           const { el, speed, top, h } = cached[i];
           const elCenter = top + h / 2 - y;
-          // Skip if far off screen
           if (elCenter < -vh - 200 || elCenter > vh + h + 200) continue;
           const distance = (vh / 2 - elCenter) * speed;
           const clamped = Math.min(Math.max(distance, -60), 60);
@@ -99,7 +96,6 @@ export default function MotionPage() {
       rafId = requestAnimationFrame(updateScrollUI);
     };
 
-    // Rebuild cache on resize (debounced)
     let resizeTimer: ReturnType<typeof setTimeout>;
     const onResize = () => {
       clearTimeout(resizeTimer);
@@ -124,7 +120,7 @@ export default function MotionPage() {
 
   return (
     <div className="projects-page-wrapper">
-      {/* 1. Header Navigation Bar */}
+      {/* 1. Sticky Navigation Header */}
       <header
         className={`site-header ${
           headerState === "transparent"
@@ -133,11 +129,14 @@ export default function MotionPage() {
             ? "is-scrolled-hero"
             : "is-past-hero"
         }`}
+        data-header
       >
         <button
           className="menu-toggle magnetic"
           type="button"
-          aria-label="Toggle navigation"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="site-menu"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span className={`menu-toggle__icon ${menuOpen ? "is-active" : ""}`}>
@@ -145,7 +144,7 @@ export default function MotionPage() {
           </span>
         </button>
 
-        <Link className="wordmark" href="/">
+        <Link className="wordmark" href="/" aria-label="Soup home">
           <img
             src="/assets/images/soup-logo.png"
             alt="Soup by Falka"
@@ -196,13 +195,13 @@ export default function MotionPage() {
                     STILLS
                   </Link>
                   <Link href="/motion" className="menu__sub-link" onClick={() => setMenuOpen(false)}>
-                    MOTION
+                    MOTION / VIDEOGRAPHY
                   </Link>
                 </div>
               </div>
-              <Link href="/#journal" className="menu__nav-link" onClick={() => setMenuOpen(false)}>JOURNAL</Link>
-              <Link href="/#about" className="menu__nav-link" onClick={() => setMenuOpen(false)}>ABOUT</Link>
-              <Link href="/#contact" className="menu__nav-link" onClick={() => setMenuOpen(false)}>CONTACT</Link>
+              <Link href="/journal" className="menu__nav-link" onClick={() => setMenuOpen(false)}>JOURNAL</Link>
+              <Link href="/about" className="menu__nav-link" onClick={() => setMenuOpen(false)}>ABOUT</Link>
+              <Link href="/contact" className="menu__nav-link" onClick={() => setMenuOpen(false)}>CONTACT</Link>
             </nav>
           </div>
         </div>
@@ -211,7 +210,7 @@ export default function MotionPage() {
       {/* 2. Motion Hero Banner Image */}
       <section className="projects-hero-banner">
         <div className="projects-hero-media" data-parallax="0.08">
-          <img src="/assets/images/motion-banner.jpg" alt="Cinematic motion banner — silhouette against sky" />
+          <img src="/assets/images/motion_pdf/motion-hero-banner.png" alt="Cinematic motion banner — silhouette against sky" />
         </div>
       </section>
 
@@ -222,14 +221,14 @@ export default function MotionPage() {
         </svg>
       </Link>
 
-      {/* 3. Authenticity Statement Quote */}
+      {/* 3. Authenticity Statement Quote (PDF Page 8) */}
       <section className="projects-statement-quote">
         <p className="projects-statement-text reveal-text" data-parallax="0.03">
-          With a sense of <em>authenticity</em> present in every frame, our team specialise in a content solution tailor made to stand out.
+          Some experiences <em>need</em> more than a <em>still</em> frame. Through <em>film</em>, we capture the movement, emotion and atmosphere that bring a property to <em>life</em>, turning spaces into <em>experiences</em> audiences can actually <em>feel</em>. A few stories from <em>behind</em> our cameras.
         </p>
       </section>
 
-      {/* 4. Projects Main Grid Section (Motion Page) */}
+      {/* 4. Projects Main Grid Section */}
       <section className="projects-grid-section">
         <div className="projects-grid-container">
 
@@ -238,30 +237,30 @@ export default function MotionPage() {
             <article className="project-grid-card reveal-item">
               <Link href="/mayfair" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/aman-motion.png" alt="MAYFAIR, JUNGAPANA" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="MAYFAIR, JUNGAPANA hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-manor.png" alt="Mayfair Manor, Jungapana" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="Mayfair Manor, Jungapana hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">MAYFAIR, JUNGAPANA</p>
-              </Link>
-            </article>
-
-            <article className="project-grid-card reveal-item">
-              <Link href="/parallel" className="block text-inherit no-underline">
-                <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/puli-motion.png" alt="PARALLEL HOTEL, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="PARALLEL HOTEL hover" loading="lazy" />
-                </div>
-                <p className="project-grid-title">PARALLEL HOTEL, UDAIPUR</p>
+                <p className="project-grid-title">Mayfair Manor, Jungapana</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/mohangarh" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/nobu-motion.png" alt="MOHANGARH, JAISALMER" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="MOHANGARH hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/mohangarh-fort.png" alt="Mohangarh Fort, Jaisalmer" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="Mohangarh Fort hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">MOHANGARH, JAISALMER</p>
+                <p className="project-grid-title">Mohangarh Fort, Jaisalmer</p>
+              </Link>
+            </article>
+
+            <article className="project-grid-card reveal-item">
+              <Link href="/parallel" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/parallel-hotel.png" alt="Parallel Hotel, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="Parallel Hotel hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">Parallel Hotel, Udaipur</p>
               </Link>
             </article>
           </div>
@@ -269,20 +268,22 @@ export default function MotionPage() {
           {/* ROW 2: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/janu-motion.png" alt="NEMESIA, RISHIKESH" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/rosewood-b.webp" alt="NEMESIA hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">NEMESIA, RISHIKESH</p>
+              <Link href="/the-leela" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/the-leela-palace.png" alt="The Leela Palace, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="The Leela Palace hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">The Leela Palace, Udaipur</p>
+              </Link>
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
-              <Link href="/ihcl-seleqtions" className="block text-inherit no-underline">
+              <Link href="/mayfair-gopalpur" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/sujan-motion.png" alt="IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/kokomo-b.webp" alt="IHCL SELEQTIONS hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-gopalpur.png" alt="Mayfair Palm Beach Resort, Gopalpur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="Mayfair Palm Beach Resort hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">IHCL SELEQTIONS-HIMAYALAN WOODCROFT, SIRMAUR</p>
+                <p className="project-grid-title">Mayfair Palm Beach Resort, Gopalpur</p>
               </Link>
             </article>
           </div>
@@ -290,84 +291,88 @@ export default function MotionPage() {
           {/* ROW 3: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <Link href="/the-leela" className="block text-inherit no-underline">
+              <Link href="/chunda-palace" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/puli-motion.png" alt="THE LEELA PALACE, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="THE LEELA PALACE hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/chunda-palace.png" alt="Chunda Palace, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/chunda-palace/asset_03_1026x515.png" alt="Chunda Palace hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">THE LEELA PALACE, UDAIPUR</p>
+                <p className="project-grid-title">Chunda Palace, Udaipur</p>
               </Link>
             </article>
 
-            <article className="project-grid-card reveal-item">
-              <Link href="/manuscript" className="block text-inherit no-underline">
-                <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/rosewood-motion.png" alt="MANUSCRIPT, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="MANUSCRIPT hover" loading="lazy" />
-                </div>
-                <p className="project-grid-title">MANUSCRIPT, UDAIPUR</p>
-              </Link>
-            </article>
-
-            <article className="project-grid-card reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/fourseasons-motion.png" alt="SUJAN" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/sujan-b.webp" alt="SUJAN hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">SUJAN</p>
-            </article>
-          </div>
-
-          {/* ROW 4: Split 2 Columns (1fr : 2.11fr) Grid */}
-          <div className="projects-grid-row projects-grid-split">
-            <article className="project-grid-card project-grid-card--medium reveal-item">
-              <Link href="/mayfair-gopalpur" className="block text-inherit no-underline">
-                <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/alila-motion.png" alt="MAYFAIR-PALM BEACH RESORT, GOPALPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="MAYFAIR-PALM BEACH RESORT hover" loading="lazy" />
-                </div>
-                <p className="project-grid-title">MAYFAIR-PALM BEACH RESORT, GOPALPUR</p>
-              </Link>
-            </article>
-
-            <article className="project-grid-card project-grid-card--wide reveal-item">
-              <div className="project-grid-media media-swap image-reveal">
-                <img className="media-swap__primary" src="/assets/images/motion/kokomo-motion.png" alt="JANU" loading="lazy" />
-                <img className="media-swap__secondary" src="/assets/images/janu-b.webp" alt="JANU hover" loading="lazy" />
-              </div>
-              <p className="project-grid-title">JANU</p>
-            </article>
-          </div>
-
-          {/* ROW 5: 3 Columns Grid */}
-          <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
               <Link href="/chunda-shikar-oudi" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/ani-motion.png" alt="CHUNDA SHIKAR OUDI, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="CHUNDA SHIKAR OUDI hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/chunda-shikar-oudi.png" alt="Chunda Shikar Oudi, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="Chunda Shikar Oudi hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">CHUNDA SHIKAR OUDI, UDAIPUR</p>
+                <p className="project-grid-title">Chunda Shikar Oudi, Udaipur</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
               <Link href="/radisson" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/fourseasons-motion.png" alt="RADDISION, NATHWARA" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="RADDISION hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/radisson-nathdwara.png" alt="Radisson, Nathdwara" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="Radisson hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">RADDISION, NATHWARA</p>
+                <p className="project-grid-title">Radisson, Nathdwara</p>
+              </Link>
+            </article>
+          </div>
+
+          {/* ROW 4: Split 2 Columns (1fr : 2.11fr) Grid */}
+          <div className="projects-grid-row projects-grid-split">
+            <article className="project-grid-card project-grid-card--medium reveal-item">
+              <Link href="/mahua-bagh" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/mahua-bagh.png" alt="Mahua Bagh, Kumbhalgarh" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/mahua-bagh/asset_03_1026x515.png" alt="Mahua Bagh hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">Mahua Bagh, Kumbhalgarh</p>
+              </Link>
+            </article>
+
+            <article className="project-grid-card project-grid-card--wide reveal-item">
+              <Link href="/mayfair-puri" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-waves-puri.png" alt="Mayfair Heritage & Waves Resort, Puri" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/mayfair-puri/asset_03_1026x473.png" alt="Mayfair Puri hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">Mayfair Heritage &amp; Waves Resort, Puri</p>
+              </Link>
+            </article>
+          </div>
+
+          {/* ROW 5: 3 Columns Grid */}
+          <div className="projects-grid-row projects-grid-3col">
+            <article className="project-grid-card reveal-item">
+              <Link href="/prem-kunj" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/prem-kunj.png" alt="Prem Kunj, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/prem-kunj/asset_03_1026x513.png" alt="Prem Kunj hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">Prem Kunj, Udaipur</p>
               </Link>
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/dev-bagh" className="block text-inherit no-underline">
+              <Link href="/manuscript" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
-                  <img className="media-swap__primary" src="/assets/images/motion/sequoia-motion.png" alt="DEVBAGH, UDAIPUR" loading="lazy" />
-                  <img className="media-swap__secondary" src="/assets/images/sequoia-a.webp" alt="DEVBAGH hover" loading="lazy" />
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/manuscript-udaipur.png" alt="Manuscript, Udaipur" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="Manuscript hover" loading="lazy" />
                 </div>
-                <p className="project-grid-title">DEVBAGH, UDAIPUR</p>
+                <p className="project-grid-title">Manuscript, Udaipur</p>
+              </Link>
+            </article>
+
+            <article className="project-grid-card reveal-item">
+              <Link href="/mayfair-paradeep" className="block text-inherit no-underline">
+                <div className="project-grid-media media-swap image-reveal">
+                  <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-paradeep.png" alt="Mayfair Bay Resort, Paradeep" loading="lazy" />
+                  <img className="media-swap__secondary" src="/assets/images/mayfair-paradeep/asset_03_1026x470.png" alt="Mayfair Paradeep hover" loading="lazy" />
+                </div>
+                <p className="project-grid-title">Mayfair Bay Resort, Paradeep</p>
               </Link>
             </article>
           </div>
@@ -379,46 +384,59 @@ export default function MotionPage() {
       <section className="projects-journal-section">
         <div className="projects-journal-container">
           <div className="projects-journal-left">
-            <div className="journal__lead-image media-swap image-reveal reveal-item" style={{ width: "100%", maxWidth: "260px", aspectRatio: "4/5.2", marginBottom: "24px", overflow: "hidden", position: "relative" }}>
-              <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" style={{ transform: "scale(1.15)" }} />
-              <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" style={{ transform: "scale(1.15)" }} />
-            </div>
-            <p className="projects-journal-heading reveal-text">JOURNAL</p>
-            <p className="projects-journal-desc reveal-text">
-              As specialists in storytelling, there is more to the tale than the destination. Our experiences, the musings and people found along the way, are all worth writing home about.
-            </p>
-            <Link className="projects-journal-btn reveal-text" href="/#journal">
-              VIEW MORE
+            <Link href="/journal" className="block text-inherit no-underline group">
+              <div className="projects-journal-left-media media-swap image-reveal reveal-item">
+                <img className="media-swap__primary" src="/assets/images/journal-road-a.webp" alt="Winding forest road" loading="lazy" />
+                <img className="media-swap__secondary" src="/assets/images/journal-road-b.webp" alt="Safari vehicle at sunset" loading="lazy" />
+              </div>
+              <h2 className="projects-journal-heading reveal-text">JOURNAL</h2>
+              <p className="projects-journal-desc reveal-text">
+                Our work has a habit of taking us places. And somewhere between the shoots, the stays and the stories we&apos;re there to tell, we often find a few of our own. The people, places and experiences worth remembering, all collected here.
+              </p>
+              <span className="projects-journal-btn">VIEW MORE</span>
             </Link>
           </div>
 
-          <div className="projects-journal-right image-reveal reveal-item">
-            <img
-              src="/assets/images/motion/journal-motion.png"
-              alt="Journal featured safari jeep at sunset"
-              loading="lazy"
-            />
+          <div className="projects-journal-right">
+            <Link href="/journal/mohangarh" className="block text-inherit no-underline group">
+              <div className="projects-journal-feature-media image-reveal reveal-item">
+                <img
+                  src="/assets/images/motion_pdf/motion-journal-feature.png"
+                  alt="Mohangarh Fort: The Last Standing Fort of India"
+                  loading="lazy"
+                />
+              </div>
+              <div className="projects-journal-feature-meta reveal-text">
+                <p className="projects-journal-feature-tag">FEATURE</p>
+                <h3 className="projects-journal-feature-title">
+                  Mohangarh Fort: The Last Standing Fort of India
+                </h3>
+                <p className="projects-journal-feature-quote">
+                  &ldquo;The future of heritage hospitality may depend less on restoration<br className="hidden sm:inline" />
+                  and more on retaining emotional truth.&rdquo;
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 6. Footer Section — matches main site GET IN TOUCH footer */}
+      {/* 6. Footer */}
       <footer className="footer-simple" id="contact">
         <div className="footer-simple__top">
-          <p className="footer-simple__label">GET IN TOUCH</p>
-          <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
-          <a className="footer-simple__btn" href="mailto:info@soupbyfalka.com">
-            INFO@SOUPBYFALKA.COM
+          <p className="footer-simple__label">INQUIRIES &amp; COMMISSIONS</p>
+          <p className="footer-simple__text">India &amp; International Hospitality Commissions</p>
+          <a className="footer-simple__btn" href="mailto:falka@soupbyfalka.com">
+            FALKA@SOUPBYFALKA.COM
           </a>
         </div>
         <div className="footer-simple__bottom">
-          <p>© Soup Studio. All Rights Reserved</p>
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
           <nav className="footer-simple__nav" aria-label="Footer navigation">
-            <Link href="/motion">Projects</Link>
-            <Link href="/#journal">Journal</Link>
-            <Link href="/#about">About</Link>
-            <Link href="/#contact">Contributors</Link>
-            <Link href="/#contact">Terms</Link>
+            <Link href="/stills">Projects</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </footer>

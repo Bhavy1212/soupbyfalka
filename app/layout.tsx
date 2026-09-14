@@ -1,34 +1,68 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter, Bodoni_Moda, Cormorant_Garamond } from 'next/font/google';
+import { Playfair_Display } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { SmoothScrollProvider } from '@/lib/SmoothScrollProvider';
 
-const cormorantGaramond = Cormorant_Garamond({
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-cormorant',
-  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
   display: 'swap',
 });
 
-const bodoniModa = Bodoni_Moda({
-  subsets: ['latin'],
-  variable: '--font-bodoni',
+const avenirNext = localFont({
+  src: [
+    {
+      path: '../public/fonts/AvenirNext-Regular.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/AvenirNext-Italic.woff',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/AvenirNext-Medium.woff',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/AvenirNext-Demi.woff',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/AvenirNext-DemiItalic.woff',
+      weight: '600',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/AvenirNext-Bold.woff',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/AvenirNext-BoldItalic.woff',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-avenir',
   display: 'swap',
-  style: ['normal', 'italic'],
-  adjustFontFallback: false,
 });
 
-const fraunces = Fraunces({
-  subsets: ['latin'],
-  variable: '--font-fraunces',
-  display: 'swap',
-  adjustFontFallback: false,
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+const theSeasons = localFont({
+  src: [
+    {
+      path: '../public/fonts/TheSeasons-Bold.otf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-seasons',
   display: 'swap',
 });
 
@@ -43,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${cormorantGaramond.variable} ${bodoniModa.variable} ${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${avenirNext.variable} ${theSeasons.variable}`}>
       <body>
         <SmoothScrollProvider>
           {children}

@@ -224,7 +224,7 @@ export default function MayfairGopalpurPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">MAYFAIR-PALM BEACH RESORT, GOPALPUR</p>
+        <p className="mayfair-category-tag reveal-text">Mayfair Palm Beach Resort, Gopalpur</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Mayfair Palm Beach Resort Gopalpur-on-Sea, this collection captures the tranquil coastal charm of the Bay of Bengal, lush palm groves, and colonial heritage architecture.
         </p>

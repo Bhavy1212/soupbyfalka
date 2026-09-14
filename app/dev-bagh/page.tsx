@@ -224,7 +224,7 @@ export default function DevBaghPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">DEVBAGH, UDAIPUR</p>
+        <p className="mayfair-category-tag reveal-text">Devbagh, Udaipur</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Neemrana's Deo Bagh, this photography series captures the peaceful historic elegance of a 17th-century heritage garden palace surrounded by ancient Maratha chhatris, royal pavilions, and blooming orchards.
         </p>

@@ -1,7 +1,87 @@
-@import url('https://fonts.cdnfonts.com/css/the-seasons');
+/* Local font definitions for Avenir Next, Avenir Next Arabic, and The Seasons */
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-Demi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-DemiItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next';
+  src: url('/fonts/AvenirNext-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir Next Arabic';
+  src: url('/fonts/AvenirNext-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next Arabic';
+  src: url('/fonts/AvenirNext-Demi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Avenir Next Arabic';
+  src: url('/fonts/AvenirNext-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'The Seasons';
+  src: url('/fonts/TheSeasons-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 :root {
-  --paper: #f5f5f0;
+  --paper: #edece5;
   /* offwhite background for the site */
   --ink: #151512;
   --line: rgba(21, 21, 18, 0.24);
@@ -9,10 +89,13 @@
   --white: #ffffff;
   /* pure white for UI elements */
   --ease: cubic-bezier(.22, 1, .36, 1);
-  --gutter: clamp(18px, 2.35vw, 42px);
+  --gutter: clamp(24px, 3.2vw, 56px);
   --header-h: 70px;
   --cursor-x: 50vw;
   --cursor-y: 50vh;
+  --font-serif-primary: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  --font-sans-primary: var(--font-avenir), 'Avenir Next Arabic', 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-seasons-primary: var(--font-seasons), 'The Seasons', var(--font-serif-primary);
 }
 
 * {
@@ -27,7 +110,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: var(--font-inter, Arial, Helvetica, sans-serif);
+  font-family: var(--font-sans-primary);
   font-size: 16px;
   line-height: 1.45;
   overflow-x: hidden;
@@ -101,12 +184,12 @@ button {
   line-height: .98;
   letter-spacing: -.045em;
   font-weight: 400;
-  font-family: var(--font-bodoni, Georgia, serif);
+  font-family: var(--font-serif-primary);
 }
 
 .display em,
 .footer h2 em {
-  font-family: var(--font-bodoni, Georgia, serif);
+  font-family: var(--font-serif-primary);
   font-style: italic;
   font-weight: 400;
 }
@@ -114,7 +197,7 @@ button {
 h1,
 h2,
 h3 {
-  font-family: var(--font-bodoni, Georgia, serif);
+  font-family: var(--font-serif-primary);
   font-weight: 400;
 }
 
@@ -157,7 +240,7 @@ h3 {
 }
 
 .loader__mark span {
-  font-family: var(--font-bodoni, Georgia, serif);
+  font-family: var(--font-serif-primary);
   font-size: clamp(70px, 13vw, 220px);
   line-height: .75;
   letter-spacing: -.09em;
@@ -475,7 +558,7 @@ h3 {
 }
 
 .menu__nav-link {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: clamp(18px, 2.1vw, 26px);
   font-weight: 500;
   letter-spacing: 0.18em;
@@ -514,7 +597,7 @@ h3 {
 }
 
 .menu__sub-link {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: clamp(13px, 1.4vw, 17px);
   font-weight: 400;
   font-style: normal;
@@ -639,54 +722,43 @@ h3 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(100px, 10vw, 155px) var(--gutter);
+  padding: clamp(80px, 8vw, 120px) var(--gutter);
   background: var(--paper);
 }
 
 .hero__copy h1 {
-  width: min(980px, 92%);
+  max-width: 960px;
+  width: 92%;
   margin: 0 auto;
-  font-family: 'The Seasons', 'Seasons', var(--font-cormorant), 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
-  font-size: clamp(18px, 1.85vw, 28px);
-  line-height: 1.5;
-  letter-spacing: -0.01em;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(16px, 1.7vw, 23px);
+  line-height: 1.6;
+  letter-spacing: -0.005em;
   font-weight: 400;
   font-style: normal;
-  color: #1a1a18;
+  color: #282624;
   text-align: center;
 }
 
 .hero__copy h1 em {
   font-style: italic;
-  font-family: 'The Seasons', 'Seasons', var(--font-cormorant), 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-serif-primary);
+  font-weight: 400;
+  color: inherit;
 }
 
-.font-seasons,
-.micro--seasons,
-.seasons-text,
 #projects-heading,
 #about-heading,
 #founders-heading,
-.projects .micro,
-.about .micro,
-.founders .micro {
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.16em !important;
-  text-transform: uppercase;
-  color: var(--ink);
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif !important;
-}
-
-/* Journal heading: 18px Seasons */
 #journal-heading,
-.journal .micro {
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif !important;
-  font-size: 18px !important;
-  font-weight: 400 !important;
-  letter-spacing: 0.16em !important;
+.section-intro > .micro {
+  font-size: clamp(18px, 1.4vw, 22px) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.06em !important;
   text-transform: uppercase;
-  color: var(--ink);
+  color: #000000 !important;
+  font-family: var(--font-serif-primary) !important;
+  margin-bottom: 24px;
 }
 
 .section {
@@ -694,38 +766,39 @@ h3 {
 }
 
 .section-intro {
-  width: min(560px, 100%);
+  width: 100%;
+  max-width: 320px;
 }
 
 .section-intro .micro {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .projects-filter-box {
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  padding: 2px;
-  border: 1px solid var(--ink);
-  border-radius: 4px;
-  background: var(--paper);
-  margin-top: 10px;
-  margin-bottom: 20px;
+  padding: 3px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  background: transparent;
+  margin-top: 4px;
+  margin-bottom: 24px;
 }
 
 .projects-filter-btn {
-  padding: 4px 11px;
+  padding: 6px 18px;
   border: none;
   background: transparent;
-  color: var(--ink);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   cursor: pointer;
   border-radius: 2px;
-  transition: background 0.3s ease, color 0.3s ease;
-  font-family: var(--font-inter, Arial, sans-serif);
+  transition: background 0.25s ease, color 0.25s ease;
+  font-family: var(--font-sans-primary);
 }
 
 .projects-filter-btn:hover {
@@ -733,32 +806,35 @@ h3 {
 }
 
 .projects-filter-btn.is-active {
-  background: var(--ink);
-  color: var(--paper);
+  background: #000000;
+  color: #ffffff;
 }
 
 .projects-filter-divider {
   display: inline-block;
   width: 1px;
-  height: 12px;
-  background: var(--ink);
+  height: 14px;
+  background: #000000;
   opacity: 0.35;
-  margin: 0 1px;
+  margin: 0 2px;
   flex-shrink: 0;
 }
 
 .section-intro__body {
   margin: 0 0 28px;
-  font-size: 12px;
+  font-size: clamp(13px, 0.95vw, 14.5px);
   line-height: 1.6;
-  max-width: 560px;
-  font-family: 'Avenir', 'Avenir Next', var(--font-inter, Arial, Helvetica, sans-serif);
+  max-width: 320px;
+  font-family: var(--font-sans-primary);
+  font-weight: 400;
+  color: #1a1a1a;
+  letter-spacing: 0.005em;
 }
 
 #projects-heading {
-  font-size: 18px !important;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-size: 19px !important;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -793,15 +869,22 @@ h3 {
 
 .btn-outline {
   display: inline-block;
-  padding: 15px 35px;
-  border: 1px solid var(--ink);
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  padding: 10px 22px;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  font-family: var(--font-sans-primary);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
-  transition: background .3s ease, color .3s ease;
+  color: #000000;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  background: #000000;
+  color: #ede9e4;
 }
 
 @keyframes fadeIn {
@@ -815,15 +898,12 @@ h3 {
   }
 }
 
-.btn-outline:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
+
 
 .projects {
   display: grid;
-  grid-template-columns: minmax(240px, .60fr) minmax(0, 2.40fr);
-  gap: 6vw;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  gap: clamp(36px, 4.5vw, 72px);
   align-items: start;
   contain: layout style;
   padding-top: 0 !important;
@@ -860,16 +940,15 @@ h3 {
 }
 
 .project-card--hero {
-  width: 92%;
+  width: 100%;
 }
 
 .project-card--portrait {
-  width: 94%;
+  width: 100%;
 }
 
 .project-card--landscape {
-  width: 94%;
-  margin-left: auto;
+  width: 100%;
 }
 
 .project-card--right {
@@ -909,18 +988,20 @@ h3 {
 
 .project-card__caption {
   display: block;
-  margin-top: 12px;
+  margin-top: 10px;
   text-align: left;
 }
 
 .project-card__caption strong {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--ink);
+  font-size: clamp(12px, 0.9vw, 13.5px);
+  font-weight: 600;
+  font-family: var(--font-sans-primary);
+  text-transform: none;
+  letter-spacing: 0.005em;
+  color: #000000;
   display: block;
   line-height: 1.3;
+  margin-top: 0;
 }
 
 .project-card__caption small {
@@ -1127,7 +1208,7 @@ h3 {
 }
 
 .ticker__track i {
-  font-family: Georgia, serif;
+  font-family: var(--font-serif-primary);
   font-size: 20px;
   font-style: italic;
 }
@@ -1140,8 +1221,8 @@ h3 {
 
 .journal {
   display: grid;
-  grid-template-columns: minmax(240px, .75fr) minmax(0, 2fr);
-  gap: 8vw;
+  grid-template-columns: minmax(280px, 320px) minmax(0, 1fr);
+  gap: clamp(36px, 4.5vw, 72px);
   align-items: start;
 }
 
@@ -1166,7 +1247,8 @@ h3 {
 }
 
 .story__media {
-  width: 72%;
+  width: 100%;
+  max-width: clamp(580px, 60vw, 840px);
   aspect-ratio: 16/9.5;
   margin: 0 auto;
 }
@@ -1191,31 +1273,39 @@ h3 {
 }
 
 .story__copy .micro {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-size: 10px;
-  letter-spacing: 0.16em;
+  font-family: var(--font-sans-primary);
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #000000;
   text-align: center;
 }
 
 .story__copy h2 {
   margin: 0 0 12px;
-  font-size: clamp(24px, 2.4vw, 36px);
-  line-height: 1.2;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-style: italic;
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.35;
+  font-family: var(--font-serif-primary);
+  font-style: normal;
   font-weight: 400;
-  color: #262422;
+  color: #000000;
   text-align: center;
+}
+.story__copy h2 em {
+  font-style: italic;
+  font-family: var(--font-serif-primary);
 }
 
 .story__copy>p:last-child {
   margin: 0 auto;
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.65;
-  color: var(--muted);
+  font-family: var(--font-sans-primary);
+  font-size: clamp(10px, 0.85vw, 12.5px);
+  font-weight: 600;
+  line-height: 1.55;
+  color: #000000;
+  max-width: 520px;
   text-align: center;
 }
 
@@ -1272,16 +1362,40 @@ h3 {
 }
 
 .story--portrait .story__copy .micro {
-  text-align: left;
+  margin-bottom: 8px;
+  font-size: 8.5px;
+  font-family: var(--font-sans-primary);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #000000;
+  text-align: center;
 }
 
 .story--portrait .story__copy h2 {
-  text-align: left;
+  margin: 0 0 10px;
+  font-size: clamp(14px, 1.4vw, 19px);
+  line-height: 1.35;
+  font-family: var(--font-serif-primary);
+  font-style: normal;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+}
+.story__copy h2 em {
+  font-style: italic;
+  font-family: var(--font-serif-primary);
 }
 
 .story--portrait .story__copy>p:last-child {
-  text-align: left;
-  margin: 0;
+  margin: 0 auto;
+  font-family: var(--font-sans-primary);
+  font-size: 8.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #000000;
+  max-width: 440px;
+  text-align: center;
 }
 
 .about {
@@ -1293,11 +1407,17 @@ h3 {
 
 .about__media {
   aspect-ratio: 16/9;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
 }
 
 .about__media img {
+  width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .about__word {
@@ -1379,7 +1499,7 @@ h3 {
 
 .founder h2 {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif-primary);
   font-size: clamp(22px, 2.2vw, 34px);
   line-height: 1.1;
   font-weight: 400;
@@ -1395,37 +1515,28 @@ h3 {
 
 .about-us-section {
   text-align: center;
-  padding: clamp(36px, 4.5vw, 64px) var(--gutter) clamp(40px, 5vw, 70px);
+  padding: clamp(80px, 9vw, 130px) var(--gutter);
   background: var(--paper);
-  color: var(--ink);
-  contain: layout style;
+  color: #5b5b5b;
 }
 
-.about-us__container {
-  max-width: 1100px;
+.about-us__statement {
+  max-width: 860px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(15px, 1.53vw, 21px);
+  line-height: 1.6;
+  color: #5b5b5b;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-align: center;
 }
 
-.about-us__title {
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif !important;
-  font-size: clamp(52px, 6.5vw, 92px);
-  font-weight: 700;
-  color: #111111;
-  margin: 0 0 18px;
-  letter-spacing: -0.02em;
-  line-height: 1.08;
-}
-
-.about-us__subtitle {
-  max-width: 680px;
-  font-size: clamp(13px, 1.25vw, 15.5px);
-  line-height: 1.65;
-  color: #55524e;
-  margin: 0 auto 36px;
-  font-family: var(--font-inter, Arial, sans-serif);
+.about-us__statement em {
+  font-style: italic;
+  font-family: var(--font-serif-primary);
+  font-weight: 400;
+  color: #5b5b5b;
 }
 
 .about-us__socials {
@@ -1460,7 +1571,7 @@ h3 {
 }
 
 .featured-in__title {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif-primary);
   font-style: italic;
   font-size: clamp(20px, 2.2vw, 28px);
   font-weight: 400;
@@ -1529,7 +1640,7 @@ h3 {
 }
 
 .essence-quote__text {
-  font-family: Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif-primary);
   font-style: italic;
   font-size: clamp(16px, 1.6vw, 21px);
   color: #3b3834;
@@ -1550,17 +1661,17 @@ h3 {
 }
 
 .footer-simple__label {
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
+  font-family: var(--font-serif-primary);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink);
   margin: 0 0 12px;
 }
 
 .footer-simple__text {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 12px;
   line-height: 1.5;
   color: #4a4744;
@@ -1571,7 +1682,7 @@ h3 {
   display: inline-block;
   padding: 10px 22px;
   border: 1px solid var(--ink);
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -1601,7 +1712,7 @@ h3 {
 
 .footer-simple__bottom p {
   margin: 0;
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 11px;
   color: var(--ink);
 }
@@ -1613,7 +1724,7 @@ h3 {
 }
 
 .footer-simple__nav a {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   color: var(--ink);
   text-decoration: none;
   font-size: 11px;
@@ -2250,7 +2361,7 @@ h3 {
   justify-content: center;
   padding: 9px 28px;
   border-radius: 100px;
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -2317,6 +2428,8 @@ h3 {
 }
 
 
+
+
 .projects-statement-quote {
   width: 100%;
   padding: clamp(54px, 7vw, 90px) var(--gutter);
@@ -2325,19 +2438,21 @@ h3 {
 }
 
 .projects-statement-text {
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, 'Times New Roman', serif;
-  font-size: clamp(17px, 1.8vw, 24px);
-  line-height: 1.5;
-  color: #383532;
-  max-width: 720px;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(16px, 1.7vw, 23px);
+  line-height: 1.6;
+  color: #282624;
+  max-width: 860px;
   margin: 0 auto;
   font-weight: 400;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
 }
 
 .projects-statement-text em {
   font-style: italic;
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-serif-primary);
+  font-weight: 400;
+  color: inherit;
 }
 
 .projects-grid-section {
@@ -2354,18 +2469,18 @@ h3 {
 }
 
 .projects-page-filter-bar .projects-filter-btn {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: 1px solid rgba(38, 36, 34, 0.2);
-  color: #262422;
+  padding: 3.5px 12px;
+  border: none;
   background: transparent;
-  transition: all 0.25s ease;
-  text-decoration: none;
+  color: #000000;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.25s ease, color 0.25s ease;
+  font-family: var(--font-sans-primary);
 }
 
 .projects-page-filter-bar .projects-filter-btn.is-active,
@@ -2440,13 +2555,14 @@ h3 {
 }
 
 .project-grid-title {
-  font-family: var(--font-inter, Arial, sans-serif);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #111111;
-  margin: 0;
+  font-family: var(--font-sans-primary);
+  font-size: clamp(12px, 0.9vw, 13.5px);
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  text-transform: none;
+  color: #000000;
+  margin-top: 10px;
+  line-height: 1.3;
   position: relative;
   z-index: 5;
 }
@@ -2454,79 +2570,155 @@ h3 {
 
 .projects-journal-section {
   width: 100%;
-  padding: clamp(60px, 8vw, 120px) var(--gutter);
-  border-top: 1px solid rgba(21, 21, 18, 0.20);
+  padding: clamp(64px, 8vw, 112px) var(--gutter);
+  border-top: 1px solid rgba(21, 21, 18, 0.16);
   background: var(--paper);
 }
 
 .projects-journal-container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1380px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(36px, 5vw, 80px);
+  grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
+  gap: clamp(36px, 5.5vw, 84px);
   align-items: start;
 }
 
+@media (max-width: 860px) {
+  .projects-journal-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
 .projects-journal-left {
-  position: sticky;
-  top: calc(var(--header-h) + 36px);
+  position: relative;
+}
+
+.projects-journal-left-media {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 4 / 5.2;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.projects-journal-left-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .projects-journal-heading {
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
-  font-size: 18px;
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-size: clamp(16px, 1.35vw, 19px);
   font-weight: 400;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink);
-  margin: 0 0 20px;
+  margin: 0 0 16px;
+  line-height: 1.2;
 }
 
 .projects-journal-desc {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
-  line-height: 1.6;
-  color: #44413d;
-  max-width: 560px;
-  margin: 0 0 28px;
+  font-family: var(--font-sans-primary);
+  font-size: clamp(11.5px, 0.95vw, 13px);
+  line-height: 1.68;
+  color: #383531;
+  max-width: 280px;
+  margin: 0;
 }
 
 .projects-journal-btn {
   display: inline-block;
-  padding: 15px 35px;
-  border: 1px solid var(--ink);
-  border-radius: 4px;
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 700;
+  margin-top: 18px;
+  font-family: var(--font-sans-primary);
+  font-size: 9px;
+  font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink);
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
+  color: #1a1918;
+  padding: 6px 14px;
+  border: 1px solid rgba(26, 25, 24, 0.4);
+  border-radius: 2px;
+  transition: all 0.25s ease;
 }
 
+.group:hover .projects-journal-btn,
 .projects-journal-btn:hover {
-  background: var(--ink);
-  color: var(--paper);
+  background: #1a1918;
+  color: #ffffff;
+  border-color: #1a1918;
 }
 
 .projects-journal-right {
   width: 100%;
   position: relative;
-  overflow: hidden;
-  border-radius: 2px;
 }
 
-.projects-journal-right img {
+.projects-journal-feature-media {
   width: 100%;
-  height: auto;
-  display: block;
+  max-width: clamp(580px, 60vw, 840px);
+  margin: 0 auto;
+  aspect-ratio: 16 / 10.2;
+  overflow: hidden;
+  position: relative;
+}
+
+.projects-journal-feature-media img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transform: scale(1.18);
-  will-change: transform;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.group:hover .projects-journal-feature-media img {
+  transform: scale(1.02);
+}
+
+.projects-journal-feature-meta {
+  margin-top: clamp(18px, 2.2vw, 26px);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projects-journal-feature-tag {
+  font-family: var(--font-sans-primary);
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #1a1918;
+  margin: 0 0 8px;
+  display: block;
+}
+
+.projects-journal-feature-title {
+  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
+  font-size: clamp(17px, 1.85vw, 24px);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: #1a1918;
+  margin: 0 0 8px;
+  max-width: 780px;
+}
+
+.projects-journal-feature-quote {
+  font-family: var(--font-sans-primary);
+  font-size: clamp(10.5px, 0.9vw, 11.5px);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: #1a1918;
+  margin: 0 auto;
+  max-width: 620px;
 }
 
 /* Projects page footer — matches main site footer-simple */
@@ -2542,17 +2734,17 @@ h3 {
 }
 
 .projects-page-footer__label {
-  font-family: 'The Seasons', 'Seasons', 'Cormorant Garamond', var(--font-bodoni), Georgia, serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
+  font-family: var(--font-serif-primary);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink);
   margin: 0 0 12px;
 }
 
 .projects-page-footer__text {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 12px;
   line-height: 1.5;
   color: #4a4744;
@@ -2563,7 +2755,7 @@ h3 {
   display: inline-block;
   padding: 10px 22px;
   border: 1px solid var(--ink);
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -2591,7 +2783,7 @@ h3 {
 
 .projects-page-footer__bottom p {
   margin: 0;
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   font-size: 11px;
   color: var(--ink);
 }
@@ -2603,7 +2795,7 @@ h3 {
 }
 
 .projects-page-footer__nav a {
-  font-family: 'Avenir', 'Avenir Next', 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans-primary);
   color: var(--ink);
   text-decoration: none;
   font-size: 11px;
@@ -2642,7 +2834,7 @@ h3 {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-sans-primary);
 }
 
 /* Top Header State for Mayfair */
@@ -2739,35 +2931,36 @@ h3 {
 
 /* Intro Text Section */
 .mayfair-intro-section {
-  padding: clamp(80px, 8vw, 110px) var(--gutter) clamp(60px, 6vw, 90px);
+  padding: clamp(52px, 5.5vw, 76px) var(--gutter) clamp(48px, 5vw, 72px);
   text-align: center;
-  max-width: 780px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .mayfair-category-tag {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #4a4742;
-  margin-bottom: clamp(20px, 3vw, 32px);
+  font-family: var(--font-sans-primary);
+  font-size: clamp(13px, 1.15vw, 14.5px);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #111111;
+  margin-bottom: clamp(16px, 2vw, 24px);
 }
 
 .mayfair-intro-statement {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-size: clamp(22px, 2.4vw, 30px);
-  line-height: 1.55;
+  font-family: var(--font-serif-primary);
+  font-size: clamp(15px, 1.32vw, 18px);
+  line-height: 1.6;
   font-weight: 400;
-  color: #201e1b;
-  letter-spacing: -0.01em;
-  margin: 0;
+  color: #55524e;
+  letter-spacing: -0.005em;
+  margin: 0 auto;
+  max-width: 980px;
 }
 
 .mayfair-intro-statement em {
   font-style: italic;
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-serif-primary);
   font-weight: 400;
 }
 
@@ -2816,7 +3009,7 @@ h3 {
   left: 0;
   right: 0;
   text-align: center;
-  font-family: var(--font-cormorant), var(--font-bodoni), Georgia, serif;
+  font-family: var(--font-serif-primary);
   font-size: clamp(28px, 4.5vw, 56px);
   font-weight: 400;
   color: #ffffff;
@@ -2829,20 +3022,27 @@ h3 {
 /* Two-Column Info & Services Grid */
 .mayfair-info-section {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: clamp(32px, 6vw, 96px);
+  grid-template-columns: 1.08fr 1fr;
+  gap: clamp(36px, 6vw, 88px);
   align-items: start;
-  margin-bottom: clamp(60px, 8vw, 120px);
+  width: 100%;
+  max-width: 85.58%;
+  margin: 0 auto clamp(52px, 7vw, 104px);
 }
 
 .mayfair-info-story {
-  font-size: clamp(14px, 1.1vw, 16px);
-  line-height: 1.7;
-  color: #2b2824;
+  font-family: var(--font-sans-primary);
+  font-size: clamp(13.5px, 1.05vw, 15px);
+  line-height: 1.68;
+  color: #3b3732;
 }
 
 .mayfair-info-story p {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
+}
+
+.mayfair-info-story p:last-child {
+  margin-bottom: 0;
 }
 
 .mayfair-films-heading {
@@ -2881,22 +3081,23 @@ h3 {
 .mayfair-services-panel {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .mayfair-services-label {
-  font-size: 11px;
+  font-family: var(--font-sans-primary);
+  font-size: clamp(14px, 1.1vw, 15.5px);
   font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: #1a1917;
-  margin: 0;
+  margin: 0 0 16px;
 }
 
 .mayfair-services-text {
-  font-size: clamp(13px, 1vw, 14.5px);
-  line-height: 1.65;
-  color: #4a453e;
+  font-family: var(--font-sans-primary);
+  font-size: clamp(13.5px, 1.05vw, 15px);
+  line-height: 1.68;
+  color: #3b3732;
   margin: 0;
 }
 
@@ -2928,30 +3129,34 @@ h3 {
   width: 100%;
 }
 
-/* 2-Column Asymmetric - Left Bigger / Right Smaller */
+/* Row 1: Patio (Left Bigger) + Dining (Right Smaller) - Matching Reference Image 1:1 */
+.mayfair-gallery-row1,
 .mayfair-gallery-2col,
 .mayfair-gallery-2col--top,
 .mayfair-gallery-flow > .mayfair-gallery-2col:first-child {
   display: grid;
-  grid-template-columns: 1.23fr 1fr;
-  gap: clamp(24px, 3.8vw, 52px);
+  grid-template-columns: 1.22fr 1fr;
+  gap: clamp(24px, 3.7vw, 44px);
   align-items: center;
   width: 100%;
-  max-width: 90.8%;
+  max-width: 94.2%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: clamp(48px, 6.5vw, 92px);
 }
 
+.mayfair-gallery-row1 .mayfair-image-card,
 .mayfair-gallery-2col .mayfair-image-card,
 .mayfair-gallery-2col--top .mayfair-image-card {
   width: 100%;
   aspect-ratio: 3 / 2 !important;
+  height: auto !important;
   overflow: hidden;
   background-color: #dcd8cf;
   min-width: 0;
 }
 
+.mayfair-gallery-row1 .mayfair-image-card img,
 .mayfair-gallery-2col .mayfair-image-card img,
 .mayfair-gallery-2col--top .mayfair-image-card img {
   width: 100% !important;
@@ -4070,6 +4275,7 @@ h3 {
   .mayfair-info-section {
     grid-template-columns: 1fr;
     gap: 36px;
+    max-width: 100%;
   }
 
   .mayfair-gallery-2col,
@@ -4146,4 +4352,4 @@ h3 {
     max-width: 100%;
   }
 }
-
+

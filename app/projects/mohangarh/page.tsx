@@ -224,7 +224,7 @@ export default function MohangarhPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">FORT MOHANGARH / JAISALMER</p>
+        <p className="mayfair-category-tag reveal-text">Mohangarh Fort, Jaisalmer</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Fort Mohangarh in the Great Thar Desert of Jaisalmer, this visual narrative honours the mystery of desert fortresses, golden sandstone ramparts, and time-honoured Rajput hospitality.
         </p>

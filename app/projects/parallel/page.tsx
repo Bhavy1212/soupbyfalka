@@ -224,7 +224,7 @@ export default function ParallelPage() {
 
       {/* 3. Project Intro Statement */}
       <section className="mayfair-intro-section">
-        <p className="mayfair-category-tag reveal-text">PARALLEL HOTEL / UDAIPUR</p>
+        <p className="mayfair-category-tag reveal-text">Parallel Hotel, Udaipur</p>
         <p className="mayfair-intro-statement reveal-text" data-parallax="0.02">
           Commissioned by Parallel Hotel, the creative production places <em>contemporary urban luxury</em> at its heart. Harmonising sleek architectural geometry, textured wood panelling, and panoramic rooftop vistas of Udaipur, the concept of <em>Urban Sanctuary</em> became the creative foundation.
         </p>
