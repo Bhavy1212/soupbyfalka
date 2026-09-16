@@ -7,34 +7,58 @@ export interface ProjectSliderItem {
 
 export const STILLS_PROJECTS: ProjectSliderItem[] = [
   {
-    slug: "nemesia",
-    title: "Nemesia Resort",
-    image: "/assets/images/DSC08130.jpg",
-    link: "/nemesia",
-  },
-  {
-    slug: "mayfair-gopalpur",
-    title: "Mayfair Gopalpur",
-    image: "/assets/images/DJI0398.jpg",
-    link: "/mayfair-gopalpur",
+    slug: "dev-bagh",
+    title: "Devbagh",
+    image: "/assets/images/dev-bagh/hero.jpg",
+    link: "/dev-bagh",
   },
   {
     slug: "mayfair",
-    title: "Mayfair Manor",
-    image: "/assets/images/DJI0275.jpg",
+    title: "Mayfair Jungpana",
+    image: "/assets/images/mayfair/hero.jpg",
     link: "/mayfair",
+  },
+  {
+    slug: "nemesia",
+    title: "Nemesia Resort & Spa",
+    image: "/assets/images/nemesia/hero.png",
+    link: "/nemesia",
   },
   {
     slug: "parallel",
     title: "Parallel Hotel",
-    image: "/assets/images/DJI_0008.jpg",
+    image: "/assets/images/parallel/hero.jpg",
     link: "/parallel",
   },
   {
     slug: "mohangarh",
     title: "Mohangarh Fort",
-    image: "/assets/images/Untitled3.jpg",
+    image: "/assets/images/mohangarh/hero.jpg",
     link: "/mohangarh",
+  },
+  {
+    slug: "mayfair-gopalpur",
+    title: "Mayfair Gopalpur",
+    image: "/assets/images/mayfair-gopalpur/hero.jpg",
+    link: "/mayfair-gopalpur",
+  },
+  {
+    slug: "radisson",
+    title: "Radisson Hotel",
+    image: "/assets/images/radisson/hero.jpg",
+    link: "/radisson",
+  },
+  {
+    slug: "the-leela",
+    title: "The Leela Palace",
+    image: "/assets/images/the-leela/hero.jpg",
+    link: "/the-leela",
+  },
+  {
+    slug: "chunda-shikar-oudi",
+    title: "Chunda Shikar Oudi",
+    image: "/assets/images/chunda-shikar-oudi/hero.jpg",
+    link: "/chunda-shikar-oudi",
   },
   {
     slug: "ihcl-seleqtions",
@@ -43,34 +67,10 @@ export const STILLS_PROJECTS: ProjectSliderItem[] = [
     link: "/ihcl-seleqtions",
   },
   {
-    slug: "the-leela",
-    title: "The Leela Palace",
-    image: "/assets/images/4.jpg",
-    link: "/the-leela",
-  },
-  {
     slug: "manuscript",
     title: "Manuscript",
     image: "/assets/images/Dsc2795.jpg",
     link: "/manuscript",
-  },
-  {
-    slug: "chunda-shikar-oudi",
-    title: "Chunda Shikar Oudi",
-    image: "/assets/images/01.jpg",
-    link: "/chunda-shikar-oudi",
-  },
-  {
-    slug: "radisson",
-    title: "Radisson Hotel",
-    image: "/assets/images/DJI_0685.jpg",
-    link: "/radisson",
-  },
-  {
-    slug: "dev-bagh",
-    title: "Devbagh",
-    image: "/assets/images/DJI_20250312004955_0254_D-HDR-3.jpg",
-    link: "/dev-bagh",
   },
   {
     slug: "chunda-palace",
@@ -106,16 +106,22 @@ export const STILLS_PROJECTS: ProjectSliderItem[] = [
 
 export const MOTION_PROJECTS: ProjectSliderItem[] = [
   {
+    slug: "mayfair",
+    title: "Mayfair Jungpana",
+    image: "/assets/images/motion_pdf/mayfair-manor.png",
+    link: "/mayfair?tab=motion",
+  },
+  {
+    slug: "dev-bagh",
+    title: "Devbagh",
+    image: "/assets/images/dev-bagh/hero.jpg",
+    link: "/dev-bagh?tab=motion",
+  },
+  {
     slug: "mayfair-gopalpur",
     title: "Mayfair Gopalpur",
     image: "/assets/images/motion_pdf/mayfair-gopalpur.png",
     link: "/mayfair-gopalpur?tab=motion",
-  },
-  {
-    slug: "mayfair",
-    title: "Mayfair Manor",
-    image: "/assets/images/motion_pdf/mayfair-manor.png",
-    link: "/mayfair?tab=motion",
   },
   {
     slug: "mohangarh",
@@ -184,15 +190,9 @@ export const MOTION_PROJECTS: ProjectSliderItem[] = [
     link: "/mayfair-paradeep",
   },
   {
-    slug: "dev-bagh",
-    title: "Devbagh",
-    image: "/assets/images/dev-bagh/hero.jpg",
-    link: "/dev-bagh?tab=motion",
-  },
-  {
     slug: "luxury-lodges-australia",
     title: "Luxury Lodges of Australia",
-    image: "/assets/images/motion/australia-motion.png",
+    image: "/assets/images/luxury-a.webp",
     link: "/luxury-lodges-australia?tab=motion",
   },
   {

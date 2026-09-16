@@ -215,12 +215,6 @@ export default function StillsPage() {
         </div>
       </section>
 
-      {/* Fixed floating Play button in bottom-right corner — switch to MOTION */}
-      <Link href="/motion" className="page-tab-switcher" aria-label="Switch to Motion" title="Switch to Motion">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "2px" }} aria-hidden="true">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </Link>
 
       {/* 3. Authenticity Statement Quote (PDF Page 6) */}
       <section className="projects-statement-quote">
@@ -232,10 +226,7 @@ export default function StillsPage() {
       {/* 4. Projects Main Grid Section */}
       <section className="projects-grid-section">
         <div className="projects-grid-container">
-          <div className="projects-page-filter-bar">
-            <Link href="/stills" className="projects-filter-btn is-active">STILLS</Link>
-            <Link href="/motion" className="projects-filter-btn">MOTION</Link>
-          </div>
+
 
 
           {/* ROW 1: 3 Columns Grid */}

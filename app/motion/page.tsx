@@ -214,12 +214,7 @@ export default function MotionPage() {
         </div>
       </section>
 
-      {/* Fixed floating Pause button in bottom-right corner — switch to STILLS */}
-      <Link href="/stills" className="page-tab-switcher" aria-label="Switch to Stills" title="Switch to Stills">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-        </svg>
-      </Link>
+
 
       {/* 3. Authenticity Statement Quote (PDF Page 8) */}
       <section className="projects-statement-quote">
@@ -231,10 +226,7 @@ export default function MotionPage() {
       {/* 4. Projects Main Grid Section */}
       <section className="projects-grid-section">
         <div className="projects-grid-container">
-          <div className="projects-page-filter-bar">
-            <Link href="/stills" className="projects-filter-btn">STILLS</Link>
-            <Link href="/motion" className="projects-filter-btn is-active">MOTION</Link>
-          </div>
+
 
 
           {/* ROW 1: 3 Columns Grid */}
