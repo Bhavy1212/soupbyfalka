@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronUp } from "lucide-react";
+import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 
 export default function MayfairPuriPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -269,44 +270,37 @@ export default function MayfairPuriPage() {
           </div>
         </section>
 
-        <section className="mayfair-next-projects">
-          <div className="mayfair-next-header">
-            <span className="mayfair-next-title">EXPLORE MORE PROJECTS</span>
-          </div>
-          <div className="mayfair-next-grid">
-            <Link href="/mayfair-paradeep" className="mayfair-next-card group">
-              <div className="mayfair-next-media">
-                <img src="/assets/images/mayfair-paradeep/asset_02_1666x769.png" alt="MAYFAIR Bay Resort Paradeep" loading="lazy" />
-              </div>
-              <div className="mayfair-next-meta">
-                <span className="mayfair-next-name">MAYFAIR BAY RESORT, PARADEEP</span>
-                <span className="mayfair-next-arrow">→</span>
-              </div>
-            </Link>
-            <Link href="/mayfair-gopalpur" className="mayfair-next-card group">
-              <div className="mayfair-next-media">
-                <img src="/assets/images/mayfair-gopalpur/hero.jpg" alt="MAYFAIR Palm Beach Resort Gopalpur" loading="lazy" />
-              </div>
-              <div className="mayfair-next-meta">
-                <span className="mayfair-next-name">MAYFAIR PALM BEACH RESORT, GOPALPUR</span>
-                <span className="mayfair-next-arrow">→</span>
-              </div>
-            </Link>
-          </div>
-        </section>
       </main>
 
-      <div className="mayfair-back-top-wrapper">
-        <button onClick={scrollToTop} className="mayfair-back-top-btn" aria-label="Back to top">
-          <ChevronUp className="w-5 h-5" />
-          <span>BACK TO TOP</span>
-        </button>
-      </div>
+      {/* Other Projects Slider Section */}
+      <OtherProjectsSlider currentSlug="mayfair-puri" type="motion" />
 
-      <footer className="mayfair-footer">
-        <div className="mayfair-footer-content">
-          <p className="mayfair-footer-brand">SOUP BY FALKA</p>
-          <p className="mayfair-footer-copy">© {new Date().getFullYear()} ALL RIGHTS RESERVED</p>
+      {/* Footer Section */}
+      <footer className="footer-simple" id="contact">
+        <div className="footer-simple__top-flex">
+          <div>
+            <p className="footer-simple__label">GET IN TOUCH</p>
+            <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
+            <a className="footer-simple__btn" href="mailto:info@soupbyfalka.com">
+              INFO@SOUPBYFALKA.COM
+            </a>
+          </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="footer-simple__back-top"
+            aria-label="Back to top"
+          >
+            <ChevronUp className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="footer-simple__bottom">
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
+          <nav className="footer-simple__nav" aria-label="Footer navigation">
+            <Link href="/stills">Projects</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
         </div>
       </footer>
     </div>

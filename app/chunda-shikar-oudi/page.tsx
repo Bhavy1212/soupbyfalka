@@ -2,9 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import OtherProjectsSlider from "@/components/OtherProjectsSlider";
+import ProjectFloatingSwitcher from "@/components/ProjectFloatingSwitcher";
 import { ChevronUp } from "lucide-react";
 
 export default function ChundaShikarOudiPage() {
+  const [projectTab, setProjectTab] = useState<"stills" | "motion">("stills");
+
+  const toggleProjectTab = () => {
+    setProjectTab((prev) => (prev === "stills" ? "motion" : "stills"));
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerState, setHeaderState] = useState<"transparent" | "black" | "white">("transparent");
 
@@ -377,33 +385,37 @@ export default function ChundaShikarOudiPage() {
 
       </main>
 
-      {/* Floating Back to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="mayfair-back-to-top"
-        aria-label="Scroll back to top"
-        title="Scroll to top"
-      >
-        <ChevronUp className="w-4 h-4 stroke-[2]" />
-      </button>
+      {/* Floating Stills / Motion Switcher */}
+      <ProjectFloatingSwitcher currentTab={projectTab} onToggle={toggleProjectTab} />
 
-      {/* 7. Footer Section */}
+      {/* Other Projects Slider Section */}
+      <OtherProjectsSlider currentSlug="chunda-shikar-oudi" type={projectTab} />
+
+      {/* Footer Section */}
       <footer className="footer-simple" id="contact">
-        <div className="footer-simple__top">
-          <p className="footer-simple__label">GET IN TOUCH</p>
-          <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
-          <a className="footer-simple__btn" href="mailto:info@soupbyfalka.com">
-            INFO@SOUPBYFALKA.COM
-          </a>
+        <div className="footer-simple__top-flex">
+          <div>
+            <p className="footer-simple__label">GET IN TOUCH</p>
+            <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
+            <a className="footer-simple__btn" href="mailto:info@soupbyfalka.com">
+              INFO@SOUPBYFALKA.COM
+            </a>
+          </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="footer-simple__back-top"
+            aria-label="Back to top"
+          >
+            <ChevronUp className="w-4 h-4" />
+          </button>
         </div>
         <div className="footer-simple__bottom">
-          <p>© Soup Studio. All Rights Reserved</p>
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
           <nav className="footer-simple__nav" aria-label="Footer navigation">
             <Link href="/stills">Projects</Link>
-            <Link href="/#journal">Journal</Link>
-            <Link href="/#about">About</Link>
-            <Link href="/#contact">Contributors</Link>
-            <Link href="/#contact">Terms</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </footer>

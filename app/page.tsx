@@ -545,7 +545,7 @@ export default function Home() {
             {/* Project 1 */}
             <article className="project-card project-card--hero reveal-item">
               <Link
-                href="/mayfair"
+                href={projectCategory === "motion" ? "/mayfair/motion" : "/mayfair"}
                 className="project-card__button block cursor-pointer"
                 onMouseEnter={() => handleMouseEnter("View project", false)}
                 onMouseLeave={handleMouseLeave}

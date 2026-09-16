@@ -2,9 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import OtherProjectsSlider from "@/components/OtherProjectsSlider";
+import ProjectFloatingSwitcher from "@/components/ProjectFloatingSwitcher";
 import { ChevronUp } from "lucide-react";
 
 export default function NemesiaPage() {
+  const [projectTab, setProjectTab] = useState<"stills" | "motion">("stills");
+
+  const toggleProjectTab = () => {
+    setProjectTab((prev) => (prev === "stills" ? "motion" : "stills"));
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerState, setHeaderState] = useState<"transparent" | "black" | "white">("transparent");
 
@@ -386,62 +394,42 @@ export default function NemesiaPage() {
 
         </section>
 
-        {/* 7. Next Projects Navigation (PDF Page 11: IHCL & Parallel) */}
-        <section className="mayfair-next-projects">
-          <div className="mayfair-next-header">
-            <span className="mayfair-next-title">EXPLORE MORE PROJECTS</span>
-          </div>
-
-          <div className="mayfair-next-grid">
-            <Link href="/ihcl-seleqtions" className="mayfair-next-card group">
-              <div className="mayfair-next-media">
-                <img
-                  src="/assets/images/02-IHCL1867.jpg"
-                  alt="IHCL Himalayan Woodcroft Sirmour"
-                  loading="lazy"
-                />
-              </div>
-              <div className="mayfair-next-meta">
-                <span className="mayfair-next-name">IHCL HIMALAYAN WOODCROFT</span>
-                <span className="mayfair-next-arrow">→</span>
-              </div>
-            </Link>
-
-            <Link href="/parallel" className="mayfair-next-card group">
-              <div className="mayfair-next-media">
-                <img
-                  src="/assets/images/DJI_0008.jpg"
-                  alt="Parallel Hotel Udaipur"
-                  loading="lazy"
-                />
-              </div>
-              <div className="mayfair-next-meta">
-                <span className="mayfair-next-name">PARALLEL HOTEL, UDAIPUR</span>
-                <span className="mayfair-next-arrow">→</span>
-              </div>
-            </Link>
-          </div>
-        </section>
+        
 
       </main>
 
-      {/* 8. Back to Top Button */}
-      <div className="mayfair-back-top-wrapper">
-        <button
-          onClick={scrollToTop}
-          className="mayfair-back-top-btn"
-          aria-label="Back to top of page"
-        >
-          <ChevronUp className="w-5 h-5" />
-          <span>BACK TO TOP</span>
-        </button>
-      </div>
+      {/* Floating Stills / Motion Switcher */}
+      <ProjectFloatingSwitcher currentTab={projectTab} onToggle={toggleProjectTab} />
 
-      {/* 9. Minimal Footer */}
-      <footer className="mayfair-footer">
-        <div className="mayfair-footer-content">
-          <p className="mayfair-footer-brand">SOUP BY FALKA</p>
-          <p className="mayfair-footer-copy">© {new Date().getFullYear()} ALL RIGHTS RESERVED</p>
+      {/* Other Projects Slider Section */}
+      <OtherProjectsSlider currentSlug="nemesia" type={projectTab} />
+
+      {/* Footer Section */}
+      <footer className="footer-simple" id="contact">
+        <div className="footer-simple__top-flex">
+          <div>
+            <p className="footer-simple__label">GET IN TOUCH</p>
+            <p className="footer-simple__text">If you want to contribute, learn more or start a project.</p>
+            <a className="footer-simple__btn" href="mailto:info@soupbyfalka.com">
+              INFO@SOUPBYFALKA.COM
+            </a>
+          </div>
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="footer-simple__back-top"
+            aria-label="Back to top"
+          >
+            <ChevronUp className="w-4 h-4" />
+          </button>
+        </div>
+        <div className="footer-simple__bottom">
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
+          <nav className="footer-simple__nav" aria-label="Footer navigation">
+            <Link href="/stills">Projects</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
         </div>
       </footer>
     </div>

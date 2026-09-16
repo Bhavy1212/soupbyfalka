@@ -231,6 +231,11 @@ export default function MotionPage() {
       {/* 4. Projects Main Grid Section */}
       <section className="projects-grid-section">
         <div className="projects-grid-container">
+          <div className="projects-page-filter-bar">
+            <Link href="/stills" className="projects-filter-btn">STILLS</Link>
+            <Link href="/motion" className="projects-filter-btn is-active">MOTION</Link>
+          </div>
+
 
           {/* ROW 1: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">

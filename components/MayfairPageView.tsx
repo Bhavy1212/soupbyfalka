@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronUp } from "lucide-react";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
+import ProjectFloatingSwitcher from "@/components/ProjectFloatingSwitcher";
 
 export default function MayfairPageView({ initialTab = "stills" }: { initialTab?: "stills" | "motion" } = {}) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -123,7 +124,7 @@ export default function MayfairPageView({ initialTab = "stills" }: { initialTab?
       rafId = requestAnimationFrame(updateScrollUI);
     };
 
-    let resizeTimer: ReturnType<typeof setTimeout>;
+    let resizeTimer: any;
     const onResize = () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
@@ -572,51 +573,13 @@ export default function MayfairPageView({ initialTab = "stills" }: { initialTab?
         </>
       )}
 
-      {/* Video Modal Player */}
-      {videoModalOpen && (
-        <div className="motion-video-modal" onClick={() => setVideoModalOpen(false)}>
-          <div className="motion-video-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="motion-video-modal-close"
-              type="button"
-              aria-label="Close video"
-              onClick={() => setVideoModalOpen(false)}
-            >
-              &times;
-            </button>
-            <video
-              src="/media/HOSPITALITY-REEL-Landscape-VER.03.mp4"
-              controls
-              autoPlay
-              playsInline
-              style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
-            />
-          </div>
-        </div>
-      )}
-
       {/* Floating Stills / Motion Switcher */}
-      <button
-        onClick={toggleProjectTab}
-        className="page-tab-switcher"
-        aria-label={projectTab === "stills" ? "Switch to Motion" : "Switch to Stills"}
-        title={projectTab === "stills" ? "Switch to Motion" : "Switch to Stills"}
-      >
-        {projectTab === "stills" ? (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "2px" }} aria-hidden="true">
-            <path d="M8 5v14l11-7z" />
-          </svg>
-        ) : (
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
-          </svg>
-        )}
-      </button>
+      <ProjectFloatingSwitcher currentTab={projectTab} onToggle={toggleProjectTab} />
 
       {/* Other Projects Slider Section */}
       <OtherProjectsSlider currentSlug="mayfair" type={projectTab} />
 
-      {/* 7. Footer Section */}
+      {/* Footer Section */}
       <footer className="footer-simple" id="contact">
         <div className="footer-simple__top-flex">
           <div>
@@ -635,13 +598,12 @@ export default function MayfairPageView({ initialTab = "stills" }: { initialTab?
           </button>
         </div>
         <div className="footer-simple__bottom">
-          <p>© Soup Studio. All Rights Reserved</p>
+          <p>© {new Date().getFullYear()} SOUP BY FALKA. ALL RIGHTS RESERVED.</p>
           <nav className="footer-simple__nav" aria-label="Footer navigation">
             <Link href="/stills">Projects</Link>
-            <Link href="/#journal">Journal</Link>
-            <Link href="/#about">About</Link>
-            <Link href="/#contact">Contributors</Link>
-            <Link href="/#contact">Terms</Link>
+            <Link href="/journal">Journal</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </footer>
