@@ -1,1 +1,5 @@
-export { default } from "../../luxury-lodges-australia/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/luxury-lodges-australia");
+}

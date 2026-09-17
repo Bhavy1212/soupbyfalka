@@ -1,1 +1,5 @@
-export { default } from "../../chunda-palace/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/chunda-palace");
+}

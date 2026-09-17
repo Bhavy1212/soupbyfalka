@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 
 export default function StillsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -215,6 +216,13 @@ export default function StillsPage() {
         </div>
       </section>
 
+      {/* Fixed floating Play button in bottom-right corner — switch to MOTION */}
+      <Link href="/motion" className="page-tab-switcher" aria-label="Switch to Motion" title="Switch to Motion">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style={{ marginLeft: "2px" }} aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </Link>
+
 
       {/* 3. Authenticity Statement Quote (PDF Page 6) */}
       <section className="projects-statement-quote">
@@ -226,8 +234,6 @@ export default function StillsPage() {
       {/* 4. Projects Main Grid Section */}
       <section className="projects-grid-section">
         <div className="projects-grid-container">
-
-
 
           {/* ROW 1: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
@@ -414,7 +420,10 @@ export default function StillsPage() {
         </div>
       </section>
 
-      {/* 6. Footer Section */}
+      {/* 6. Other Projects Slider Section */}
+      <OtherProjectsSlider type="stills" />
+
+      {/* 7. Footer Section */}
       <footer className="footer-simple" id="contact">
         <div className="footer-simple__top">
           <p className="footer-simple__label">INQUIRIES &amp; COMMISSIONS</p>

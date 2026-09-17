@@ -131,7 +131,13 @@ export default function OtherProjectsSlider({
     }
   };
 
-  const allProjectsLink = type === "motion" ? "/motion" : "/stills";
+  const allProjectsLink = currentSlug
+    ? type === "motion"
+      ? "/motion"
+      : "/stills"
+    : type === "motion"
+    ? "/stills"
+    : "/motion";
 
   return (
     <section className="other-projects-section" aria-label="Explore other projects">

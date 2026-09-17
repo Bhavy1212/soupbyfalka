@@ -1,1 +1,5 @@
-export { default } from "../../prem-kunj/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/prem-kunj");
+}

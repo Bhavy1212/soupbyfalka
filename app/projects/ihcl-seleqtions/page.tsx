@@ -1,1 +1,5 @@
-export { default } from "../../ihcl-seleqtions/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/ihcl-seleqtions");
+}

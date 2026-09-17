@@ -18,8 +18,8 @@ export default function ProjectFloatingSwitcher({
     >
       {currentTab === "stills" ? (
         <svg
-          width="15"
-          height="15"
+          width="18"
+          height="18"
           viewBox="0 0 24 24"
           fill="currentColor"
           style={{ marginLeft: "2px" }}
@@ -29,8 +29,8 @@ export default function ProjectFloatingSwitcher({
         </svg>
       ) : (
         <svg
-          width="15"
-          height="15"
+          width="18"
+          height="18"
           viewBox="0 0 24 24"
           fill="currentColor"
           aria-hidden="true"

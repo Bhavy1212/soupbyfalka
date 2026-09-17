@@ -1,1 +1,5 @@
-export { default } from "../../photography/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/stills");
+}

@@ -1,1 +1,5 @@
-export { default } from "../../mahua-bagh/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/mahua-bagh");
+}

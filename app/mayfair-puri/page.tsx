@@ -6,6 +6,21 @@ import { ChevronUp } from "lucide-react";
 import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 
 export default function MayfairPuriPage() {
+  const [projectTab, setProjectTab] = useState<"stills" | "motion">("stills");
+
+  // Read URL query parameter on initial mount or referrer
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get("tab");
+      if (tab === "motion" || tab === "stills") {
+        setProjectTab(tab);
+      } else if (document.referrer.includes("/motion")) {
+        setProjectTab("motion");
+      }
+    }
+  }, []);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerState, setHeaderState] = useState<"transparent" | "black" | "white">("transparent");
 
@@ -273,7 +288,7 @@ export default function MayfairPuriPage() {
       </main>
 
       {/* Other Projects Slider Section */}
-      <OtherProjectsSlider currentSlug="mayfair-puri" type="motion" />
+      <OtherProjectsSlider currentSlug="mayfair-puri" type={projectTab} />
 
       {/* Footer Section */}
       <footer className="footer-simple" id="contact">

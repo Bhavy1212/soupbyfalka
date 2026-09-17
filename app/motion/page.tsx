@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import OtherProjectsSlider from "@/components/OtherProjectsSlider";
 
 export default function MotionPage() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -214,6 +215,13 @@ export default function MotionPage() {
         </div>
       </section>
 
+      {/* Fixed floating Pause button in bottom-right corner — switch to STILLS */}
+      <Link href="/stills" className="page-tab-switcher" aria-label="Switch to Stills" title="Switch to Stills">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+      </Link>
+
 
 
       {/* 3. Authenticity Statement Quote (PDF Page 8) */}
@@ -227,12 +235,10 @@ export default function MotionPage() {
       <section className="projects-grid-section">
         <div className="projects-grid-container">
 
-
-
           {/* ROW 1: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <Link href="/mayfair" className="block text-inherit no-underline">
+              <Link href="/mayfair?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-manor.png" alt="Mayfair Manor, Jungapana" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/aman-b.webp" alt="Mayfair Manor, Jungapana hover" loading="lazy" />
@@ -242,7 +248,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/mohangarh" className="block text-inherit no-underline">
+              <Link href="/mohangarh?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/mohangarh-fort.png" alt="Mohangarh Fort, Jaisalmer" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/nobu-b.webp" alt="Mohangarh Fort hover" loading="lazy" />
@@ -252,7 +258,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/parallel" className="block text-inherit no-underline">
+              <Link href="/parallel?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/parallel-hotel.png" alt="Parallel Hotel, Udaipur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/puli-b.webp" alt="Parallel Hotel hover" loading="lazy" />
@@ -265,7 +271,7 @@ export default function MotionPage() {
           {/* ROW 2: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium reveal-item">
-              <Link href="/the-leela" className="block text-inherit no-underline">
+              <Link href="/the-leela?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/the-leela-palace.png" alt="The Leela Palace, Udaipur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/hyatt-b.webp" alt="The Leela Palace hover" loading="lazy" />
@@ -275,7 +281,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
-              <Link href="/mayfair-gopalpur" className="block text-inherit no-underline">
+              <Link href="/mayfair-gopalpur?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-gopalpur.png" alt="Mayfair Palm Beach Resort, Gopalpur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/alila-b.webp" alt="Mayfair Palm Beach Resort hover" loading="lazy" />
@@ -288,7 +294,7 @@ export default function MotionPage() {
           {/* ROW 3: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <Link href="/chunda-palace" className="block text-inherit no-underline">
+              <Link href="/chunda-palace?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/chunda-palace.png" alt="Chunda Palace, Udaipur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/chunda-palace/asset_03_1026x515.png" alt="Chunda Palace hover" loading="lazy" />
@@ -298,7 +304,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/chunda-shikar-oudi" className="block text-inherit no-underline">
+              <Link href="/chunda-shikar-oudi?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/chunda-shikar-oudi.png" alt="Chunda Shikar Oudi, Udaipur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/ani-a.webp" alt="Chunda Shikar Oudi hover" loading="lazy" />
@@ -308,7 +314,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/radisson" className="block text-inherit no-underline">
+              <Link href="/radisson?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/radisson-nathdwara.png" alt="Radisson, Nathdwara" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/fourseasons-a.webp" alt="Radisson hover" loading="lazy" />
@@ -321,7 +327,7 @@ export default function MotionPage() {
           {/* ROW 4: Split 2 Columns (1fr : 2.11fr) Grid */}
           <div className="projects-grid-row projects-grid-split">
             <article className="project-grid-card project-grid-card--medium reveal-item">
-              <Link href="/mahua-bagh" className="block text-inherit no-underline">
+              <Link href="/mahua-bagh?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/mahua-bagh.png" alt="Mahua Bagh, Kumbhalgarh" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/mahua-bagh/asset_03_1026x515.png" alt="Mahua Bagh hover" loading="lazy" />
@@ -331,7 +337,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card project-grid-card--wide reveal-item">
-              <Link href="/mayfair-puri" className="block text-inherit no-underline">
+              <Link href="/mayfair-puri?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-waves-puri.png" alt="Mayfair Heritage & Waves Resort, Puri" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/mayfair-puri/asset_03_1026x473.png" alt="Mayfair Puri hover" loading="lazy" />
@@ -344,7 +350,7 @@ export default function MotionPage() {
           {/* ROW 5: 3 Columns Grid */}
           <div className="projects-grid-row projects-grid-3col">
             <article className="project-grid-card reveal-item">
-              <Link href="/prem-kunj" className="block text-inherit no-underline">
+              <Link href="/prem-kunj?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/prem-kunj.png" alt="Prem Kunj, Udaipur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/prem-kunj/asset_03_1026x513.png" alt="Prem Kunj hover" loading="lazy" />
@@ -354,7 +360,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/manuscript" className="block text-inherit no-underline">
+              <Link href="/manuscript?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/manuscript-udaipur.png" alt="Manuscript, Udaipur" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/luxury-b.webp" alt="Manuscript hover" loading="lazy" />
@@ -364,7 +370,7 @@ export default function MotionPage() {
             </article>
 
             <article className="project-grid-card reveal-item">
-              <Link href="/mayfair-paradeep" className="block text-inherit no-underline">
+              <Link href="/mayfair-paradeep?tab=motion" className="block text-inherit no-underline">
                 <div className="project-grid-media media-swap image-reveal">
                   <img className="media-swap__primary" src="/assets/images/motion_pdf/mayfair-paradeep.png" alt="Mayfair Bay Resort, Paradeep" loading="lazy" />
                   <img className="media-swap__secondary" src="/assets/images/mayfair-paradeep/asset_03_1026x470.png" alt="Mayfair Paradeep hover" loading="lazy" />
@@ -418,7 +424,10 @@ export default function MotionPage() {
         </div>
       </section>
 
-      {/* 6. Footer */}
+      {/* 6. Other Projects Slider Section */}
+      <OtherProjectsSlider type="motion" />
+
+      {/* 7. Footer */}
       <footer className="footer-simple" id="contact">
         <div className="footer-simple__top">
           <p className="footer-simple__label">INQUIRIES &amp; COMMISSIONS</p>

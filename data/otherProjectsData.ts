@@ -145,7 +145,7 @@ export const MOTION_PROJECTS: ProjectSliderItem[] = [
     slug: "chunda-palace",
     title: "Chunda Palace",
     image: "/assets/images/motion_pdf/chunda-palace.png",
-    link: "/chunda-palace",
+    link: "/chunda-palace?tab=motion",
   },
   {
     slug: "chunda-shikar-oudi",
@@ -163,19 +163,19 @@ export const MOTION_PROJECTS: ProjectSliderItem[] = [
     slug: "mahua-bagh",
     title: "Mahua Bagh",
     image: "/assets/images/motion_pdf/mahua-bagh.png",
-    link: "/mahua-bagh",
+    link: "/mahua-bagh?tab=motion",
   },
   {
     slug: "mayfair-puri",
     title: "Mayfair Waves Puri",
     image: "/assets/images/motion_pdf/mayfair-waves-puri.png",
-    link: "/mayfair-puri",
+    link: "/mayfair-puri?tab=motion",
   },
   {
     slug: "prem-kunj",
     title: "Prem Kunj",
     image: "/assets/images/motion_pdf/prem-kunj.png",
-    link: "/prem-kunj",
+    link: "/prem-kunj?tab=motion",
   },
   {
     slug: "manuscript",
@@ -187,7 +187,7 @@ export const MOTION_PROJECTS: ProjectSliderItem[] = [
     slug: "mayfair-paradeep",
     title: "Mayfair Paradeep",
     image: "/assets/images/motion_pdf/mayfair-paradeep.png",
-    link: "/mayfair-paradeep",
+    link: "/mayfair-paradeep?tab=motion",
   },
   {
     slug: "luxury-lodges-australia",

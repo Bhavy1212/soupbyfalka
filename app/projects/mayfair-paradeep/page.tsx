@@ -1,1 +1,5 @@
-export { default } from "../../mayfair-paradeep/page";
+import { redirect } from "next/navigation";
+
+export default function ProjectsRouteRedirect() {
+  redirect("/mayfair-paradeep");
+}

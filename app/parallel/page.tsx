@@ -9,6 +9,20 @@ import { ChevronUp } from "lucide-react";
 export default function ParallelPage() {
   const [projectTab, setProjectTab] = useState<"stills" | "motion">("stills");
 
+  // Read URL query parameter on initial mount or referrer
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get("tab");
+      if (tab === "motion" || tab === "stills") {
+        setProjectTab(tab);
+      } else if (document.referrer.includes("/motion")) {
+        setProjectTab("motion");
+      }
+    }
+  }, []);
+
+
   const toggleProjectTab = () => {
     setProjectTab((prev) => (prev === "stills" ? "motion" : "stills"));
   };
